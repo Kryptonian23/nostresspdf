@@ -90,3 +90,25 @@ in test mode.
 - The webhook verifies Stripe's signature against the unmodified request body.
 - Browser redirects do not grant access. Only subscription webhook state does.
 - Unknown, incomplete, canceled, or unconfigured plans receive no features.
+- Checkout requests use Stripe idempotency keys and are rejected when Stripe
+  already has a chargeable subscription for the customer.
+- Subscription webhook events reconcile all subscriptions for that customer,
+  preventing an older cancellation or downgrade event from overwriting a newer
+  active subscription.
+
+## Production billing
+
+`template-production.yaml` is intentionally separate from the sandbox. It:
+
+- requires an existing Secrets Manager ARN containing live Stripe credentials;
+- requires an exact HTTPS application origin;
+- retains the entitlement table and enables point-in-time recovery;
+- retains billing logs for 30 days;
+- bounds Lambda concurrency; and
+- creates Lambda-error and API-server-error alarms, optionally connected to an
+  SNS topic.
+
+Create the live Stripe secret manually or through a protected bootstrap
+process. Never pass the secret value as a CloudFormation parameter. Before
+deploying, configure a GitHub `production` environment with restricted tags,
+required approval where available, and environment-scoped AWS credentials.

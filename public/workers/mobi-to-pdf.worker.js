@@ -27,21 +27,19 @@ function hasCJKCharacters(text) {
     return cjkRegex.test(text);
 }
 
-// Download and load CJK font
+// Load the self-hosted CJK font.
 async function loadCJKFont() {
     if (cjkFontLoaded) return true;
 
-    self.postMessage({ type: 'status', message: 'Downloading CJK fonts for Chinese/Japanese/Korean support...' });
+    self.postMessage({ type: 'status', message: 'Loading local CJK font...' });
 
     const fontSources = [
-        'https://raw.githubusercontent.com/googlefonts/noto-cjk/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf',
-        'https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk@main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf',
-        'https://unpkg.com/@aspect-build/aspect-font@1.0.0/fonts/NotoSansSC-Regular.otf'
+        '/fonts/NotoSansSC-Regular.ttf'
     ];
 
     for (const fontUrl of fontSources) {
         try {
-            self.postMessage({ type: 'status', message: `Trying font source: ${new URL(fontUrl).hostname}...` });
+            self.postMessage({ type: 'status', message: 'Reading self-hosted font...' });
 
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 30000);

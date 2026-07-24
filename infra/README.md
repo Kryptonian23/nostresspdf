@@ -89,3 +89,15 @@ OAuth authorization-code grant. Amplify supplies PKCE for the redirect flow.
 The classic hosted UI is used for this sandbox so the user pool can remain on
 the lowest applicable feature tier; branded managed login can be introduced
 when the production domain is ready.
+
+## Production identity
+
+`cognito-production.yaml` is deliberately separate from the sandbox. It
+retains the user pool on stack deletion or replacement, enables Cognito
+deletion protection, offers authenticator-app MFA, and accepts explicit lists
+of HTTPS callback and logout URLs. Include the localized `/account/` URL for
+every language that can initiate sign-in.
+
+Do not deploy the production stack until the permanent domain is controlled
+and HTTPS is active. Production parameters and outputs belong in a protected
+deployment environment; they must not be committed to this repository.

@@ -1,65 +1,64 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: HushPDF Stripe billing sandbox with Cognito authorization and webhook-managed entitlements.
+Description: Production HushPDF Stripe billing API with retained entitlements, Cognito authorization, and monitored webhooks.
 
 Parameters:
   EnvironmentName:
     Type: String
-    Default: sandbox
+    Default: production
     AllowedPattern: '^[a-z0-9-]+$'
   UserPoolId:
     Type: String
-    Description: Cognito UserPoolId output from the HushPDF authentication stack.
   UserPoolClientId:
     Type: String
-    Description: Cognito UserPoolClientId output from the HushPDF authentication stack.
   BillingAuthorizationScope:
     Type: String
     Default: hushpdf-billing/access
-    Description: Custom Cognito access-token scope required by protected billing routes.
   AllowedOrigin:
     Type: String
-    Default: http://localhost:3000
-    AllowedPattern: '^https?://[^/,]+(?:,https?://[^/,]+)*$'
-    Description: Comma-separated browser origins allowed to call the billing API.
+    AllowedPattern: '^https://[^/,]+$'
+    Description: Exact HTTPS production origin allowed to call this API.
+  StripeSecretArn:
+    Type: String
+    AllowedPattern: '^arn:[^:]+:secretsmanager:[^:]+:[0-9]{12}:secret:.+$'
+    Description: Existing Secrets Manager ARN containing secretKey and webhookSecret. CloudFormation never receives their values.
   PersonalMonthlyPriceId:
     Type: String
-    Default: price_replace_with_personal_monthly
+    AllowedPattern: '^price_.+$'
   PersonalAnnualPriceId:
     Type: String
-    Default: price_replace_with_personal_annual
+    AllowedPattern: '^price_.+$'
   ProfessionalMonthlyPriceId:
     Type: String
-    Default: price_replace_with_professional_monthly
+    AllowedPattern: '^price_.+$'
   ProfessionalAnnualPriceId:
     Type: String
-    Default: price_replace_with_professional_annual
-  StripeMode:
+    AllowedPattern: '^price_.+$'
+  AlarmTopicArn:
     Type: String
-    Default: test
-    AllowedValues:
-      - test
-      - live
-    Description: Stripe credential mode. The sandbox stack must remain in test mode.
+    Default: ''
+    Description: Optional SNS topic ARN for billing service alarms.
+
+Conditions:
+  HasAlarmTopic: !Not [!Equals [!Ref AlarmTopicArn, '']]
 
 Globals:
   Function:
     Runtime: nodejs22.x
-    Architectures:
-      - arm64
+    Architectures: [arm64]
     MemorySize: 256
     Timeout: 15
     Tracing: Active
     Environment:
       Variables:
         ACCOUNTS_TABLE_NAME: !Ref BillingAccountsTable
-        STRIPE_SECRET_ARN: !Ref StripeSecrets
+        STRIPE_SECRET_ARN: !Ref StripeSecretArn
+        STRIPE_MODE: live
         ALLOWED_ORIGINS: !Ref AllowedOrigin
         PRICE_PERSONAL_MONTHLY: !Ref PersonalMonthlyPriceId
         PRICE_PERSONAL_ANNUAL: !Ref PersonalAnnualPriceId
         PRICE_PROFESSIONAL_MONTHLY: !Ref ProfessionalMonthlyPriceId
         PRICE_PROFESSIONAL_ANNUAL: !Ref ProfessionalAnnualPriceId
-        STRIPE_MODE: !Ref StripeMode
 
 Resources:
   BillingHttpApi:
@@ -67,14 +66,9 @@ Resources:
     Properties:
       StageName: !Ref EnvironmentName
       CorsConfiguration:
-        AllowOrigins: !Split [',', !Ref AllowedOrigin]
-        AllowHeaders:
-          - Authorization
-          - Content-Type
-        AllowMethods:
-          - GET
-          - POST
-          - OPTIONS
+        AllowOrigins: [!Ref AllowedOrigin]
+        AllowHeaders: [Authorization, Content-Type]
+        AllowMethods: [GET, POST, OPTIONS]
         MaxAge: 600
       DefaultRouteSettings:
         ThrottlingBurstLimit: 20
@@ -86,8 +80,7 @@ Resources:
             IdentitySource: $request.header.Authorization
             JwtConfiguration:
               issuer: !Sub https://cognito-idp.${AWS::Region}.amazonaws.com/${UserPoolId}
-              audience:
-                - !Ref UserPoolClientId
+              audience: [!Ref UserPoolClientId]
 
   BillingFunction:
     Type: AWS::Serverless::Function
@@ -95,11 +88,12 @@ Resources:
       FunctionName: !Sub hushpdf-billing-${EnvironmentName}
       CodeUri: .
       Handler: src/index.handler
+      ReservedConcurrentExecutions: 20
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref BillingAccountsTable
         - AWSSecretsManagerGetSecretValuePolicy:
-            SecretArn: !Ref StripeSecrets
+            SecretArn: !Ref StripeSecretArn
       Events:
         Entitlements:
           Type: HttpApi
@@ -108,8 +102,7 @@ Resources:
             Path: /me/entitlements
             Method: GET
             Auth:
-              AuthorizationScopes:
-                - !Ref BillingAuthorizationScope
+              AuthorizationScopes: [!Ref BillingAuthorizationScope]
         Checkout:
           Type: HttpApi
           Properties:
@@ -117,8 +110,7 @@ Resources:
             Path: /billing/checkout
             Method: POST
             Auth:
-              AuthorizationScopes:
-                - !Ref BillingAuthorizationScope
+              AuthorizationScopes: [!Ref BillingAuthorizationScope]
         Portal:
           Type: HttpApi
           Properties:
@@ -126,8 +118,7 @@ Resources:
             Path: /billing/portal
             Method: POST
             Auth:
-              AuthorizationScopes:
-                - !Ref BillingAuthorizationScope
+              AuthorizationScopes: [!Ref BillingAuthorizationScope]
         StripeWebhook:
           Type: HttpApi
           Properties:
@@ -137,10 +128,18 @@ Resources:
             Auth:
               Authorizer: NONE
 
+  BillingFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      LogGroupName: !Sub /aws/lambda/hushpdf-billing-${EnvironmentName}
+      RetentionInDays: 30
+
   BillingAccountsTable:
     Type: AWS::DynamoDB::Table
-    DeletionPolicy: Delete
-    UpdateReplacePolicy: Delete
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
     Properties:
       TableName: !Sub hushpdf-billing-accounts-${EnvironmentName}
       BillingMode: PAY_PER_REQUEST
@@ -163,27 +162,46 @@ Resources:
         - Key: Environment
           Value: !Ref EnvironmentName
 
-  StripeSecrets:
-    Type: AWS::SecretsManager::Secret
-    DeletionPolicy: Delete
-    UpdateReplacePolicy: Delete
+  BillingFunctionErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
     Properties:
-      Name: !Sub hushpdf/stripe/${EnvironmentName}
-      Description: Stripe test-mode API key and webhook signing secret for HushPDF.
-      SecretString: '{"secretKey":"replace-with-sk-test","webhookSecret":"replace-with-whsec"}'
-      Tags:
-        - Key: Application
-          Value: HushPDF
-        - Key: Environment
+      AlarmDescription: HushPDF billing Lambda returned errors.
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref BillingFunction
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      DatapointsToAlarm: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: !If [HasAlarmTopic, [!Ref AlarmTopicArn], !Ref AWS::NoValue]
+
+  BillingApiServerErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: HushPDF billing HTTP API returned server errors.
+      Namespace: AWS/ApiGateway
+      MetricName: 5xx
+      Dimensions:
+        - Name: ApiId
+          Value: !Ref BillingHttpApi
+        - Name: Stage
           Value: !Ref EnvironmentName
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      DatapointsToAlarm: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: !If [HasAlarmTopic, [!Ref AlarmTopicArn], !Ref AWS::NoValue]
 
 Outputs:
   BillingApiUrl:
-    Description: Value for NEXT_PUBLIC_BILLING_API_URL.
     Value: !Sub https://${BillingHttpApi}.execute-api.${AWS::Region}.amazonaws.com/${EnvironmentName}
   StripeWebhookUrl:
-    Description: Register this URL as a Stripe test-mode webhook destination.
     Value: !Sub https://${BillingHttpApi}.execute-api.${AWS::Region}.amazonaws.com/${EnvironmentName}/billing/webhook
-  StripeSecretArn:
-    Description: Update this secret after creating the Stripe webhook destination.
-    Value: !Ref StripeSecrets

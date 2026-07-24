@@ -16,6 +16,25 @@ const MAX_JSON_BODY_BYTES = 8 * 1024;
 const MAX_WEBHOOK_BODY_BYTES = 256 * 1024;
 const WEBHOOK_EVENT_TTL_SECONDS = 7 * 24 * 60 * 60;
 const ACCOUNT_PATH = /^\/(?:en|ja|ko|es|fr|de|zh|zh-TW|pt|ar|it|id|vi|ro)\/account\/$/;
+const REQUEST_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const BLOCKING_SUBSCRIPTION_STATUSES = new Set([
+  'active',
+  'trialing',
+  'past_due',
+  'unpaid',
+  'paused',
+  'incomplete',
+]);
+const SUBSCRIPTION_STATUS_PRIORITY = Object.freeze({
+  active: 3,
+  trialing: 3,
+  past_due: 2,
+  unpaid: 2,
+  paused: 2,
+  incomplete: 2,
+  incomplete_expired: 1,
+  canceled: 0,
+});
 
 const FEATURES = Object.freeze({
   personal: Object.freeze(['core-tools', 'desktop-app', 'product-updates', 'local-history']),
@@ -158,8 +177,10 @@ async function stripeSecrets() {
     SecretId: process.env.STRIPE_SECRET_ARN,
   }));
   const parsed = JSON.parse(result.SecretString ?? '{}');
-  if (!parsed.secretKey?.startsWith('sk_test_') || !parsed.webhookSecret?.startsWith('whsec_')) {
-    throw Object.assign(new Error('Stripe test-mode secrets are not configured.'), { statusCode: 503 });
+  const stripeMode = process.env.STRIPE_MODE === 'live' ? 'live' : 'test';
+  const requiredKeyPrefix = stripeMode === 'live' ? 'sk_live_' : 'sk_test_';
+  if (!parsed.secretKey?.startsWith(requiredKeyPrefix) || !parsed.webhookSecret?.startsWith('whsec_')) {
+    throw Object.assign(new Error(`Stripe ${stripeMode}-mode secrets are not configured.`), { statusCode: 503 });
   }
   cachedSecrets = parsed;
   return cachedSecrets;
@@ -168,7 +189,7 @@ async function stripeSecrets() {
 async function stripeClient() {
   if (cachedStripe) return cachedStripe;
   const secrets = await stripeSecrets();
-  cachedStripe = new Stripe(secrets.secretKey, { maxNetworkRetries: 2 });
+  cachedStripe = new Stripe(secrets.secretKey, { maxNetworkRetries: 2, timeout: 10_000 });
   return cachedStripe;
 }
 
@@ -209,14 +230,17 @@ async function entitlements(event) {
 
 async function checkout(event) {
   const accountId = accountIdFrom(event);
-  const { plan, interval, returnUrl } = parseJsonBody(event);
+  const { plan, interval, returnUrl, requestId } = parseJsonBody(event);
+  if (typeof requestId !== 'string' || !REQUEST_ID_PATTERN.test(requestId)) {
+    throw Object.assign(new Error('A valid checkout requestId is required.'), { statusCode: 400 });
+  }
   const priceId = priceMap()[plan]?.[interval];
   if (!priceId || priceId.startsWith('price_replace_')) {
     throw Object.assign(new Error('That billing plan is not configured.'), { statusCode: 400 });
   }
   const returnPage = validateReturnUrl(returnUrl);
   const account = await getAccount(accountId);
-  if (['active', 'trialing'].includes(account?.status)) {
+  if (isBlockingSubscriptionStatus(account?.status)) {
     throw Object.assign(new Error('Manage the existing subscription in the billing portal.'), { statusCode: 409 });
   }
 
@@ -231,6 +255,18 @@ async function checkout(event) {
     await updateAccount(accountId, { stripeCustomerId: customerId });
   }
 
+  // The account record is eventually consistent with Stripe webhooks. Check
+  // Stripe directly as well so retries, delayed webhooks, or a stale record
+  // cannot create overlapping subscriptions for the same customer.
+  const existingSubscriptions = await stripe.subscriptions.list({
+    customer: customerId,
+    status: 'all',
+    limit: 100,
+  });
+  if (existingSubscriptions.data.some((subscription) => isBlockingSubscriptionStatus(subscription.status))) {
+    throw Object.assign(new Error('Manage the existing subscription in the billing portal.'), { statusCode: 409 });
+  }
+
   const successUrl = new URL(returnPage);
   successUrl.searchParams.set('checkout', 'success');
   const cancelUrl = new URL(returnPage);
@@ -239,12 +275,29 @@ async function checkout(event) {
     mode: 'subscription',
     customer: customerId,
     client_reference_id: accountId,
+    metadata: { accountId, plan, interval, requestId },
     line_items: [{ price: priceId, quantity: 1 }],
     subscription_data: { metadata: { accountId, plan, interval } },
     success_url: successUrl.toString(),
     cancel_url: cancelUrl.toString(),
-  });
+  }, { idempotencyKey: `hushpdf-checkout-${accountId}-${requestId}` });
+  if (!session.url) {
+    throw Object.assign(new Error('Stripe did not return a Checkout URL.'), { statusCode: 502 });
+  }
   return response(200, { url: session.url });
+}
+
+export function isBlockingSubscriptionStatus(status) {
+  return BLOCKING_SUBSCRIPTION_STATUSES.has(status);
+}
+
+export function selectCanonicalSubscription(subscriptions) {
+  return [...subscriptions].sort((left, right) => {
+    const statusDifference = (SUBSCRIPTION_STATUS_PRIORITY[right.status] ?? -1)
+      - (SUBSCRIPTION_STATUS_PRIORITY[left.status] ?? -1);
+    if (statusDifference !== 0) return statusDifference;
+    return (right.created ?? 0) - (left.created ?? 0);
+  })[0] ?? null;
 }
 
 async function portal(event) {
@@ -346,8 +399,15 @@ async function webhook(event) {
       // Stripe does not guarantee webhook delivery order. Read the current
       // subscription instead of allowing an older event payload to restore
       // stale access after a cancellation or downgrade.
-      const currentSubscription = await stripe.subscriptions.retrieve(stripeEvent.data.object.id);
-      await syncSubscription(currentSubscription);
+      const eventSubscription = await stripe.subscriptions.retrieve(stripeEvent.data.object.id);
+      const customerId = typeof eventSubscription.customer === 'string'
+        ? eventSubscription.customer
+        : eventSubscription.customer?.id;
+      const currentSubscriptions = customerId
+        ? await stripe.subscriptions.list({ customer: customerId, status: 'all', limit: 100 })
+        : { data: [eventSubscription] };
+      const currentSubscription = selectCanonicalSubscription(currentSubscriptions.data);
+      if (currentSubscription) await syncSubscription(currentSubscription);
     }
   } catch (error) {
     // Let Stripe retry a legitimately signed event after transient failures.

@@ -1,0 +1,117 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Production HushPDF Cognito user pool with protected deletion, optional TOTP MFA, and OAuth 2.0 authorization code with PKCE.
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: production
+    AllowedPattern: '^[a-z0-9-]+$'
+  DomainPrefix:
+    Type: String
+    AllowedPattern: '^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$'
+    MinLength: 3
+    MaxLength: 63
+    Description: Globally unique Cognito managed-login domain prefix.
+  CallbackUrls:
+    Type: CommaDelimitedList
+    Description: Exact HTTPS account callback URLs for every supported production locale.
+  LogoutUrls:
+    Type: CommaDelimitedList
+    Description: Exact HTTPS post-logout URLs for every supported production locale.
+  BillingScopeIdentifier:
+    Type: String
+    Default: hushpdf-billing
+    AllowedPattern: '^[a-zA-Z0-9._~:/?#\[\]@!$&''()*+,;=-]+$'
+
+Resources:
+  HushPdfUserPool:
+    Type: AWS::Cognito::UserPool
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      UserPoolName: !Sub hushpdf-${EnvironmentName}
+      UserPoolTier: LITE
+      DeletionProtection: ACTIVE
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+      MfaConfiguration: OPTIONAL
+      SoftwareTokenMfaConfiguration:
+        Enabled: true
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: false
+      UserAttributeUpdateSettings:
+        AttributesRequireVerificationBeforeUpdate:
+          - email
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 14
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          RequireUppercase: true
+          TemporaryPasswordValidityDays: 3
+      UserPoolTags:
+        Application: HushPDF
+        Environment: !Ref EnvironmentName
+
+  HushPdfBillingResourceServer:
+    Type: AWS::Cognito::UserPoolResourceServer
+    Properties:
+      Identifier: !Ref BillingScopeIdentifier
+      Name: !Sub hushpdf-billing-${EnvironmentName}
+      UserPoolId: !Ref HushPdfUserPool
+      Scopes:
+        - ScopeName: access
+          ScopeDescription: Access the signed-in user's HushPDF billing resources.
+
+  HushPdfBrowserClient:
+    Type: AWS::Cognito::UserPoolClient
+    DependsOn: HushPdfBillingResourceServer
+    Properties:
+      ClientName: !Sub hushpdf-web-${EnvironmentName}
+      UserPoolId: !Ref HushPdfUserPool
+      GenerateSecret: false
+      PreventUserExistenceErrors: ENABLED
+      EnableTokenRevocation: true
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows:
+        - code
+      AllowedOAuthScopes:
+        - email
+        - openid
+        - !Sub ${BillingScopeIdentifier}/access
+      SupportedIdentityProviders:
+        - COGNITO
+      CallbackURLs: !Ref CallbackUrls
+      LogoutURLs: !Ref LogoutUrls
+      ExplicitAuthFlows:
+        - ALLOW_REFRESH_TOKEN_AUTH
+        - ALLOW_USER_SRP_AUTH
+      AccessTokenValidity: 1
+      IdTokenValidity: 1
+      RefreshTokenValidity: 7
+      TokenValidityUnits:
+        AccessToken: hours
+        IdToken: hours
+        RefreshToken: days
+
+  HushPdfUserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      Domain: !Ref DomainPrefix
+      ManagedLoginVersion: 1
+      UserPoolId: !Ref HushPdfUserPool
+
+Outputs:
+  UserPoolId:
+    Value: !Ref HushPdfUserPool
+  UserPoolClientId:
+    Value: !Ref HushPdfBrowserClient
+  CognitoDomain:
+    Value: !Sub https://${HushPdfUserPoolDomain}.auth.${AWS::Region}.amazoncognito.com

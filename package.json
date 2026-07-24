@@ -36,6 +36,7 @@
     "aws-amplify": "^6.18.0",
     "clsx": "^2.1.1",
     "cropperjs": "^1.6.2",
+    "dompurify": "^3.4.12",
     "highlight.js": "^11.11.1",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.14.0",

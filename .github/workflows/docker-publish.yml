@@ -8,8 +8,6 @@ name: Docker Build & Publish
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*.*.*'
   pull_request:
@@ -144,10 +142,6 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}
           tags: |
-            # Set latest tag for main branch
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
-            # Tag with branch name
-            type=ref,event=branch
             # Tag with semver (v1.0.0 -> 1.0.0, v1.0, v1)
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}

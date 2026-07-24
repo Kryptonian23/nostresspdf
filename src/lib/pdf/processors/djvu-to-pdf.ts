@@ -228,7 +228,8 @@ export class DJVUToPDFProcessor extends BasePDFProcessor {
      * Load djvu.js library dynamically
      */
     private async loadDjVuLibrary(): Promise<any> {
-        // Try to load from CDN or local bundle
+        // Load only a reviewed, self-hosted copy. Runtime executable code must
+        // never be fetched from an unrelated third-party origin.
         return new Promise((resolve, reject) => {
             // Check if already loaded
             if ((window as any).DjVu) {
@@ -238,8 +239,7 @@ export class DJVUToPDFProcessor extends BasePDFProcessor {
 
             // Load script
             const script = document.createElement('script');
-            // Official DjVu.js library from djvu.js.org (v0.5.4)
-            script.src = 'https://djvu.js.org/assets/dist/djvu.js';
+            script.src = '/vendor/djvu/djvu.js';
             script.async = true;
 
             script.onload = () => {
@@ -251,7 +251,7 @@ export class DJVUToPDFProcessor extends BasePDFProcessor {
             };
 
             script.onerror = () => {
-                reject(new Error('Failed to load DjVu library'));
+                reject(new Error('The self-hosted DjVu converter is not installed.'));
             };
 
             document.head.appendChild(script);

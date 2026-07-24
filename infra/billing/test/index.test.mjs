@@ -1,9 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  isBlockingSubscriptionStatus,
   normalizeSubscriptionStatus,
   planForPrice,
   publicEntitlement,
+  selectCanonicalSubscription,
   validateReturnUrl,
 } from '../src/index.mjs';
 
@@ -59,4 +61,34 @@ test('accounts without a billing record fail closed', () => {
     trialEndsAt: null,
     currentPeriodEndsAt: null,
   });
+});
+
+test('existing chargeable subscription states block a second checkout', () => {
+  for (const status of ['active', 'trialing', 'past_due', 'unpaid', 'paused', 'incomplete']) {
+    assert.equal(isBlockingSubscriptionStatus(status), true, status);
+  }
+  for (const status of ['canceled', 'incomplete_expired', undefined]) {
+    assert.equal(isBlockingSubscriptionStatus(status), false, String(status));
+  }
+});
+
+test('webhook reconciliation keeps the highest-priority current subscription', () => {
+  const selected = selectCanonicalSubscription([
+    { id: 'sub_old', status: 'canceled', created: 100 },
+    { id: 'sub_past_due', status: 'past_due', created: 300 },
+    { id: 'sub_active', status: 'active', created: 200 },
+  ]);
+  assert.equal(selected.id, 'sub_active');
+
+  const newestCanceled = selectCanonicalSubscription([
+    { id: 'sub_first', status: 'canceled', created: 100 },
+    { id: 'sub_latest', status: 'canceled', created: 200 },
+  ]);
+  assert.equal(newestCanceled.id, 'sub_latest');
+
+  const newestAccessGrant = selectCanonicalSubscription([
+    { id: 'sub_old_active', status: 'active', created: 100 },
+    { id: 'sub_new_trial', status: 'trialing', created: 200 },
+  ]);
+  assert.equal(newestAccessGrant.id, 'sub_new_trial');
 });

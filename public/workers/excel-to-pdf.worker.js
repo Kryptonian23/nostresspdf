@@ -24,28 +24,22 @@ async function extractTextFromXLSX(arrayBuffer) {
 
 async function loadCJKFont() {
     if (cjkFontLoaded) return true;
-    self.postMessage({ type: 'status', message: 'Downloading CJK fonts...' });
+    self.postMessage({ type: 'status', message: 'Loading local CJK font...' });
 
-    const urls = [
-        'https://cdn.jsdelivr.net/gh/ArtifexSoftware/mupdf@master/resources/fonts/droid/DroidSansFallbackFull.ttf',
-        'https://raw.githubusercontent.com/ArtifexSoftware/mupdf/master/resources/fonts/droid/DroidSansFallbackFull.ttf'
-    ];
+    try {
+        const response = await fetch('/fonts/NotoSansSC-Regular.ttf', { cache: 'force-cache' });
+        if (!response.ok) return false;
 
-    for (const url of urls) {
-        try {
-            const res = await fetch(url, { cache: 'force-cache' });
-            if (res.ok) {
-                const data = await res.arrayBuffer();
-                if (data.byteLength > 100000) {
-                    pyodide.FS.writeFile('/cjk_font.ttf', new Uint8Array(data));
-                    cjkFontLoaded = true;
-                    self.postMessage({ type: 'status', message: 'CJK font loaded!' });
-                    return true;
-                }
-            }
-        } catch (e) {}
+        const data = await response.arrayBuffer();
+        if (data.byteLength <= 100000) return false;
+
+        pyodide.FS.writeFile('/cjk_font.ttf', new Uint8Array(data));
+        cjkFontLoaded = true;
+        self.postMessage({ type: 'status', message: 'CJK font loaded!' });
+        return true;
+    } catch {
+        return false;
     }
-    return false;
 }
 
 async function init(needsCJK = false) {

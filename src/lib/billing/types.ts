@@ -20,6 +20,7 @@ export interface CheckoutRequest {
   plan: Exclude<BillingPlan, 'teams'>;
   interval: BillingInterval;
   returnUrl: string;
+  requestId: string;
 }
 
 export interface RedirectSessionResponse {

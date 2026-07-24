@@ -49,7 +49,12 @@ export class VectorExtractorProcessor extends BasePDFProcessor {
 
       this.updateProgress(20, 'Loading PDF document...');
       const arrayBuffer = await file.arrayBuffer();
-      const pdfDoc = await pdfjsLegacy.getDocument({ data: arrayBuffer }).promise;
+      const pdfDoc = await pdfjsLegacy.getDocument({
+        data: arrayBuffer,
+        // Legacy PDF.js is retained only for SVGGraphics. Never allow
+        // untrusted PDF content to reach its dynamic evaluator.
+        isEvalSupported: false,
+      }).promise;
       const totalPages = pdfDoc.numPages;
 
       const targetPageNum = Math.min(Math.max(1, extractOptions.pageNum || 1), totalPages);

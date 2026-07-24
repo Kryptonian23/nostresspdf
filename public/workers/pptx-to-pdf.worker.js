@@ -38,35 +38,22 @@ async function extractTextFromPPTX(arrayBuffer) {
 async function loadCJKFont() {
     if (cjkFontLoaded) return true;
 
-    self.postMessage({ type: 'status', message: 'Downloading CJK fonts...' });
+    self.postMessage({ type: 'status', message: 'Loading local CJK font...' });
 
-    const fontSources = [
-        'https://raw.githubusercontent.com/googlefonts/noto-cjk/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf',
-        'https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk@main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf',
-        'https://unpkg.com/@aspect-build/aspect-font@1.0.0/fonts/NotoSansSC-Regular.otf'
-    ];
+    try {
+        const response = await fetch('/fonts/NotoSansSC-Regular.ttf', { cache: 'force-cache' });
+        if (!response.ok) return false;
 
-    for (const fontUrl of fontSources) {
-        try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 30000);
-            const response = await fetch(fontUrl, { signal: controller.signal, cache: 'force-cache' });
-            clearTimeout(timeoutId);
+        const fontData = await response.arrayBuffer();
+        if (fontData.byteLength <= 1000000) return false;
 
-            if (response.ok) {
-                const fontData = await response.arrayBuffer();
-                if (fontData.byteLength > 1000000) {
-                    pyodide.FS.writeFile('custom_font.otf', new Uint8Array(fontData));
-                    cjkFontLoaded = true;
-                    self.postMessage({ type: 'status', message: 'CJK font loaded!' });
-                    return true;
-                }
-            }
-        } catch (e) {
-            console.warn(`Font download failed from ${fontUrl}`);
-        }
+        pyodide.FS.writeFile('custom_font.otf', new Uint8Array(fontData));
+        cjkFontLoaded = true;
+        self.postMessage({ type: 'status', message: 'CJK font loaded!' });
+        return true;
+    } catch {
+        return false;
     }
-    return false;
 }
 
 async function init(needsCJKFont = false) {

@@ -118,7 +118,12 @@ export class PDFToSVGProcessor extends BasePDFProcessor {
 
             // Load the PDF document using legacy pdfjs
             const arrayBuffer = await file.arrayBuffer();
-            const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+            const pdf = await pdfjs.getDocument({
+                data: arrayBuffer,
+                // Legacy PDF.js is retained only for SVGGraphics. Never allow
+                // untrusted PDF content to reach its dynamic evaluator.
+                isEvalSupported: false,
+            }).promise;
             const totalPages = pdf.numPages;
 
             // Determine which pages to convert

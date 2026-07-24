@@ -4,8 +4,6 @@ permissions:
   contents: write
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -27,7 +25,9 @@ jobs:
           upstream_sync_repo: PDFCraftTool/pdfcraft
           upstream_sync_branch: main
           target_sync_branch: main
-          test_mode: false
+          # Upstream code must be reviewed before it is incorporated. This
+          # workflow is intentionally a manual dry run only.
+          test_mode: true
 
       - name: Check for new commits
         if: success()

@@ -8,6 +8,7 @@ import { DownloadButton } from '../DownloadButton';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { pdfToSVG, type PDFToSVGOptions, type SVGResult } from '@/lib/pdf/processors/pdf-to-svg';
+import { sanitizeSvgForPreview } from '@/lib/utils/svg-sanitizer';
 import type { UploadedFile, ProcessOutput } from '@/types/pdf';
 import JSZip from 'jszip';
 
@@ -398,7 +399,9 @@ export function PDFToSVGTool({ className = '' }: PDFToSVGToolProps) {
                                     <div
                                         className="w-full h-full flex items-center justify-center"
                                         dangerouslySetInnerHTML={{
-                                            __html: svgResult.svg.replace(/<\?xml[^>]*\?>/, '').replace(/width="[^"]*"/, 'width="100%"').replace(/height="[^"]*"/, 'height="100%"')
+                                            __html: sanitizeSvgForPreview(
+                                                svgResult.svg.replace(/<\?xml[^>]*\?>/, '').replace(/width="[^"]*"/, 'width="100%"').replace(/height="[^"]*"/, 'height="100%"')
+                                            )
                                         }}
                                     />
                                 </div>
@@ -463,7 +466,11 @@ export function PDFToSVGTool({ className = '' }: PDFToSVGToolProps) {
                         </div>
                         <div
                             className="p-4"
-                            dangerouslySetInnerHTML={{ __html: svgResults[previewIndex].svg.replace(/<\?xml[^>]*\?>/, '') }}
+                            dangerouslySetInnerHTML={{
+                                __html: sanitizeSvgForPreview(
+                                    svgResults[previewIndex].svg.replace(/<\?xml[^>]*\?>/, '')
+                                ),
+                            }}
                         />
                     </div>
                 </div>

@@ -23,7 +23,7 @@ async function init() {
     const basePath = '/pymupdf-wasm/';
     await pyodide.loadPackage(basePath + 'pymupdf-1.26.3-cp313-none-pyodide_2025_0_wasm32.whl');
 
-    // CJK Font will be downloaded on-demand by the Python script
+    // The self-hosted CJK font is loaded on demand by the Python script.
     self.postMessage({ type: 'status', message: 'Initializing TOC generator...' });
 
     pyodide.runPython(`
@@ -49,7 +49,7 @@ async def download_cjk_font_if_needed(needs_cjk):
     from js import fetch
     
     try:
-        url = 'https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk@main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf'
+        url = '/fonts/NotoSansSC-Regular.ttf'
         response = await fetch(url)
         if response.ok:
             array_buffer = await response.arrayBuffer()

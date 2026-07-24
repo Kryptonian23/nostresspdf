@@ -34,7 +34,7 @@ export interface WatermarkOptions {
 }
 
 // Noto fonts for CJK support
-const CJK_FONT_URL = 'https://raw.githack.com/googlefonts/noto-cjk/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf';
+const CJK_FONT_URL = '/fonts/NotoSansSC-Regular.ttf';
 
 // Font cache
 const fontCache: Map<string, ArrayBuffer> = new Map();

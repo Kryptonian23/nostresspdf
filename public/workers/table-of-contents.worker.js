@@ -23,10 +23,10 @@ async function init() {
   const basePath = '/pymupdf-wasm/';
   await pyodide.loadPackage(basePath + 'pymupdf-1.26.3-cp313-none-pyodide_2025_0_wasm32.whl');
 
-  // Download CJK Font for multi-language support
-  self.postMessage({ type: 'status', message: 'Downloading fonts...' });
+  // Load the self-hosted CJK font for multi-language support.
+  self.postMessage({ type: 'status', message: 'Loading local fonts...' });
   try {
-    const response = await fetch('https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk@main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf');
+    const response = await fetch('/fonts/NotoSansSC-Regular.ttf', { cache: 'force-cache' });
     if (response.ok) {
       const fontData = await response.arrayBuffer();
       pyodide.FS.writeFile('cjk_font.ttf', new Uint8Array(fontData));

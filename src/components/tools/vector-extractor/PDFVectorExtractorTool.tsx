@@ -8,6 +8,7 @@ import { DownloadButton } from '../DownloadButton';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { extractVectors, type VectorExtractorOptions } from '@/lib/pdf/processors/vector-extractor';
+import { sanitizeSvgForPreview } from '@/lib/utils/svg-sanitizer';
 import type { ProcessOutput } from '@/types/pdf';
 import { 
   Layers, 
@@ -342,7 +343,7 @@ export function PDFVectorExtractorTool({ className = '' }: PDFVectorExtractorToo
                     transform: 'perspective(800px) rotateX(8deg)',
                     transformStyle: 'preserve-3d',
                   }}
-                  dangerouslySetInnerHTML={{ __html: svgContent }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeSvgForPreview(svgContent) }}
                 />
               </div>
 
@@ -377,7 +378,11 @@ export function PDFVectorExtractorTool({ className = '' }: PDFVectorExtractorToo
                       <div className="absolute top-2 left-2 text-[8px] font-bold text-zinc-400">Preview</div>
                       <div 
                         className="w-20 h-20 flex items-center justify-center"
-                        dangerouslySetInnerHTML={{ __html: `<svg viewBox="0 0 100 100" width="100%" height="100%">${selectedElementHtml}</svg>` }}
+                        dangerouslySetInnerHTML={{
+                          __html: sanitizeSvgForPreview(
+                            `<svg viewBox="0 0 100 100" width="100%" height="100%">${selectedElementHtml}</svg>`
+                          ),
+                        }}
                       />
                     </div>
 

@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 const template = readFileSync(resolve(process.cwd(), 'infra/billing/template.yaml'), 'utf8');
+const productionTemplate = readFileSync(resolve(process.cwd(), 'infra/billing/template-production.yaml'), 'utf8');
 const handler = readFileSync(resolve(process.cwd(), 'infra/billing/src/index.mjs'), 'utf8');
 
 describe('billing sandbox infrastructure', () => {
@@ -43,5 +44,31 @@ describe('billing sandbox infrastructure', () => {
     expect(handler).toContain('stripe-event#${stripeEvent.id}');
     expect(template).toContain('AttributeName: expiresAt');
     expect(template).toContain('Enabled: true');
+  });
+});
+
+describe('billing production infrastructure', () => {
+  it('requires external live Stripe secrets instead of embedding secret values', () => {
+    expect(productionTemplate).toContain('StripeSecretArn:');
+    expect(productionTemplate).toContain('STRIPE_MODE: live');
+    expect(productionTemplate).not.toContain('AWS::SecretsManager::Secret');
+    expect(productionTemplate).not.toMatch(/sk_(?:test|live)_[A-Za-z0-9]/);
+    expect(productionTemplate).not.toMatch(/whsec_[A-Za-z0-9]/);
+  });
+
+  it('retains entitlement data and enables recovery', () => {
+    expect(productionTemplate).toMatch(/BillingAccountsTable:[\s\S]*?DeletionPolicy: Retain/);
+    expect(productionTemplate).toMatch(/BillingAccountsTable:[\s\S]*?PointInTimeRecoveryEnabled: true/);
+  });
+
+  it('requires an exact HTTPS browser origin', () => {
+    expect(productionTemplate).toContain("AllowedPattern: '^https://[^/,]+$'");
+  });
+
+  it('adds bounded concurrency, log retention, and service alarms', () => {
+    expect(productionTemplate).toContain('ReservedConcurrentExecutions: 20');
+    expect(productionTemplate).toContain('RetentionInDays: 30');
+    expect(productionTemplate).toContain('BillingFunctionErrorsAlarm:');
+    expect(productionTemplate).toContain('BillingApiServerErrorsAlarm:');
   });
 });

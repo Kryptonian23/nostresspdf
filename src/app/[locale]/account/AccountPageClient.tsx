@@ -182,6 +182,7 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
         plan,
         interval,
         returnUrl: accountReturnUrl(),
+        requestId: crypto.randomUUID(),
       });
       window.location.assign(session.url);
     } catch {
