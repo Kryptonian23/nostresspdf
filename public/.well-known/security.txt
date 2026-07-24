@@ -1,0 +1,5 @@
+Contact: https://github.com/Kryptonian23/hushpdf/security/advisories/new
+Policy: https://github.com/Kryptonian23/hushpdf/security/policy
+Preferred-Languages: en
+Canonical: /.well-known/security.txt
+

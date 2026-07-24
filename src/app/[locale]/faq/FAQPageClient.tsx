@@ -99,7 +99,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
     <div className="min-h-screen flex flex-col">
       <Header locale={locale} />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1" tabIndex={-1}>
         {/* Hero Section */}
         <section className="bg-[hsl(var(--color-muted)/0.3)] pt-20 pb-12">
           <div className="container mx-auto px-4">

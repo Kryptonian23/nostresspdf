@@ -24,6 +24,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
     { href: `/${locale}/about`, label: t('navigation.about') },
     { href: `/${locale}/faq`, label: t('navigation.faq') },
     { href: `/${locale}/privacy`, label: t('navigation.privacy') },
+    { href: `/${locale}/security`, label: 'Security' },
     { href: `/${locale}/contact`, label: t('navigation.contact') },
   ];
 
@@ -174,6 +175,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             </Link>
             <a href="/LICENSE.txt" className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">License</a>
             <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
+            <Link href={`/${locale}/security`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Security</Link>
           </div>
         </div>
       </div>

@@ -24,6 +24,13 @@ coverage
 # Misc
 .DS_Store
 *.pem
+*.key
+*.p12
+*.pfx
+.aws/
+credentials
+credentials.json
+secrets.json
 Thumbs.db
 
 # Debug logs
@@ -34,6 +41,7 @@ pnpm-debug.log*
 
 # Local env files
 .env
+.env.*
 .env.local
 .env.development.local
 .env.test.local

@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Shield, Lock, Eye, Server, Trash2, Cookie, Globe, Mail } from 'lucide-react';
+import { Shield, Lock, Eye, Server, Database, Cookie, Globe, Mail } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Card } from '@/components/ui/Card';
@@ -26,9 +26,9 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
       description: 'PDF operations are performed using JavaScript and WebAssembly directly on your device.',
     },
     {
-      icon: Trash2,
-      title: 'Automatic Cleanup',
-      description: 'All file data is automatically cleared when you close the browser tab or navigate away.',
+      icon: Database,
+      title: 'Local browser storage',
+      description: 'Preferences and selected workflow details may be stored in your browser and can be cleared from your browser settings.',
     },
     {
       icon: Eye,
@@ -41,7 +41,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
     <div className="min-h-screen flex flex-col">
       <Header locale={locale} />
       
-      <main className="flex-1">
+      <main id="main-content" className="flex-1" tabIndex={-1}>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-[hsl(var(--color-primary)/0.1)] via-[hsl(var(--color-background))] to-[hsl(var(--color-secondary)/0.1)] py-16">
           <div className="container mx-auto px-4">
@@ -89,7 +89,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto prose prose-lg">
               <p className="text-sm text-[hsl(var(--color-muted-foreground))] mb-8">
-                Last updated: December 2024
+                Last updated: July 2026
               </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
@@ -108,7 +108,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
                 <li>All PDF processing happens directly in your web browser</li>
-                <li>Your files are never uploaded to our servers or any third-party servers</li>
+                <li>PDF files, filenames, extracted text, and document metadata are not sent to HushPDF account or billing services</li>
                 <li>We cannot see, access, or store your documents</li>
                 <li>Your files remain on your device at all times</li>
               </ul>
@@ -128,16 +128,16 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
                 3.2 Usage Data
               </h3>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                We may collect anonymous usage statistics to improve our service, such as:
+                When you create an account or subscription, the services that provide identity and billing process limited account and transaction information, such as:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
-                <li>Which tools are most popular</li>
-                <li>General geographic region (country level)</li>
-                <li>Browser type and version</li>
-                <li>Device type (desktop, mobile, tablet)</li>
+                <li>Your email address and account identifier for sign-in and subscription access</li>
+                <li>Subscription status and plan information</li>
+                <li>Payment and invoice information handled by our payment provider</li>
+                <li>Technical request information needed to secure, operate, and troubleshoot the service</li>
               </ul>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                This data is aggregated and anonymized. It cannot be used to identify you personally.
+                We do not use this account or billing information to inspect, process, or profile the contents of your PDF files.
               </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
@@ -152,34 +152,33 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
                 <li>Save work-in-progress for interrupted sessions</li>
               </ul>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                This data is stored only on your device and is not transmitted to us.
+                This data is stored only on your device unless you choose to use an account or billing feature. It may include recent file names, file sizes, selected tool settings, and saved workflow metadata. PDF file contents are not stored by these browser features.
               </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
                 5. Cookies
               </h2>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                We use minimal cookies for essential functionality:
+                We use essential browser storage and session mechanisms for functionality such as sign-in, security, language preferences, and billing access:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
                 <li><strong>Essential cookies:</strong> Required for the website to function properly</li>
                 <li><strong>Preference cookies:</strong> Remember your settings like language preference</li>
               </ul>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                We do not use tracking cookies or advertising cookies.
+                We do not use advertising cookies or sell personal information for targeted advertising.
               </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
                 6. Third-Party Services
               </h2>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                {t('common.brand')} does not share your data with third parties. We do not use:
+                We use carefully selected service providers to operate account and billing features. Depending on the feature you use, these providers include Amazon Web Services and Amazon Cognito for hosting and identity, and Stripe for payments and customer billing. These providers receive only the information needed to provide their services; they do not receive PDF file contents for account or billing operations.
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
-                <li>Third-party analytics that track individual users</li>
-                <li>Advertising networks</li>
-                <li>Social media tracking pixels</li>
-                <li>External file processing services</li>
+                <li>Advertising networks or social-media tracking pixels in the application</li>
+                <li>External PDF processing services for the standard local-processing tools</li>
+                <li>Payment card numbers; Stripe processes card details directly</li>
               </ul>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
@@ -199,9 +198,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
                 8. Your Rights
               </h2>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                Since we don&apos;t collect personal data, there is no personal data to access, correct, 
-                or delete. You can clear your browser&apos;s local storage at any time to remove any 
-                preferences stored by {t('common.brand')}.
+                Depending on where you live, you may have rights to request access to, correction of, or deletion of personal information associated with your account. You can clear browser-stored preferences and local workflow metadata through your browser settings. Account and billing deletion requests must be handled with the identity and payment records required to maintain security, prevent fraud, and meet applicable legal obligations.
               </p>
 
               <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mt-8 mb-4">
@@ -224,8 +221,8 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
                 11. Contact Us
               </h2>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
-                If you have any questions about this Privacy Policy, please contact us through our 
-                contact page.
+                If you have questions about this Privacy Policy or want to make a privacy request, please contact us through our
+                contact page. Before public paid launch, HushPDF will publish its operating business identity, support contact method, and retention details here.
               </p>
             </div>
           </div>

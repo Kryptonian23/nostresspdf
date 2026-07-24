@@ -58,7 +58,7 @@ application logs.
 | Cross-site scripting | Account/token compromise | CSP, no object embedding, frame denial, MIME protections, React escaping | Remove legacy `unsafe-inline` and `unsafe-eval` requirements incrementally |
 | Malicious PDF exhausts CPU or memory | Browser denial of service | Local execution, file-size/tool limits, worker isolation | Add per-tool timeouts and cancellation coverage |
 | Public S3 access or deployment overwrite | Site compromise | Private bucket, origin access control, public-access block, least-privilege deploy role, versioning | Add signed release provenance and deployment approval |
-| Secrets exposed in browser or repository | Billing compromise | Secrets Manager and secret-free public client | Add automated secret scanning and rotation runbook |
+| Secrets exposed in browser or repository | Billing compromise | Secrets Manager, secret-free public client, GitHub secret scanning of full history on pushes and pull requests | Maintain a credential-rotation runbook and revoke any exposed credential immediately |
 | Dependency compromise | Site compromise | Lockfiles and reproducible builds | Add dependency review, SBOM, and scheduled vulnerability scans |
 | Advertising script compromise | XSS or privacy breach | Not currently trusted by CSP | Review vendors and extend CSP only when monetization is integrated |
 

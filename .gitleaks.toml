@@ -1,0 +1,9 @@
+title = "HushPDF secret-scanning policy"
+
+[allowlist]
+  description = "Bundled PDF.js artifacts contain credential-shaped parser fixtures, not credentials."
+  paths = [
+    '''public/pdfjs-annotation-viewer/build/pdf\.sandbox\.js$''',
+    '''public/pdfjs-annotation-viewer/build/pdf\.sandbox\.mjs\.map$''',
+    '''public/pdfjs-viewer/pdf\.sandbox\.mjs$''',
+  ]
