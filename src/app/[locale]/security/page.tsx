@@ -21,8 +21,8 @@ export async function generateMetadata({
     locale: locale as Locale,
     path: '/security',
     title: 'Security',
-    description: 'HushPDF security approach, supported reporting channel, and product security boundaries.',
-    keywords: ['HushPDF security', 'vulnerability disclosure', 'private PDF processing'],
+    description: 'NoStressPDF security approach, supported reporting channel, and product security boundaries.',
+    keywords: ['NoStressPDF security', 'vulnerability disclosure', 'private PDF processing'],
     noIndex: true,
   });
 }
@@ -45,7 +45,7 @@ export default async function SecurityPage({
             <ShieldCheck className="mx-auto mb-6 h-14 w-14 text-[hsl(var(--color-primary))]" />
             <h1 className="mb-5 text-4xl font-bold md:text-5xl">Security</h1>
             <p className="text-lg text-[hsl(var(--color-muted-foreground))]">
-              HushPDF is designed so standard PDF processing happens on your device. Account and billing features are kept separate from document processing.
+              NoStressPDF is designed so standard PDF processing happens on your device. Account and billing features are kept separate from document processing.
             </p>
           </div>
         </section>

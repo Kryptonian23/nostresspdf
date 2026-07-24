@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "HushPDF - プロフェッショナルPDFツール",
+      "title": "NoStressPDF - プロフェッショナルPDFツール",
       "description": "プロ向けのプライベートなブラウザベースPDFツール。サーバーへアップロードせずに編集、変換、保護できます。"
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "私たちについて",
-      "description": "端末上で文書を処理する、プライバシー重視のプロ向けPDFワークスペースHushPDFについて。"
+      "description": "端末上で文書を処理する、プライバシー重視のプロ向けPDFワークスペースNoStressPDFについて。"
     },
     "faq": {
       "title": "よくある質問",
-      "description": "HushPDFに関するよくある質問の回答。PDFツールを効果的に使用する方法をご覧ください。"
+      "description": "NoStressPDFに関するよくある質問の回答。PDFツールを効果的に使用する方法をご覧ください。"
     },
     "privacy": {
       "title": "プライバシーポリシー",
-      "description": "HushPDFプライバシーポリシー。ファイルはデバイスから離れることはありません - すべての処理はローカルブラウザで行われます。"
+      "description": "NoStressPDFプライバシーポリシー。ファイルはデバイスから離れることはありません - すべての処理はローカルブラウザで行われます。"
     },
     "contact": {
       "title": "お問い合わせ",
-      "description": "HushPDFチームにお問い合わせください。ご意見をお待ちしております。"
+      "description": "NoStressPDFチームにお問い合わせください。ご意見をお待ちしております。"
     },
     "keywords": {
       "pdfTools": "PDFツール",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "HushPDF",
+    "brand": "NoStressPDF",
     "tagline": "プロ向けPDFツール — プライバシー重視",
     "navigation": {
       "home": "家",
@@ -84,8 +84,8 @@
       "loading": "読み込み中..."
     },
     "footer": {
-      "footer": "© 2025 HushPDF. All rights reserved.",
-      "copyright": "© {year} HushPDF. All rights reserved.",
+      "footer": "© 2025 NoStressPDF. All rights reserved.",
+      "copyright": "© {year} NoStressPDF. All rights reserved.",
       "privacyBadge": "100%プライベート - ファイルはデバイスから離れません",
       "madeWith": "<Heart /> と <Nextjs /> で作成"
     },
@@ -130,7 +130,7 @@
       "finish": "完了",
       "skip": "スキップ",
       "stepOf": "/",
-      "welcomeTitle": "HushPDFへようこそ！",
+      "welcomeTitle": "NoStressPDFへようこそ！",
       "welcomeMessage": "PDFツールの使い方を学ぶクイックツアーはいかがですか？1分程度で完了します。",
       "helpButton": "ヘルプツアー"
     },
@@ -951,12 +951,12 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "HushPDFとは何ですか？",
-          "answer": "HushPDFはブラウザ上で動作するプライバシー重視のPDFワークスペースです。文書をサーバーへ送信せず、80以上のプロ向けツールを利用できます。"
+          "question": "NoStressPDFとは何ですか？",
+          "answer": "NoStressPDFはブラウザ上で動作するプライバシー重視のPDFワークスペースです。文書をサーバーへ送信せず、80以上のプロ向けツールを利用できます。"
         },
         "isFree": {
-          "question": "HushPDFの料金体系は？",
-          "answer": "HushPDFは7日間のプライベートトライアル付きPersonal、Professional、Teamsプランを準備中です。対応するソースコードはGNU AGPLv3で公開されます。"
+          "question": "NoStressPDFの料金体系は？",
+          "answer": "NoStressPDFは7日間のプライベートトライアル付きPersonal、Professional、Teamsプランを準備中です。対応するソースコードはGNU AGPLv3で公開されます。"
         },
         "account": {
           "question": "アカウントは必要ですか？",
@@ -969,8 +969,8 @@
           "answer": "いいえ、お客様のファイルがサーバーにアップロードされることは一切ありません。すべてのPDF処理は、JavaScriptとWebAssemblyを使用してお客様のブラウザ内でローカルに行われます。ファイルがデバイスから送信されることはありません。"
         },
         "safe": {
-          "question": "機密性の高いドキュメントでHushPDFを使用しても安全ですか？",
-          "answer": "はい、HushPDFはプライバシーを最優先に設計されています。すべての処理がブラウザ内でローカルに実行されるため、機密ドキュメントはデバイス内に残り、インターネットを介して送信されることはありません。"
+          "question": "機密性の高いドキュメントでNoStressPDFを使用しても安全ですか？",
+          "answer": "はい、NoStressPDFはプライバシーを最優先に設計されています。すべての処理がブラウザ内でローカルに実行されるため、機密ドキュメントはデバイス内に残り、インターネットを介して送信されることはありません。"
         },
         "storage": {
           "question": "処理完了後、ファイルはどうなりますか？",
@@ -980,7 +980,7 @@
       "features": {
         "operations": {
           "question": "どのようなPDF操作を実行できますか？",
-          "answer": "HushPDFは、結合、分割、圧縮、各種変換（画像・テキスト・JSONへの/からの変換）、編集、注釈、署名、透かし追加、暗号化/復号化、OCRなど、67以上のツールを提供しています。"
+          "answer": "NoStressPDFは、結合、分割、圧縮、各種変換（画像・テキスト・JSONへの/からの変換）、編集、注釈、署名、透かし追加、暗号化/復号化、OCRなど、67以上のツールを提供しています。"
         },
         "merge": {
           "question": "複数のPDFファイルを結合できますか？",
@@ -988,17 +988,17 @@
         },
         "images": {
           "question": "画像をPDFに変換できますか？",
-          "answer": "はい、HushPDFはさまざまな画像形式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）のPDFへの変換に対応しています。1枚だけでなく、複数の画像を一度に変換することも可能です。"
+          "answer": "はい、NoStressPDFはさまざまな画像形式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）のPDFへの変換に対応しています。1枚だけでなく、複数の画像を一度に変換することも可能です。"
         },
         "edit": {
           "question": "PDF内のテキストを直接編集することはできますか？",
-          "answer": "HushPDFは、ハイライト、テキストの追加、図形、画像、署名の挿入などの注釈・編集ツールを提供しています。詳細な注釈やマークアップ機能には、「PDF編集」ツールをご利用ください。"
+          "answer": "NoStressPDFは、ハイライト、テキストの追加、図形、画像、署名の挿入などの注釈・編集ツールを提供しています。詳細な注釈やマークアップ機能には、「PDF編集」ツールをご利用ください。"
         }
       },
       "technical": {
         "browsers": {
           "question": "サポートされているブラウザは何ですか？",
-          "answer": "HushPDFは、Chrome、Firefox、Safari、Edgeを含むすべての主要なモダンブラウザに対応しています。快適にご利用いただくために、ブラウザの最新バージョンをご使用いただくことをお勧めします。"
+          "answer": "NoStressPDFは、Chrome、Firefox、Safari、Edgeを含むすべての主要なモダンブラウザに対応しています。快適にご利用いただくために、ブラウザの最新バージョンをご使用いただくことをお勧めします。"
         },
         "sizeLimit": {
           "question": "ファイルサイズに制限はありますか？",
@@ -1009,14 +1009,14 @@
           "answer": "すべての処理がお使いのブラウザ内で行われるため、処理のパフォーマンスはお使いのデバイスのスペックに依存します。大容量ファイルはより多くのメモリとCPU性能を必要とします。快適に処理するために、他のブラウザのタブやバックグラウンドアプリを閉じてからお試しください。"
         },
         "offline": {
-          "question": "HushPDFはオフラインでも動作しますか？",
-          "answer": "現在、HushPDFを読み込むためにはインターネット接続が必要です。ただし、アプリが一度完全に読み込まれれば、PDFの処理自体はローカルで行われるため、インターネット接続は必要ありません。"
+          "question": "NoStressPDFはオフラインでも動作しますか？",
+          "answer": "現在、NoStressPDFを読み込むためにはインターネット接続が必要です。ただし、アプリが一度完全に読み込まれれば、PDFの処理自体はローカルで行われるため、インターネット接続は必要ありません。"
         }
       },
       "languages": {
         "supported": {
           "question": "サポートされている言語は何ですか？",
-          "answer": "HushPDFは9言語に対応しています：英語、日本語、韓国語、スペイン語、フランス語、ドイツ語、中国語、ポルトガル語、アラビア語（右から左へのRTL表記対応）。"
+          "answer": "NoStressPDFは9言語に対応しています：英語、日本語、韓国語、スペイン語、フランス語、ドイツ語、中国語、ポルトガル語、アラビア語（右から左へのRTL表記対応）。"
         },
         "change": {
           "question": "言語を変更するにはどうすればよいですか？",
@@ -1047,7 +1047,7 @@
       },
       "fast": {
         "title": "高速＆高効率",
-        "description": "最新のウェブ技術を駆使した HushPDF は、ファイルのアップロードやダウンロードの待ち時間を発生させず、超高速なPDF処理を実現します。"
+        "description": "最新のウェブ技術を駆使した NoStressPDF は、ファイルのアップロードやダウンロードの待ち時間を発生させず、超高速なPDF処理を実現します。"
       },
       "accessible": {
         "title": "どこからでもアクセス可能",
@@ -1181,7 +1181,7 @@
       "title": "プロ向けPDFツール。",
       "highlight": "アップロード不要。",
       "subtitle": "機密PDFを端末上で編集、変換、保護、自動化できます。",
-      "cta": "HushPDFを試す",
+      "cta": "NoStressPDFを試す",
       "pricingCta": "プランを見る"
     },
     "features": {
@@ -1235,7 +1235,7 @@
   "workflow": {
     "title": "PDFワークフローエディター",
     "subtitle": "ツールを接続してカスタムPDF処理パイプラインを作成",
-    "metaTitle": "PDF ワークフロー ビルダー - HushPDF",
+    "metaTitle": "PDF ワークフロー ビルダー - NoStressPDF",
     "metaDescription": "ツールを視覚的に接続してカスタムPDF処理パイプラインを作成。ワークフローを構築、保存、再利用。",
     "toolbox": "ツールボックス",
     "dragToAdd": "ワークフローにツールをドラッグして追加",

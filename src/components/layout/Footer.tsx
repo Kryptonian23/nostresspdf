@@ -163,7 +163,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
         {/* Copyright */}
         <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-            &copy; {currentYear} HushPDF contributors. Licensed under the GNU AGPLv3.
+            &copy; {currentYear} NoStressPDF contributors. Licensed under the GNU AGPLv3.
           </p>
           <div className="flex items-center gap-6">
             <Link

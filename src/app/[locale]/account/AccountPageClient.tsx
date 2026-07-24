@@ -213,7 +213,7 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
               <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-[hsl(var(--color-primary)/0.1)] mb-5">
                 <UserRound className="h-7 w-7 text-[hsl(var(--color-primary))]" aria-hidden="true" />
               </div>
-              <h1 id="account-heading" className="text-4xl font-bold tracking-tight mb-4">Your HushPDF account</h1>
+              <h1 id="account-heading" className="text-4xl font-bold tracking-tight mb-4">Your NoStressPDF account</h1>
               <p className="text-[hsl(var(--color-muted-foreground))] leading-relaxed">
                 Account and subscription services never receive your PDF files, filenames, extracted text, or document metadata.
               </p>
@@ -301,7 +301,7 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                 <div className="text-center space-y-5">
                   <h2 className="text-xl font-bold">Sign in securely</h2>
                   <p className="text-sm text-[hsl(var(--color-muted-foreground))] max-w-lg mx-auto">
-                    HushPDF uses Cognito&apos;s authorization-code flow with PKCE. Your password is handled by the managed identity service, not the PDF application.
+                    NoStressPDF uses Cognito&apos;s authorization-code flow with PKCE. Your password is handled by the managed identity service, not the PDF application.
                   </p>
                   <Button onClick={handleSignIn} loading={loading}>
                     <LogIn className="h-4 w-4" aria-hidden="true" />

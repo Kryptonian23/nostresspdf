@@ -24,9 +24,9 @@ export async function generateMetadata({ params }: PricingPageProps): Promise<Me
   return generateBaseMetadata({
     locale: locale as Locale,
     path: '/pricing',
-    title: 'HushPDF Pricing',
-    description: 'Compare ad-supported access and HushPDF Personal, Professional, and Teams plans for private PDF processing with zero file uploads.',
-    keywords: ['HushPDF pricing', 'private PDF tools', 'professional PDF software', 'PDF workflow software'],
+    title: 'NoStressPDF Pricing',
+    description: 'Compare ad-supported access and NoStressPDF Personal, Professional, and Teams plans for private PDF processing with zero file uploads.',
+    keywords: ['NoStressPDF pricing', 'private PDF tools', 'professional PDF software', 'PDF workflow software'],
   });
 }
 
@@ -50,7 +50,7 @@ export default async function PricingPage({ params }: PricingPageProps) {
               Professional PDF tools. Zero uploads.
             </h1>
             <p className="text-lg text-[hsl(var(--color-muted-foreground))] leading-relaxed">
-              Choose the HushPDF experience that fits your work. Every plan keeps document processing on your device.
+              Choose the NoStressPDF experience that fits your work. Every plan keeps document processing on your device.
             </p>
           </div>
 
@@ -104,7 +104,7 @@ export default async function PricingPage({ params }: PricingPageProps) {
             <div>
               <h2 className="font-bold mb-1">Trial and rewarded access are planned, not active</h2>
               <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
-                Subscription checkout is not open yet. Rewarded access will remain disabled until HushPDF has a production domain, consent controls, and provider approval. At launch, it will be web-only, limited to {REWARDED_ACCESS_POLICY.maxUnlocksPerDay} unlocks per day, and will never inspect or upload your documents.
+                Subscription checkout is not open yet. Rewarded access will remain disabled until NoStressPDF has a production domain, consent controls, and provider approval. At launch, it will be web-only, limited to {REWARDED_ACCESS_POLICY.maxUnlocksPerDay} unlocks per day, and will never inspect or upload your documents.
               </p>
             </div>
           </div>

@@ -1,8 +1,8 @@
 /**
- * Service Worker for HushPDF
+ * Service Worker for NoStressPDF
  */
 
-const CACHE_NAME = 'hushpdf-cache-v2';
+const CACHE_NAME = 'nostresspdf-cache-v1';
 
 // Large assets to cache (Pyodide WASM and Python wheels)
 const PYODIDE_ASSETS = [

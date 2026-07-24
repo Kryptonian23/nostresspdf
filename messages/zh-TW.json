@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "HushPDF - 專業 PDF 工具",
+      "title": "NoStressPDF - 專業 PDF 工具",
       "description": "專業、私密、以瀏覽器為基礎的 PDF 工具。無需上傳伺服器即可編輯、轉換和保護文件。"
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "關於我們",
-      "description": "了解 HushPDF：在裝置上處理文件、隱私優先的專業 PDF 工作空間。"
+      "description": "了解 NoStressPDF：在裝置上處理文件、隱私優先的專業 PDF 工作空間。"
     },
     "faq": {
       "title": "常見問題",
-      "description": "查找有關 HushPDF 的常見問題解答。瞭解如何有效使用我們的 PDF 工具。"
+      "description": "查找有關 NoStressPDF 的常見問題解答。瞭解如何有效使用我們的 PDF 工具。"
     },
     "privacy": {
       "title": "隱私政策",
-      "description": "HushPDF 隱私政策。您的檔案永遠不會離開您的裝置 - 所有處理都在本地瀏覽器中進行。"
+      "description": "NoStressPDF 隱私政策。您的檔案永遠不會離開您的裝置 - 所有處理都在本地瀏覽器中進行。"
     },
     "contact": {
       "title": "聯絡我們",
-      "description": "聯繫 HushPDF 團隊。我們很樂意聽取您的意見。"
+      "description": "聯繫 NoStressPDF 團隊。我們很樂意聽取您的意見。"
     },
     "keywords": {
       "pdfTools": "PDF 工具",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "HushPDF",
+    "brand": "NoStressPDF",
     "tagline": "專業 PDF 工具，隱私優先",
     "navigation": {
       "home": "首頁",
@@ -84,8 +84,8 @@
       "loading": "載入中..."
     },
     "footer": {
-      "footer": "© 2025 HushPDF. 保留所有權利。",
-      "copyright": "© {year} HushPDF. 保留所有權利。",
+      "footer": "© 2025 NoStressPDF. 保留所有權利。",
+      "copyright": "© {year} NoStressPDF. 保留所有權利。",
       "privacyBadge": "100% 私密 - 檔案永不離開您的裝置",
       "madeWith": "Made with <Heart /> and <Nextjs />"
     },
@@ -130,7 +130,7 @@
       "finish": "完成",
       "skip": "跳過",
       "stepOf": "/",
-      "welcomeTitle": "歡迎使用HushPDF！",
+      "welcomeTitle": "歡迎使用NoStressPDF！",
       "welcomeMessage": "想要快速瞭解如何使用我們的PDF工具嗎？只需一分鐘。",
       "helpButton": "幫助導覽"
     },
@@ -951,16 +951,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "HushPDF 是什麼？",
-          "answer": "HushPDF 是直接在瀏覽器中運作的隱私優先 PDF 工作空間。無需將文件上傳伺服器，即可使用 80 多種專業工具。"
+          "question": "NoStressPDF 是什麼？",
+          "answer": "NoStressPDF 是直接在瀏覽器中運作的隱私優先 PDF 工作空間。無需將文件上傳伺服器，即可使用 80 多種專業工具。"
         },
         "isFree": {
-          "question": "HushPDF 將如何定價？",
-          "answer": "HushPDF 正在準備 Personal、Professional 與 Teams 付費方案，並提供七天私密試用。對應原始碼繼續依 GNU AGPLv3 提供。"
+          "question": "NoStressPDF 將如何定價？",
+          "answer": "NoStressPDF 正在準備 Personal、Professional 與 Teams 付費方案，並提供七天私密試用。對應原始碼繼續依 GNU AGPLv3 提供。"
         },
         "account": {
           "question": "我需要帳戶嗎？",
-          "answer": "計費上線後，開始試用或使用 HushPDF 官方訂閱需要帳戶。PDF 文件仍會在裝置上本機處理。"
+          "answer": "計費上線後，開始試用或使用 NoStressPDF 官方訂閱需要帳戶。PDF 文件仍會在裝置上本機處理。"
         }
       },
       "privacy": {
@@ -969,8 +969,8 @@
           "answer": "不會，您的檔案從未上傳到任何伺服器。所有 PDF 處理都使用 JavaScript 和 WebAssembly 在瀏覽器本地進行。您的檔案從未離開您的裝置。"
         },
         "safe": {
-          "question": "使用 HushPDF 處理敏感文件安全嗎？",
-          "answer": "是的，HushPDF 的設計以隱私為重。由於所有處理都在瀏覽器本地進行，您的敏感文件保留在您的裝置上，從未透過網際網路傳輸。"
+          "question": "使用 NoStressPDF 處理敏感文件安全嗎？",
+          "answer": "是的，NoStressPDF 的設計以隱私為重。由於所有處理都在瀏覽器本地進行，您的敏感文件保留在您的裝置上，從未透過網際網路傳輸。"
         },
         "storage": {
           "question": "處理後我的檔案會怎樣？",
@@ -980,7 +980,7 @@
       "features": {
         "operations": {
           "question": "我可以執行哪些 PDF 操作？",
-          "answer": "HushPDF 提供 67+ 個工具，包括：合併、分割、壓縮、轉換（轉為/來自影像、文字、JSON）、編輯、註釋、簽名、新增浮水印、加密/解密、OCR 等等。"
+          "answer": "NoStressPDF 提供 67+ 個工具，包括：合併、分割、壓縮、轉換（轉為/來自影像、文字、JSON）、編輯、註釋、簽名、新增浮水印、加密/解密、OCR 等等。"
         },
         "merge": {
           "question": "我可以合併多個 PDF 檔案嗎？",
@@ -988,17 +988,17 @@
         },
         "images": {
           "question": "我可以將影像轉換為 PDF 嗎？",
-          "answer": "是的，HushPDF 支援將各種影像格式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）轉換為 PDF。您可以一次轉換單個或多個影像。"
+          "answer": "是的，NoStressPDF 支援將各種影像格式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）轉換為 PDF。您可以一次轉換單個或多個影像。"
         },
         "edit": {
           "question": "我可以編輯 PDF 中的文字嗎？",
-          "answer": "HushPDF 提供註釋和編輯工具，包括高亮、新增文字、形狀、影像和簽名。如需全文編輯，PDF 編輯器工具提供全面的註釋功能。"
+          "answer": "NoStressPDF 提供註釋和編輯工具，包括高亮、新增文字、形狀、影像和簽名。如需全文編輯，PDF 編輯器工具提供全面的註釋功能。"
         }
       },
       "technical": {
         "browsers": {
           "question": "支援哪些瀏覽器？",
-          "answer": "HushPDF 適用於所有現代瀏覽器，包括 Chrome、Firefox、Safari 和 Edge。我們建議使用最新版本的瀏覽器以獲得最佳體驗。"
+          "answer": "NoStressPDF 適用於所有現代瀏覽器，包括 Chrome、Firefox、Safari 和 Edge。我們建議使用最新版本的瀏覽器以獲得最佳體驗。"
         },
         "sizeLimit": {
           "question": "有檔案大小限制嗎？",
@@ -1009,14 +1009,14 @@
           "answer": "由於所有處理都在瀏覽器中進行，效能取決於您裝置的能力。大檔案需要更多的記憶體和處理能力。為了獲得最佳結果，請關閉其他瀏覽器分頁和應用程式。"
         },
         "offline": {
-          "question": "HushPDF 可以離線工作嗎？",
-          "answer": "目前，HushPDF 需要網際網路連線才能載入應用程式。但是，一旦載入，PDF 處理本身在本地進行，不需要連線。"
+          "question": "NoStressPDF 可以離線工作嗎？",
+          "answer": "目前，NoStressPDF 需要網際網路連線才能載入應用程式。但是，一旦載入，PDF 處理本身在本地進行，不需要連線。"
         }
       },
       "languages": {
         "supported": {
           "question": "支援哪些語言？",
-          "answer": "HushPDF 提供 9 種語言版本：英語、日語、韓語、西班牙語、法語、德語、中文、葡萄牙語和阿拉伯語（支援從右到左）。"
+          "answer": "NoStressPDF 提供 9 種語言版本：英語、日語、韓語、西班牙語、法語、德語、中文、葡萄牙語和阿拉伯語（支援從右到左）。"
         },
         "change": {
           "question": "如何更改語言？",
@@ -1047,7 +1047,7 @@
       },
       "fast": {
         "title": "快速高效",
-        "description": "由現代 Web 技術驅動，HushPDF 提供閃電般的 PDF 處理速度，無需上傳或下載。"
+        "description": "由現代 Web 技術驅動，NoStressPDF 提供閃電般的 PDF 處理速度，無需上傳或下載。"
       },
       "accessible": {
         "title": "隨處可用",
@@ -1181,7 +1181,7 @@
       "title": "專業 PDF 工具。",
       "highlight": "零上傳。",
       "subtitle": "直接在裝置上編輯、轉換、保護和自動化敏感 PDF。",
-      "cta": "探索 HushPDF",
+      "cta": "探索 NoStressPDF",
       "pricingCta": "查看方案"
     },
     "features": {
@@ -1235,7 +1235,7 @@
   "workflow": {
     "title": "PDF 工作流程編輯器",
     "subtitle": "透過連接工具建立自訂 PDF 處理管道",
-    "metaTitle": "PDF 工作流程編輯器 - HushPDF",
+    "metaTitle": "PDF 工作流程編輯器 - NoStressPDF",
     "metaDescription": "透過視覺化連接工具建立自訂 PDF 處理管道。建構、儲存和重複使用您的工作流程。",
     "toolbox": "工具箱",
     "dragToAdd": "拖曳或雙擊工具以新增到工作流程",

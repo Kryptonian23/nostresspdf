@@ -11,7 +11,7 @@ const width = sourceMetadata.width;
 const height = sourceMetadata.height;
 
 if (!width || !height || width !== height) {
-  throw new Error('The HushPDF icon source must be a square raster image.');
+  throw new Error('The NoStressPDF icon source must be a square raster image.');
 }
 
 const cornerRadius = Math.round(width * 0.2);
@@ -62,7 +62,7 @@ const socialBackground = Buffer.from(`
     <rect width="1200" height="630" fill="url(#background)"/>
     <circle cx="1080" cy="80" r="260" fill="#16b8c4" opacity="0.10"/>
     <circle cx="1010" cy="600" r="330" fill="#2378ce" opacity="0.12"/>
-    <text x="500" y="270" fill="#f8f5ef" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="700">HushPDF</text>
+    <text x="500" y="270" fill="#f8f5ef" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="700">NoStressPDF</text>
     <text x="505" y="345" fill="#8fdae1" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="600">Private PDF tools. Zero uploads.</text>
     <text x="505" y="408" fill="#c5d1df" font-family="Inter, Arial, sans-serif" font-size="27">Your documents stay on your device.</text>
   </svg>
@@ -75,4 +75,4 @@ await sharp(socialBackground)
   .png()
   .toFile(path.join(root, 'public/images/og-image.png'));
 
-console.log('Generated HushPDF web, social, and extension brand assets.');
+console.log('Generated NoStressPDF web, social, and extension brand assets.');

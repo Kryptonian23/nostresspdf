@@ -315,7 +315,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
             <Link
               href={`/${locale}/account`}
               className="hidden sm:flex items-center justify-center h-9 w-9 rounded-lg text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] transition-all"
-              aria-label="HushPDF account"
+              aria-label="NoStressPDF account"
             >
               <UserRound className="h-5 w-5" aria-hidden="true" />
             </Link>

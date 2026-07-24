@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Private S3 and CloudFront hosting for the HushPDF static staging site.
+Description: Private S3 and CloudFront hosting for the NoStressPDF static staging site.
 
 Parameters:
   EnvironmentName:
@@ -38,7 +38,7 @@ Resources:
         RestrictPublicBuckets: true
       Tags:
         - Key: Application
-          Value: HushPDF
+          Value: NoStressPDF
         - Key: Environment
           Value: !Ref EnvironmentName
 
@@ -46,7 +46,7 @@ Resources:
     Type: AWS::CloudFront::OriginAccessControl
     Properties:
       OriginAccessControlConfig:
-        Description: !Sub Private S3 access for HushPDF ${EnvironmentName}
+        Description: !Sub Private S3 access for NoStressPDF ${EnvironmentName}
         Name: !Sub hushpdf-${EnvironmentName}-s3-oac
         OriginAccessControlOriginType: s3
         SigningBehavior: always
@@ -57,7 +57,7 @@ Resources:
     Properties:
       CachePolicyConfig:
         Name: !Sub hushpdf-${EnvironmentName}-html
-        Comment: Short-lived HTML and route cache for HushPDF staging.
+        Comment: Short-lived HTML and route cache for NoStressPDF staging.
         DefaultTTL: 0
         MaxTTL: 300
         MinTTL: 0
@@ -76,7 +76,7 @@ Resources:
     Properties:
       CachePolicyConfig:
         Name: !Sub hushpdf-${EnvironmentName}-static
-        Comment: Immutable asset cache for HushPDF staging.
+        Comment: Immutable asset cache for NoStressPDF staging.
         DefaultTTL: 31536000
         MaxTTL: 31536000
         MinTTL: 86400
@@ -95,7 +95,7 @@ Resources:
     Properties:
       ResponseHeadersPolicyConfig:
         Name: !Sub hushpdf-${EnvironmentName}-security
-        Comment: Security and cross-origin isolation headers required by HushPDF WASM tools.
+        Comment: Security and cross-origin isolation headers required by NoStressPDF WASM tools.
         SecurityHeadersConfig:
           ContentTypeOptions:
             Override: true
@@ -186,7 +186,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Comment: !Sub HushPDF ${EnvironmentName} static site
+        Comment: !Sub NoStressPDF ${EnvironmentName} static site
         CustomErrorResponses:
           - ErrorCachingMinTTL: 0
             ErrorCode: 403
@@ -263,7 +263,7 @@ Resources:
           CloudFrontDefaultCertificate: true
       Tags:
         - Key: Application
-          Value: HushPDF
+          Value: NoStressPDF
         - Key: Environment
           Value: !Ref EnvironmentName
 

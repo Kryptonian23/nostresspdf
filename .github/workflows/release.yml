@@ -56,11 +56,11 @@ jobs:
         run: |
           # The 'out' directory contains the static export
           cd out
-          zip -r ../hushpdf-${{ steps.version.outputs.version }}.zip .
+          zip -r ../nostresspdf-${{ steps.version.outputs.version }}.zip .
           cd ..
           
-          echo "📦 Release package created: hushpdf-${{ steps.version.outputs.version }}.zip"
-          echo "📊 Package size: $(du -h hushpdf-${{ steps.version.outputs.version }}.zip | cut -f1)"
+          echo "📦 Release package created: nostresspdf-${{ steps.version.outputs.version }}.zip"
+          echo "📊 Package size: $(du -h nostresspdf-${{ steps.version.outputs.version }}.zip | cut -f1)"
 
       # Create a draft release candidate. Unsigned desktop artifacts are not
       # attached or advertised as production downloads.
@@ -68,9 +68,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.version }}
-          name: HushPDF ${{ steps.version.outputs.version }}
+          name: NoStressPDF ${{ steps.version.outputs.version }}
           body: |
-            ## 🚀 HushPDF Release ${{ steps.version.outputs.version }}
+            ## 🚀 NoStressPDF Release ${{ steps.version.outputs.version }}
 
             ### Release candidate
             This draft contains the static web export for review. Desktop
@@ -81,7 +81,7 @@ jobs:
             **Commit:** `${{ github.sha }}`
             **Build Time:** ${{ steps.version.outputs.build_time }}
           files: |
-            hushpdf-${{ steps.version.outputs.version }}.zip
+            nostresspdf-${{ steps.version.outputs.version }}.zip
           draft: true
           prerelease: true
           generate_release_notes: true

@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Production HushPDF Stripe billing API with retained entitlements, Cognito authorization, and monitored webhooks.
+Description: Production NoStressPDF Stripe billing API with retained entitlements, Cognito authorization, and monitored webhooks.
 
 Parameters:
   EnvironmentName:
@@ -158,14 +158,14 @@ Resources:
         SSEEnabled: true
       Tags:
         - Key: Application
-          Value: HushPDF
+          Value: NoStressPDF
         - Key: Environment
           Value: !Ref EnvironmentName
 
   BillingFunctionErrorsAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: HushPDF billing Lambda returned errors.
+      AlarmDescription: NoStressPDF billing Lambda returned errors.
       Namespace: AWS/Lambda
       MetricName: Errors
       Dimensions:
@@ -183,7 +183,7 @@ Resources:
   BillingApiServerErrorsAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: HushPDF billing HTTP API returned server errors.
+      AlarmDescription: NoStressPDF billing HTTP API returned server errors.
       Namespace: AWS/ApiGateway
       MetricName: 5xx
       Dimensions:

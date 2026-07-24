@@ -1,4 +1,4 @@
-# HushPDF AWS sandbox
+# NoStressPDF AWS sandbox
 
 The authentication stack creates only the Cognito resources needed to test
 browser accounts. It does not receive or process PDF files. After authentication

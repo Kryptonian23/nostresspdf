@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "HushPDF - Professional PDF Tools",
+      "title": "NoStressPDF - Professional PDF Tools",
       "description": "Professional, private, and browser-based PDF tools. Edit, convert, and secure documents without uploading them to servers."
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "About",
-      "description": "Learn about HushPDF, a professional privacy-first PDF workspace that processes documents on your device."
+      "description": "Learn about NoStressPDF, a professional privacy-first PDF workspace that processes documents on your device."
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "description": "Find answers to common questions about HushPDF. Learn how to use our PDF tools effectively."
+      "description": "Find answers to common questions about NoStressPDF. Learn how to use our PDF tools effectively."
     },
     "privacy": {
       "title": "Privacy Policy",
-      "description": "HushPDF privacy policy. Your files never leave your device - all processing happens locally in your browser."
+      "description": "NoStressPDF privacy policy. Your files never leave your device - all processing happens locally in your browser."
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Get in touch with HushPDF team. We'd love to hear from you."
+      "description": "Get in touch with NoStressPDF team. We'd love to hear from you."
     },
     "keywords": {
       "pdfTools": "PDF tools",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "HushPDF",
+    "brand": "NoStressPDF",
     "tagline": "Professional PDF Tools - Private by Design",
     "navigation": {
       "home": "Home",
@@ -84,8 +84,8 @@
       "loading": "Loading..."
     },
     "footer": {
-      "footer": "© 2025 HushPDF. All rights reserved.",
-      "copyright": "© {year} HushPDF. All rights reserved.",
+      "footer": "© 2025 NoStressPDF. All rights reserved.",
+      "copyright": "© {year} NoStressPDF. All rights reserved.",
       "privacyBadge": "100% Private - Files never leave your device",
       "madeWith": "Made with <Heart /> and <Nextjs />"
     },
@@ -130,7 +130,7 @@
       "finish": "Finish",
       "skip": "Skip",
       "stepOf": "of",
-      "welcomeTitle": "Welcome to HushPDF!",
+      "welcomeTitle": "Welcome to NoStressPDF!",
       "welcomeMessage": "Would you like a quick tour to learn how to use our PDF tools? It only takes a minute.",
       "helpButton": "Help Tour"
     },
@@ -951,16 +951,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "What is HushPDF?",
-          "answer": "HushPDF is a privacy-first PDF workspace that runs directly in your browser. It offers 80+ professional tools without uploading your documents to a server."
+          "question": "What is NoStressPDF?",
+          "answer": "NoStressPDF is a privacy-first PDF workspace that runs directly in your browser. It offers 80+ professional tools without uploading your documents to a server."
         },
         "isFree": {
-          "question": "How will HushPDF pricing work?",
-          "answer": "HushPDF is preparing paid Personal, Professional, and Teams plans with a seven-day private trial. The corresponding source remains available under the GNU AGPLv3."
+          "question": "How will NoStressPDF pricing work?",
+          "answer": "NoStressPDF is preparing paid Personal, Professional, and Teams plans with a seven-day private trial. The corresponding source remains available under the GNU AGPLv3."
         },
         "account": {
           "question": "Will I need an account?",
-          "answer": "An account will be required to start a trial or use an official HushPDF subscription once billing launches. Your PDF documents will still be processed locally on your device."
+          "answer": "An account will be required to start a trial or use an official NoStressPDF subscription once billing launches. Your PDF documents will still be processed locally on your device."
         }
       },
       "privacy": {
@@ -969,8 +969,8 @@
           "answer": "No, your files are never uploaded to any server. All PDF processing happens locally in your browser using JavaScript and WebAssembly. Your files never leave your device."
         },
         "safe": {
-          "question": "Is it safe to use HushPDF with sensitive documents?",
-          "answer": "Yes, HushPDF is designed with privacy in mind. Since all processing happens locally in your browser, your sensitive documents remain on your device and are never transmitted over the internet."
+          "question": "Is it safe to use NoStressPDF with sensitive documents?",
+          "answer": "Yes, NoStressPDF is designed with privacy in mind. Since all processing happens locally in your browser, your sensitive documents remain on your device and are never transmitted over the internet."
         },
         "storage": {
           "question": "What happens to my files after processing?",
@@ -980,7 +980,7 @@
       "features": {
         "operations": {
           "question": "What PDF operations can I perform?",
-          "answer": "HushPDF offers 67+ tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
+          "answer": "NoStressPDF offers 67+ tools including: merge, split, compress, convert (to/from images, text, JSON), edit, annotate, sign, add watermarks, encrypt/decrypt, OCR, and many more."
         },
         "merge": {
           "question": "Can I merge multiple PDF files?",
@@ -988,17 +988,17 @@
         },
         "images": {
           "question": "Can I convert images to PDF?",
-          "answer": "Yes, HushPDF supports converting various image formats (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) to PDF. You can convert single or multiple images at once."
+          "answer": "Yes, NoStressPDF supports converting various image formats (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) to PDF. You can convert single or multiple images at once."
         },
         "edit": {
           "question": "Can I edit text in a PDF?",
-          "answer": "HushPDF provides annotation and editing tools including highlighting, adding text, shapes, images, and signatures. For full text editing, the PDF Editor tool offers comprehensive annotation capabilities."
+          "answer": "NoStressPDF provides annotation and editing tools including highlighting, adding text, shapes, images, and signatures. For full text editing, the PDF Editor tool offers comprehensive annotation capabilities."
         }
       },
       "technical": {
         "browsers": {
           "question": "What browsers are supported?",
-          "answer": "HushPDF works on all modern browsers including Chrome, Firefox, Safari, and Edge. We recommend using the latest version of your browser for the best experience."
+          "answer": "NoStressPDF works on all modern browsers including Chrome, Firefox, Safari, and Edge. We recommend using the latest version of your browser for the best experience."
         },
         "sizeLimit": {
           "question": "Is there a file size limit?",
@@ -1009,14 +1009,14 @@
           "answer": "Since all processing happens in your browser, performance depends on your device's capabilities. Large files require more memory and processing power. For best results, close other browser tabs and applications."
         },
         "offline": {
-          "question": "Does HushPDF work offline?",
-          "answer": "Currently, HushPDF requires an internet connection to load the application. However, once loaded, the PDF processing itself happens locally and doesn't require a connection."
+          "question": "Does NoStressPDF work offline?",
+          "answer": "Currently, NoStressPDF requires an internet connection to load the application. However, once loaded, the PDF processing itself happens locally and doesn't require a connection."
         }
       },
       "languages": {
         "supported": {
           "question": "What languages are supported?",
-          "answer": "HushPDF is available in 9 languages: English, Japanese, Korean, Spanish, French, German, Chinese, Portuguese, and Arabic (with RTL support)."
+          "answer": "NoStressPDF is available in 9 languages: English, Japanese, Korean, Spanish, French, German, Chinese, Portuguese, and Arabic (with RTL support)."
         },
         "change": {
           "question": "How do I change the language?",
@@ -1047,7 +1047,7 @@
       },
       "fast": {
         "title": "Fast & Efficient",
-        "description": "Powered by modern web technologies, HushPDF delivers lightning-fast PDF processing without the need for uploads or downloads."
+        "description": "Powered by modern web technologies, NoStressPDF delivers lightning-fast PDF processing without the need for uploads or downloads."
       },
       "accessible": {
         "title": "Accessible Everywhere",
@@ -1181,7 +1181,7 @@
       "title": "Professional PDF Tools.",
       "highlight": "Zero Uploads.",
       "subtitle": "Edit, convert, secure, and automate sensitive PDFs directly on your device.",
-      "cta": "Explore HushPDF",
+      "cta": "Explore NoStressPDF",
       "pricingCta": "View Plans"
     },
     "features": {
@@ -1235,7 +1235,7 @@
   "workflow": {
     "title": "PDF Workflow Builder",
     "subtitle": "Create custom PDF processing pipelines by connecting tools",
-    "metaTitle": "PDF Workflow Builder - HushPDF",
+    "metaTitle": "PDF Workflow Builder - NoStressPDF",
     "metaDescription": "Create custom PDF processing pipelines by visually connecting tools. Build, save, and reuse your workflows.",
     "toolbox": "Tool Box",
     "dragToAdd": "Drag or double-click a tool to add it to the workflow",

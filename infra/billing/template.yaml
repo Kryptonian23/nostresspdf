@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: HushPDF Stripe billing sandbox with Cognito authorization and webhook-managed entitlements.
+Description: NoStressPDF Stripe billing sandbox with Cognito authorization and webhook-managed entitlements.
 
 Parameters:
   EnvironmentName:
@@ -9,10 +9,10 @@ Parameters:
     AllowedPattern: '^[a-z0-9-]+$'
   UserPoolId:
     Type: String
-    Description: Cognito UserPoolId output from the HushPDF authentication stack.
+    Description: Cognito UserPoolId output from the NoStressPDF authentication stack.
   UserPoolClientId:
     Type: String
-    Description: Cognito UserPoolClientId output from the HushPDF authentication stack.
+    Description: Cognito UserPoolClientId output from the NoStressPDF authentication stack.
   BillingAuthorizationScope:
     Type: String
     Default: hushpdf-billing/access
@@ -159,7 +159,7 @@ Resources:
         SSEEnabled: true
       Tags:
         - Key: Application
-          Value: HushPDF
+          Value: NoStressPDF
         - Key: Environment
           Value: !Ref EnvironmentName
 
@@ -169,11 +169,11 @@ Resources:
     UpdateReplacePolicy: Delete
     Properties:
       Name: !Sub hushpdf/stripe/${EnvironmentName}
-      Description: Stripe test-mode API key and webhook signing secret for HushPDF.
+      Description: Stripe test-mode API key and webhook signing secret for NoStressPDF.
       SecretString: '{"secretKey":"replace-with-sk-test","webhookSecret":"replace-with-whsec"}'
       Tags:
         - Key: Application
-          Value: HushPDF
+          Value: NoStressPDF
         - Key: Environment
           Value: !Ref EnvironmentName
 

@@ -1,8 +1,8 @@
 [package]
-name = "hushpdf"
+name = "nostresspdf"
 version = "0.1.0"
-description = "HushPDF private desktop PDF tools"
-authors = ["HushPDF contributors"]
+description = "NoStressPDF private desktop PDF tools"
+authors = ["NoStressPDF contributors"]
 edition = "2021"
 
 [build-dependencies]

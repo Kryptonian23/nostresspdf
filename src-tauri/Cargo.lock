@@ -2098,7 +2098,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "hushpdf"
+name = "nostresspdf"
 version = "0.1.0"
 dependencies = [
  "serde",

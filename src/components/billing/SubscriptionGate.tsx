@@ -83,7 +83,7 @@ export function SubscriptionGate({ children, locale, requiredPlan, resourceName 
       <Card className="min-h-64 flex items-center justify-center text-center" hover={false}>
         <div className="space-y-3" role="status">
           <RefreshCw className="h-8 w-8 mx-auto animate-spin text-[hsl(var(--color-primary))]" aria-hidden="true" />
-          <p className="font-semibold">Checking your HushPDF subscription…</p>
+          <p className="font-semibold">Checking your NoStressPDF subscription…</p>
           <p className="text-sm text-[hsl(var(--color-muted-foreground))]">Your documents remain on this device.</p>
         </div>
       </Card>
@@ -112,7 +112,7 @@ export function SubscriptionGate({ children, locale, requiredPlan, resourceName 
             {state === 'error' && 'Subscription status is temporarily unavailable'}
           </h2>
           <p className="text-[hsl(var(--color-muted-foreground))]">
-            {state === 'signed-out' && 'Sign in securely to check your HushPDF subscription.'}
+            {state === 'signed-out' && 'Sign in securely to check your NoStressPDF subscription.'}
             {isUpgrade && 'Upgrade from Personal to unlock workflows, batch processing, advanced OCR, automation, and prepress tools.'}
             {state === 'subscription-required' && (isPastDue
               ? 'Open your account to update the payment method for this subscription.'

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "HushPDF - 专业 PDF 工具",
+      "title": "NoStressPDF - 专业 PDF 工具",
       "description": "专业、私密、基于浏览器的 PDF 工具。无需上传到服务器即可编辑、转换和保护文档。"
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "关于我们",
-      "description": "了解 HushPDF：在设备上处理文档、隐私优先的专业 PDF 工作空间。"
+      "description": "了解 NoStressPDF：在设备上处理文档、隐私优先的专业 PDF 工作空间。"
     },
     "faq": {
       "title": "常见问题",
-      "description": "查找有关 HushPDF 的常见问题解答。了解如何有效使用我们的 PDF 工具。"
+      "description": "查找有关 NoStressPDF 的常见问题解答。了解如何有效使用我们的 PDF 工具。"
     },
     "privacy": {
       "title": "隐私政策",
-      "description": "HushPDF 隐私政策。您的文件永远不会离开您的设备 - 所有处理都在本地浏览器中进行。"
+      "description": "NoStressPDF 隐私政策。您的文件永远不会离开您的设备 - 所有处理都在本地浏览器中进行。"
     },
     "contact": {
       "title": "联系我们",
-      "description": "联系 HushPDF 团队。我们很乐意听取您的意见。"
+      "description": "联系 NoStressPDF 团队。我们很乐意听取您的意见。"
     },
     "keywords": {
       "pdfTools": "PDF 工具",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "HushPDF",
+    "brand": "NoStressPDF",
     "tagline": "专业 PDF 工具，隐私优先",
     "navigation": {
       "home": "首页",
@@ -84,8 +84,8 @@
       "loading": "加载中..."
     },
     "footer": {
-      "footer": "© 2025 HushPDF. 保留所有权利。",
-      "copyright": "© {year} HushPDF. 保留所有权利。",
+      "footer": "© 2025 NoStressPDF. 保留所有权利。",
+      "copyright": "© {year} NoStressPDF. 保留所有权利。",
       "privacyBadge": "100% 私密 - 文件永不离开您的设备",
       "madeWith": "Made with <Heart /> and <Nextjs />"
     },
@@ -130,7 +130,7 @@
       "finish": "完成",
       "skip": "跳过",
       "stepOf": "/",
-      "welcomeTitle": "欢迎使用HushPDF！",
+      "welcomeTitle": "欢迎使用NoStressPDF！",
       "welcomeMessage": "想要快速了解如何使用我们的PDF工具吗？只需一分钟。",
       "helpButton": "帮助导览"
     },
@@ -951,16 +951,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "HushPDF 是什么？",
-          "answer": "HushPDF 是直接在浏览器中运行的隐私优先 PDF 工作空间。无需将文档上传到服务器，即可使用 80 多种专业工具。"
+          "question": "NoStressPDF 是什么？",
+          "answer": "NoStressPDF 是直接在浏览器中运行的隐私优先 PDF 工作空间。无需将文档上传到服务器，即可使用 80 多种专业工具。"
         },
         "isFree": {
-          "question": "HushPDF 将如何定价？",
-          "answer": "HushPDF 正在准备 Personal、Professional 和 Teams 付费方案，并提供七天私密试用。对应源代码继续按照 GNU AGPLv3 提供。"
+          "question": "NoStressPDF 将如何定价？",
+          "answer": "NoStressPDF 正在准备 Personal、Professional 和 Teams 付费方案，并提供七天私密试用。对应源代码继续按照 GNU AGPLv3 提供。"
         },
         "account": {
           "question": "我需要账户吗？",
-          "answer": "计费上线后，开始试用或使用 HushPDF 官方订阅需要账户。PDF 文档仍会在设备上本地处理。"
+          "answer": "计费上线后，开始试用或使用 NoStressPDF 官方订阅需要账户。PDF 文档仍会在设备上本地处理。"
         }
       },
       "privacy": {
@@ -969,8 +969,8 @@
           "answer": "不会，您的文件从未上传到任何服务器。所有 PDF 处理都使用 JavaScript 和 WebAssembly 在浏览器本地进行。您的文件从未离开您的设备。"
         },
         "safe": {
-          "question": "使用 HushPDF 处理敏感文档安全吗？",
-          "answer": "是的，HushPDF 的设计以隐私为重。由于所有处理都在浏览器本地进行，您的敏感文档保留在您的设备上，从未通过互联网传输。"
+          "question": "使用 NoStressPDF 处理敏感文档安全吗？",
+          "answer": "是的，NoStressPDF 的设计以隐私为重。由于所有处理都在浏览器本地进行，您的敏感文档保留在您的设备上，从未通过互联网传输。"
         },
         "storage": {
           "question": "处理后我的文件会怎样？",
@@ -980,7 +980,7 @@
       "features": {
         "operations": {
           "question": "我可以执行哪些 PDF 操作？",
-          "answer": "HushPDF 提供 67+ 个工具，包括：合并、分割、压缩、转换（转为/来自图像、文本、JSON）、编辑、注释、签名、添加水印、加密/解密、OCR 等等。"
+          "answer": "NoStressPDF 提供 67+ 个工具，包括：合并、分割、压缩、转换（转为/来自图像、文本、JSON）、编辑、注释、签名、添加水印、加密/解密、OCR 等等。"
         },
         "merge": {
           "question": "我可以合并多个 PDF 文件吗？",
@@ -988,17 +988,17 @@
         },
         "images": {
           "question": "我可以将图像转换为 PDF 吗？",
-          "answer": "是的，HushPDF 支持将各种图像格式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）转换为 PDF。您可以一次转换单个或多个图像。"
+          "answer": "是的，NoStressPDF 支持将各种图像格式（JPG、PNG、WebP、BMP、TIFF、SVG、HEIC）转换为 PDF。您可以一次转换单个或多个图像。"
         },
         "edit": {
           "question": "我可以编辑 PDF 中的文本吗？",
-          "answer": "HushPDF 提供注释和编辑工具，包括高亮、添加文本、形状、图像和签名。如需全文编辑，PDF 编辑器工具提供全面的注释功能。"
+          "answer": "NoStressPDF 提供注释和编辑工具，包括高亮、添加文本、形状、图像和签名。如需全文编辑，PDF 编辑器工具提供全面的注释功能。"
         }
       },
       "technical": {
         "browsers": {
           "question": "支持哪些浏览器？",
-          "answer": "HushPDF 适用于所有现代浏览器，包括 Chrome、Firefox、Safari 和 Edge。我们建议使用最新版本的浏览器以获得最佳体验。"
+          "answer": "NoStressPDF 适用于所有现代浏览器，包括 Chrome、Firefox、Safari 和 Edge。我们建议使用最新版本的浏览器以获得最佳体验。"
         },
         "sizeLimit": {
           "question": "有文件大小限制吗？",
@@ -1009,14 +1009,14 @@
           "answer": "由于所有处理都在浏览器中进行，性能取决于您设备的能力。大文件需要更多的内存和处理能力。为了获得最佳结果，请关闭其他浏览器标签页和应用程序。"
         },
         "offline": {
-          "question": "HushPDF 可以离线工作吗？",
-          "answer": "目前，HushPDF 需要互联网连接才能加载应用程序。但是，一旦加载，PDF 处理本身在本地进行，不需要连接。"
+          "question": "NoStressPDF 可以离线工作吗？",
+          "answer": "目前，NoStressPDF 需要互联网连接才能加载应用程序。但是，一旦加载，PDF 处理本身在本地进行，不需要连接。"
         }
       },
       "languages": {
         "supported": {
           "question": "支持哪些语言？",
-          "answer": "HushPDF 提供 9 种语言版本：英语、日语、韩语、西班牙语、法语、德语、中文、葡萄牙语和阿拉伯语（支持从右到左）。"
+          "answer": "NoStressPDF 提供 9 种语言版本：英语、日语、韩语、西班牙语、法语、德语、中文、葡萄牙语和阿拉伯语（支持从右到左）。"
         },
         "change": {
           "question": "如何更改语言？",
@@ -1047,7 +1047,7 @@
       },
       "fast": {
         "title": "快速高效",
-        "description": "由现代 Web 技术驱动，HushPDF 提供闪电般的 PDF 处理速度，无需上传或下载。"
+        "description": "由现代 Web 技术驱动，NoStressPDF 提供闪电般的 PDF 处理速度，无需上传或下载。"
       },
       "accessible": {
         "title": "随处可用",
@@ -1181,7 +1181,7 @@
       "title": "专业 PDF 工具。",
       "highlight": "零上传。",
       "subtitle": "直接在设备上编辑、转换、保护和自动化敏感 PDF。",
-      "cta": "探索 HushPDF",
+      "cta": "探索 NoStressPDF",
       "pricingCta": "查看方案"
     },
     "features": {
@@ -1235,7 +1235,7 @@
   "workflow": {
     "title": "PDF 工作流编辑器",
     "subtitle": "通过连接工具创建自定义 PDF 处理管道",
-    "metaTitle": "PDF 工作流编辑器 - HushPDF",
+    "metaTitle": "PDF 工作流编辑器 - NoStressPDF",
     "metaDescription": "通过可视化连接工具创建自定义 PDF 处理管道。构建、保存和重用您的工作流。",
     "toolbox": "工具箱",
     "dragToAdd": "拖拽或双击工具以添加到工作流",

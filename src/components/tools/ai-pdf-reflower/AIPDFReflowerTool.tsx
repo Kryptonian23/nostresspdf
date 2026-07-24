@@ -470,7 +470,7 @@ export function AIPDFReflowerTool({ className = '' }: AIPDFReflowerToolProps) {
 
                 {/* Simulated Bottom Navigation */}
                 <div className="pt-2 border-t border-inherit flex items-center justify-center text-[10px] font-bold opacity-40">
-                  <span>HushPDF Mobile Reflower v1.0</span>
+                  <span>NoStressPDF Mobile Reflower v1.0</span>
                 </div>
 
               </div>

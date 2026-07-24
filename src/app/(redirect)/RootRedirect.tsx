@@ -28,9 +28,9 @@ export function RootRedirect() {
   return (
     <main className="flex min-h-screen items-center justify-center p-6 text-center">
       <div>
-        <p className="mb-3 text-muted-foreground">Opening HushPDF in your preferred language…</p>
+        <p className="mb-3 text-muted-foreground">Opening NoStressPDF in your preferred language…</p>
         <Link className="text-primary underline" href="/en/">
-          Continue to HushPDF
+          Continue to NoStressPDF
         </Link>
       </div>
     </main>

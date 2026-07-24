@@ -4,15 +4,15 @@
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
 
 export const siteConfig = {
-  name: 'HushPDF',
+  name: 'NoStressPDF',
   description: 'Private PDF tools with zero file uploads. Edit, convert, secure, and automate PDFs directly on your device.',
   url: configuredSiteUrl || 'http://localhost:3000',
   ogImage: '/images/og-image.png',
   links: {
     upstream: 'https://github.com/PDFCraftTool/pdfcraft',
-    source: process.env.NEXT_PUBLIC_SOURCE_URL || 'https://github.com/Kryptonian23/hushpdf',
+    source: process.env.NEXT_PUBLIC_SOURCE_URL || 'https://github.com/Kryptonian23/nostresspdf',
   },
-  creator: 'HushPDF contributors',
+  creator: 'NoStressPDF contributors',
   keywords: [
     'PDF tools',
     'PDF editor',
@@ -30,8 +30,8 @@ export const siteConfig = {
   ],
   // SEO-related settings
   seo: {
-    titleTemplate: '%s | HushPDF',
-    defaultTitle: 'HushPDF - Private PDF Tools With Zero Uploads',
+    titleTemplate: '%s | NoStressPDF',
+    defaultTitle: 'NoStressPDF - Private PDF Tools With Zero Uploads',
     locale: 'en_US',
   },
 };

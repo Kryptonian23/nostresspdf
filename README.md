@@ -1,7 +1,7 @@
-# HushPDF
+# NoStressPDF
 
 <div align="center">
-  <img src="public/images/logo.png" alt="HushPDF Logo" width="120" height="120" />
+  <img src="public/images/logo.png" alt="NoStressPDF Logo" width="120" height="120" />
   <h1>Private PDF Tools. Zero Uploads.</h1>
   <p>
     <strong>Your files stay on your device</strong>
@@ -22,11 +22,11 @@
 
 ## 📖 About
 
-**HushPDF** is a privacy-first suite of PDF tools. Unlike upload-based converters, supported operations run in your browser using JavaScript and WebAssembly, so document contents stay on your device.
+**NoStressPDF** is a privacy-first suite of PDF tools. Unlike upload-based converters, supported operations run in your browser using JavaScript and WebAssembly, so document contents stay on your device.
 
 This is a rebranded and modified distribution of [PDFCraft](https://github.com/PDFCraftTool/pdfcraft). It remains free software under the GNU AGPLv3; see [NOTICE](NOTICE) for attribution.
 
-Source code: [github.com/Kryptonian23/hushpdf](https://github.com/Kryptonian23/hushpdf)
+Source code: [github.com/Kryptonian23/nostresspdf](https://github.com/Kryptonian23/nostresspdf)
 
 This project is built with modern web technologies to provide a slick, app-like experience directly in the browser.
 
@@ -42,7 +42,7 @@ This project is built with modern web technologies to provide a slick, app-like 
 
 > ⚠️ **Early Development Notice**: This feature is currently in early development stage. You may encounter bugs or incomplete functionality. We appreciate your feedback and patience!
 
-HushPDF includes a powerful **visual workflow editor** that allows you to chain multiple PDF operations together, creating automated processing pipelines.
+NoStressPDF includes a powerful **visual workflow editor** that allows you to chain multiple PDF operations together, creating automated processing pipelines.
 
 <div align="center">
   <img src="public/images/workflow-editor-screenshot.png" alt="Workflow Editor Screenshot" width="800" />
@@ -212,9 +212,9 @@ To run this project locally, follow these steps:
 
 ### Installation
 
-1.  **Open your HushPDF source directory**
+1.  **Open your NoStressPDF source directory**
     ```bash
-    cd hushpdf
+    cd nostresspdf
     ```
 
 2.  **Install dependencies**
@@ -240,16 +240,16 @@ To run this project locally, follow these steps:
 
 ### 🐳 Docker
 
-HushPDF includes Docker and Docker Compose configuration for local builds. No official HushPDF container image is published yet.
+NoStressPDF includes Docker and Docker Compose configuration for local builds. No official NoStressPDF container image is published yet.
 
 #### Build the image locally
 
 ```bash
-docker build -t hushpdf .
-docker run -d -p 8080:80 --name hushpdf hushpdf
+docker build -t nostresspdf .
+docker run -d -p 8080:80 --name nostresspdf nostresspdf
 ```
 
-Open [http://localhost:8080](http://localhost:8080) to access HushPDF.
+Open [http://localhost:8080](http://localhost:8080) to access NoStressPDF.
 
 #### Build from source with Docker Compose
 
@@ -274,23 +274,23 @@ docker compose down
 
 #### 🌐 Subpath Deployment (basePath Support)
 
-HushPDF supports deployment under a subpath (e.g., `https://your-domain.com/hushpdf/`). To enable this, you must specify the base path during the build process.
+NoStressPDF supports deployment under a subpath (e.g., `https://your-domain.com/nostresspdf/`). To enable this, you must specify the base path during the build process.
 
 **Using Docker Build:**
 ```bash
-docker build --build-arg BASE_PATH=/hushpdf -t hushpdf .
+docker build --build-arg BASE_PATH=/nostresspdf -t nostresspdf .
 ```
 
 **Using Docker Compose:**
 ```yaml
 services:
-  hushpdf:
+  nostresspdf:
     build:
       context: .
       args:
-        - BASE_PATH=/hushpdf
+        - BASE_PATH=/nostresspdf
     environment:
-      - BASE_PATH=/hushpdf
+      - BASE_PATH=/nostresspdf
 ```
 
 *Note: Since the app is statically exported, the `BASE_PATH` must be provided during the build stage.*
@@ -305,7 +305,7 @@ services:
 
 ## 🚀 Production Deployment Guide
 
-HushPDF is configured for static export (`output: 'export'`), which means it can be deployed to any service that supports static website hosting without requiring a Node.js server.
+NoStressPDF is configured for static export (`output: 'export'`), which means it can be deployed to any service that supports static website hosting without requiring a Node.js server.
 
 > 📖 **For comprehensive deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
 
@@ -359,7 +359,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🤝 Acknowledgements
 
-HushPDF is derived from [PDFCraft](https://github.com/PDFCraftTool/pdfcraft), whose existing copyright and license notices are preserved. PDFCraft in turn acknowledges [BentoPDF](https://github.com/alam00000/bentopdf) for pioneering privacy-first, client-side PDF tools.
+NoStressPDF is derived from [PDFCraft](https://github.com/PDFCraftTool/pdfcraft), whose existing copyright and license notices are preserved. PDFCraft in turn acknowledges [BentoPDF](https://github.com/alam00000/bentopdf) for pioneering privacy-first, client-side PDF tools.
 
 ## 📄 License
 
@@ -368,5 +368,5 @@ This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE)
 ---
 
 <div align="center">
-  HushPDF — private PDF tools with zero uploads
+  NoStressPDF — private PDF tools with zero uploads
 </div>

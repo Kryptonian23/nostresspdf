@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify';
 /**
  * Sanitize SVG generated from an untrusted document before inserting it into
  * the application DOM. Downloaded output is left unchanged; this protects the
- * HushPDF preview itself from scripts, event handlers, embedded HTML, and
+ * NoStressPDF preview itself from scripts, event handlers, embedded HTML, and
  * CSS-based network loads.
  */
 export function sanitizeSvgForPreview(svg: string): string {

@@ -84,7 +84,7 @@ export async function getCognitoAccessToken(): Promise<string> {
   const session = await fetchAuthSession();
   const token = session.tokens?.accessToken?.toString();
   if (!token) {
-    throw new Error('A valid HushPDF account session is required.');
+    throw new Error('A valid NoStressPDF account session is required.');
   }
   return token;
 }

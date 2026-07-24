@@ -1,4 +1,4 @@
-# HushPDF Stripe billing sandbox
+# NoStressPDF Stripe billing sandbox
 
 This stack adds subscription billing without putting Stripe secrets in the
 browser or sending PDF content to AWS or Stripe. Cognito access tokens protect
@@ -8,13 +8,13 @@ webhook events are the authority for entitlements.
 ## Before deploying
 
 1. In the Stripe Dashboard, enable **test mode**.
-2. Create `HushPDF Personal` and `HushPDF Professional` products.
+2. Create `NoStressPDF Personal` and `NoStressPDF Professional` products.
 3. Give each product one monthly and one yearly recurring price:
    - Personal: $7 monthly and $49 yearly.
    - Professional: $12 monthly and $99 yearly.
 4. Set each Price's tax behavior to either inclusive or exclusive. Stripe's
    Customer Portal does not allow subscription changes while tax behavior is
-   unspecified. HushPDF's sandbox uses exclusive tax behavior.
+   unspecified. NoStressPDF's sandbox uses exclusive tax behavior.
 5. Copy the four test `price_...` identifiers. Do not copy secret keys into the
    repository or `.env.local`.
 6. Redeploy `infra/cognito-sandbox.yaml` once so existing accounts can request
@@ -67,7 +67,7 @@ environments, so redeploy or wait for a fresh environment after changing them.
 
 Configure the Stripe Customer Portal in test mode. Enable subscription updates
 for the Personal and Professional monthly and annual Prices, allow Price
-changes, and select the desired proration behavior. HushPDF's sandbox uses
+changes, and select the desired proration behavior. NoStressPDF's sandbox uses
 Stripe-created prorations. This makes the account page's billing portal the
 upgrade and downgrade path.
 
@@ -85,7 +85,7 @@ in test mode.
 
 - API Gateway validates the Cognito issuer, client ID, signature, expiry, and
   custom billing scope before Lambda runs.
-- Checkout and portal return URLs must use the configured HushPDF origin and an
+- Checkout and portal return URLs must use the configured NoStressPDF origin and an
   `/account/` path.
 - The webhook verifies Stripe's signature against the unmodified request body.
 - Browser redirects do not grant access. Only subscription webhook state does.

@@ -1,11 +1,11 @@
-# HushPDF Chrome Extension
+# NoStressPDF Chrome Extension
 
-A simple Chrome extension for quick access to HushPDF's 72+ PDF tools.
+A simple Chrome extension for quick access to NoStressPDF's 72+ PDF tools.
 
 ## Features
 
 - 🚀 **Quick Access Popup**: Click the extension icon to see popular tools
-- 📋 **Right-Click Menu**: Access HushPDF tools from any webpage
+- 📋 **Right-Click Menu**: Access NoStressPDF tools from any webpage
 - 🎨 **Modern UI**: Beautiful dark theme with gradient effects
 - ⚡ **Fast**: Lightweight extension with no background processing
 
@@ -18,12 +18,12 @@ A simple Chrome extension for quick access to HushPDF's 72+ PDF tools.
 3. Enable **Developer mode** (toggle in top-right corner)
 4. Click **Load unpacked**
 5. Select the `extension` folder from this repository
-6. The HushPDF icon should appear in your toolbar!
+6. The NoStressPDF icon should appear in your toolbar!
 
 ### Usage
 
 - **Click the icon** in your toolbar to see quick links to popular PDF tools
-- **Right-click** on any webpage and select "Open with HushPDF" to access tools
+- **Right-click** on any webpage and select "Open with NoStressPDF" to access tools
 
 ## Tools Included
 
@@ -37,14 +37,14 @@ The popup provides quick access to:
 - Sign PDF
 - Encrypt PDF
 
-And 64+ more tools via the "Open HushPDF" button!
+And 64+ more tools via the "Open NoStressPDF" button!
 
 ## Privacy
 
 This extension:
 - ✅ Does NOT collect any data
 - ✅ Does NOT track browsing activity
-- ✅ Only opens HushPDF website when you click
+- ✅ Only opens NoStressPDF website when you click
 
 ## Links
 

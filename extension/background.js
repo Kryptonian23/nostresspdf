@@ -1,6 +1,6 @@
-// HushPDF Chrome Extension - Background Service Worker
+// NoStressPDF Chrome Extension - Background Service Worker
 
-// Set this to the public HushPDF URL before publishing the extension.
+// Set this to the public NoStressPDF URL before publishing the extension.
 const HUSHPDF_URL = 'http://localhost:3000/en';
 
 // Create context menu when extension is installed
@@ -8,7 +8,7 @@ chrome.runtime.onInstalled.addListener(() => {
     // Create main context menu item
     chrome.contextMenus.create({
         id: 'hushpdf-open',
-        title: 'Open with HushPDF',
+        title: 'Open with NoStressPDF',
         contexts: ['link', 'page']
     });
 
@@ -41,7 +41,7 @@ chrome.runtime.onInstalled.addListener(() => {
         contexts: ['link', 'page']
     });
 
-    console.log('HushPDF context menus created');
+    console.log('NoStressPDF context menus created');
 });
 
 // Handle context menu clicks
@@ -66,9 +66,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
             url = HUSHPDF_URL;
     }
 
-    // Open HushPDF in a new tab
+    // Open NoStressPDF in a new tab
     chrome.tabs.create({ url: url });
 });
 
 // Log when service worker starts
-console.log('HushPDF background service worker started');
+console.log('NoStressPDF background service worker started');

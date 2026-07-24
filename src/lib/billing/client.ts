@@ -11,7 +11,7 @@ import type {
 async function billingRequest<T>(path: string, init?: RequestInit): Promise<T> {
   const config = getPublicAccountConfig();
   if (!config.billingEnabled) {
-    throw new Error('HushPDF sandbox billing is not configured.');
+    throw new Error('NoStressPDF sandbox billing is not configured.');
   }
 
   const accessToken = await getCognitoAccessToken();

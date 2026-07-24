@@ -54,7 +54,7 @@ export const PRICING_PLANS = [
     priceDetail: 'per month · $49 billed annually',
     description: 'Private PDF essentials for everyday document work.',
     featured: false,
-    ctaLabel: 'Explore HushPDF',
+    ctaLabel: 'Explore NoStressPDF',
     features: [
       'Core edit, convert, organize, optimize, and security tools',
       'Signed desktop application',
@@ -70,7 +70,7 @@ export const PRICING_PLANS = [
     description: 'Advanced workflows and automation for serious PDF work.',
     badge: 'Most popular',
     featured: true,
-    ctaLabel: 'Explore HushPDF',
+    ctaLabel: 'Explore NoStressPDF',
     features: [
       'Everything in Personal',
       'Batch processing',
@@ -86,7 +86,7 @@ export const PRICING_PLANS = [
     priceDetail: 'per user / month · billed annually · 3-seat minimum',
     description: 'Centralized access and support for privacy-conscious teams.',
     featured: false,
-    ctaLabel: 'Explore HushPDF',
+    ctaLabel: 'Explore NoStressPDF',
     features: [
       'Everything in Professional',
       'Centralized billing and seat administration',

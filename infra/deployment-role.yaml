@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Least-privilege HushPDF staging deployment role for S3 and CloudFront hosting.
+Description: Least-privilege NoStressPDF staging deployment role for S3 and CloudFront hosting.
 
 Parameters:
   RoleName:
@@ -17,7 +17,7 @@ Resources:
     DependsOn: HushPdfStagingDeploymentUser
     Properties:
       RoleName: !Ref RoleName
-      Description: Deploys and updates HushPDF staging hosting resources without routine root use.
+      Description: Deploys and updates NoStressPDF staging hosting resources without routine root use.
       MaxSessionDuration: 14400
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
@@ -182,7 +182,7 @@ Resources:
                 Resource: !Sub arn:${AWS::Partition}:apigateway:*::/apis/*
       Tags:
         - Key: Application
-          Value: HushPDF
+          Value: NoStressPDF
         - Key: Environment
           Value: staging
 
@@ -200,7 +200,7 @@ Resources:
                 Resource: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:role/${RoleName}
       Tags:
         - Key: Application
-          Value: HushPDF
+          Value: NoStressPDF
         - Key: Environment
           Value: staging
 

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "HushPDF - Công cụ PDF Chuyên nghiệp",
+      "title": "NoStressPDF - Công cụ PDF Chuyên nghiệp",
       "description": "Công cụ PDF chuyên nghiệp và riêng tư trên trình duyệt. Chỉnh sửa, chuyển đổi và bảo vệ mà không tải tài liệu lên máy chủ."
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "Giới thiệu",
-      "description": "Tìm hiểu HushPDF, không gian PDF chuyên nghiệp ưu tiên quyền riêng tư và xử lý cục bộ."
+      "description": "Tìm hiểu NoStressPDF, không gian PDF chuyên nghiệp ưu tiên quyền riêng tư và xử lý cục bộ."
     },
     "faq": {
       "title": "Câu hỏi Thường gặp",
-      "description": "Tìm câu trả lời cho các câu hỏi phổ biến về HushPDF. Hướng dẫn sử dụng hiệu quả các công cụ PDF của chúng tôi."
+      "description": "Tìm câu trả lời cho các câu hỏi phổ biến về NoStressPDF. Hướng dẫn sử dụng hiệu quả các công cụ PDF của chúng tôi."
     },
     "privacy": {
       "title": "Chính sách Bảo mật",
-      "description": "Chính sách bảo mật của HushPDF. Tệp của bạn không bao giờ rời khỏi thiết bị - mọi xử lý đều diễn ra cục bộ trong trình duyệt."
+      "description": "Chính sách bảo mật của NoStressPDF. Tệp của bạn không bao giờ rời khỏi thiết bị - mọi xử lý đều diễn ra cục bộ trong trình duyệt."
     },
     "contact": {
       "title": "Liên hệ Chúng tôi",
-      "description": "Liên hệ với đội ngũ HushPDF. Chúng tôi rất mong nhận được phản hồi từ bạn."
+      "description": "Liên hệ với đội ngũ NoStressPDF. Chúng tôi rất mong nhận được phản hồi từ bạn."
     },
     "keywords": {
       "pdfTools": "công cụ PDF",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "HushPDF",
+    "brand": "NoStressPDF",
     "tagline": "Công cụ PDF chuyên nghiệp, ưu tiên riêng tư",
     "navigation": {
       "home": "Trang chủ",
@@ -84,8 +84,8 @@
       "loading": "Đang tải..."
     },
     "footer": {
-      "footer": "© 2025 HushPDF. Bảo lưu mọi quyền.",
-      "copyright": "© {year} HushPDF. Bảo lưu mọi quyền.",
+      "footer": "© 2025 NoStressPDF. Bảo lưu mọi quyền.",
+      "copyright": "© {year} NoStressPDF. Bảo lưu mọi quyền.",
       "privacyBadge": "100% Riêng tư - Tệp không bao giờ rời khỏi thiết bị",
       "madeWith": "Được tạo bởi <Heart /> và <Nextjs />"
     },
@@ -130,7 +130,7 @@
       "finish": "Hoàn tất",
       "skip": "Bỏ qua",
       "stepOf": "của",
-      "welcomeTitle": "Chào mừng đến với HushPDF!",
+      "welcomeTitle": "Chào mừng đến với NoStressPDF!",
       "welcomeMessage": "Bạn có muốn tham gia một hướng dẫn nhanh để tìm hiểu cách sử dụng các công cụ PDF không? Chỉ mất khoảng một phút thôi.",
       "helpButton": "Hướng dẫn Trợ giúp"
     },
@@ -951,16 +951,16 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "HushPDF là gì?",
-          "answer": "HushPDF là không gian PDF ưu tiên quyền riêng tư chạy trong trình duyệt. Hơn 80 công cụ chuyên nghiệp hoạt động mà không tải tài liệu lên máy chủ."
+          "question": "NoStressPDF là gì?",
+          "answer": "NoStressPDF là không gian PDF ưu tiên quyền riêng tư chạy trong trình duyệt. Hơn 80 công cụ chuyên nghiệp hoạt động mà không tải tài liệu lên máy chủ."
         },
         "isFree": {
-          "question": "HushPDF sẽ tính phí như thế nào?",
-          "answer": "HushPDF đang chuẩn bị các gói Personal, Professional và Teams trả phí với bản dùng thử riêng tư bảy ngày. Mã nguồn tương ứng vẫn có theo GNU AGPLv3."
+          "question": "NoStressPDF sẽ tính phí như thế nào?",
+          "answer": "NoStressPDF đang chuẩn bị các gói Personal, Professional và Teams trả phí với bản dùng thử riêng tư bảy ngày. Mã nguồn tương ứng vẫn có theo GNU AGPLv3."
         },
         "account": {
           "question": "Tôi có cần tài khoản không?",
-          "answer": "Khi hệ thống thanh toán ra mắt, cần tài khoản để dùng thử hoặc sử dụng gói HushPDF chính thức. PDF vẫn được xử lý cục bộ."
+          "answer": "Khi hệ thống thanh toán ra mắt, cần tài khoản để dùng thử hoặc sử dụng gói NoStressPDF chính thức. PDF vẫn được xử lý cục bộ."
         }
       },
       "privacy": {
@@ -969,8 +969,8 @@
           "answer": "Không, tệp của bạn không bao giờ bị tải lên bất kỳ máy chủ nào. Tất cả quá trình xử lý PDF diễn ra cục bộ trong trình duyệt của bạn bằng JavaScript và WebAssembly. tệp của bạn không bao giờ rời khỏi thiết bị."
         },
         "safe": {
-          "question": "Có an toàn khi sử dụng HushPDF với các tài liệu nhạy cảm không?",
-          "answer": "Có, HushPDF được thiết kế chú trọng đến quyền riêng tư. Vì tất cả quá trình xử lý diễn ra cục bộ trong trình duyệt của bạn, các tài liệu nhạy cảm vẫn ở trên thiết bị của bạn và không bao giờ được truyền qua internet."
+          "question": "Có an toàn khi sử dụng NoStressPDF với các tài liệu nhạy cảm không?",
+          "answer": "Có, NoStressPDF được thiết kế chú trọng đến quyền riêng tư. Vì tất cả quá trình xử lý diễn ra cục bộ trong trình duyệt của bạn, các tài liệu nhạy cảm vẫn ở trên thiết bị của bạn và không bao giờ được truyền qua internet."
         },
         "storage": {
           "question": "Điều gì xảy ra với các tệp của tôi sau khi xử lý?",
@@ -980,7 +980,7 @@
       "features": {
         "operations": {
           "question": "Tôi có thể thực hiện những thao tác PDF nào?",
-          "answer": "HushPDF cung cấp hơn 67 công cụ bao gồm: gộp, chia nhỏ, nén, chuyển đổi (sang/từ hình ảnh, văn bản, JSON), chỉnh sửa, chú thích, ký tên, thêm hình mờ, mã hóa/giải mã, OCR, và nhiều công cụ khác."
+          "answer": "NoStressPDF cung cấp hơn 67 công cụ bao gồm: gộp, chia nhỏ, nén, chuyển đổi (sang/từ hình ảnh, văn bản, JSON), chỉnh sửa, chú thích, ký tên, thêm hình mờ, mã hóa/giải mã, OCR, và nhiều công cụ khác."
         },
         "merge": {
           "question": "Tôi có thể gộp nhiều tệp PDF lại với nhau không?",
@@ -988,17 +988,17 @@
         },
         "images": {
           "question": "Tôi có thể chuyển đổi hình ảnh sang PDF không?",
-          "answer": "Có, HushPDF hỗ trợ chuyển đổi nhiều định dạng hình ảnh khác nhau (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) sang PDF. Bạn có thể chuyển đổi một hoặc nhiều hình ảnh cùng một lúc."
+          "answer": "Có, NoStressPDF hỗ trợ chuyển đổi nhiều định dạng hình ảnh khác nhau (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) sang PDF. Bạn có thể chuyển đổi một hoặc nhiều hình ảnh cùng một lúc."
         },
         "edit": {
           "question": "Tôi có thể chỉnh sửa văn bản trong PDF không?",
-          "answer": "HushPDF cung cấp các công cụ chú thích và chỉnh sửa bao gồm làm nổi bật, thêm văn bản, hình vẽ, hình ảnh và chữ ký. Để chỉnh sửa văn bản đầy đủ, công cụ PDF Editor cung cấp các khả năng chú thích toàn diện."
+          "answer": "NoStressPDF cung cấp các công cụ chú thích và chỉnh sửa bao gồm làm nổi bật, thêm văn bản, hình vẽ, hình ảnh và chữ ký. Để chỉnh sửa văn bản đầy đủ, công cụ PDF Editor cung cấp các khả năng chú thích toàn diện."
         }
       },
       "technical": {
         "browsers": {
           "question": "Những trình duyệt nào được hỗ trợ?",
-          "answer": "HushPDF hoạt động trên tất cả các trình duyệt hiện đại bao gồm Chrome, Firefox, Safari và Edge. Chúng tôi khuyên bạn nên sử dụng phiên bản trình duyệt mới nhất để có trải nghiệm tốt nhất."
+          "answer": "NoStressPDF hoạt động trên tất cả các trình duyệt hiện đại bao gồm Chrome, Firefox, Safari và Edge. Chúng tôi khuyên bạn nên sử dụng phiên bản trình duyệt mới nhất để có trải nghiệm tốt nhất."
         },
         "sizeLimit": {
           "question": "Có giới hạn dung lượng tệp không?",
@@ -1009,14 +1009,14 @@
           "answer": "Vì tất cả quá trình xử lý đều diễn ra trong trình duyệt của bạn, hiệu suất phụ thuộc vào khả năng thiết bị của bạn. Các tệp lớn yêu cầu nhiều bộ nhớ và sức mạnh xử lý hơn. Để có kết quả tốt nhất, hãy đóng các tab trình duyệt và ứng dụng khác."
         },
         "offline": {
-          "question": "HushPDF có hoạt động ngoại tuyến không?",
-          "answer": "Hiện tại, HushPDF yêu cầu kết nối internet để tải ứng dụng. Tuy nhiên, sau khi đã tải xong, quá trình xử lý PDF tự nó diễn ra cục bộ và không cần kết nối."
+          "question": "NoStressPDF có hoạt động ngoại tuyến không?",
+          "answer": "Hiện tại, NoStressPDF yêu cầu kết nối internet để tải ứng dụng. Tuy nhiên, sau khi đã tải xong, quá trình xử lý PDF tự nó diễn ra cục bộ và không cần kết nối."
         }
       },
       "languages": {
         "supported": {
           "question": "Những ngôn ngữ nào được hỗ trợ?",
-          "answer": "HushPDF có sẵn bằng 9 ngôn ngữ: tiếng Anh, tiếng Nhật, tiếng Hàn, tiếng Tây Ban Nha, tiếng Pháp, tiếng Đức, tiếng Trung, tiếng Bồ Đào Nha và tiếng Ả Rập (có hỗ trợ viết từ phải sang trái - RTL)."
+          "answer": "NoStressPDF có sẵn bằng 9 ngôn ngữ: tiếng Anh, tiếng Nhật, tiếng Hàn, tiếng Tây Ban Nha, tiếng Pháp, tiếng Đức, tiếng Trung, tiếng Bồ Đào Nha và tiếng Ả Rập (có hỗ trợ viết từ phải sang trái - RTL)."
         },
         "change": {
           "question": "Làm thế nào để tôi thay đổi ngôn ngữ?",
@@ -1047,7 +1047,7 @@
       },
       "fast": {
         "title": "Nhanh chóng & Hiệu quả",
-        "description": "Được hỗ trợ bởi các công nghệ web hiện đại, HushPDF mang lại tốc độ xử lý PDF cực nhanh mà không cần tải lên hoặc tải xuống."
+        "description": "Được hỗ trợ bởi các công nghệ web hiện đại, NoStressPDF mang lại tốc độ xử lý PDF cực nhanh mà không cần tải lên hoặc tải xuống."
       },
       "accessible": {
         "title": "Truy cập mọi nơi",
@@ -1181,7 +1181,7 @@
       "title": "Công cụ PDF chuyên nghiệp.",
       "highlight": "Không tải lên.",
       "subtitle": "Chỉnh sửa, chuyển đổi, bảo vệ và tự động hóa PDF nhạy cảm ngay trên thiết bị.",
-      "cta": "Khám phá HushPDF",
+      "cta": "Khám phá NoStressPDF",
       "pricingCta": "Xem các gói"
     },
     "features": {
@@ -1235,7 +1235,7 @@
   "workflow": {
     "title": "Trình xây dựng Quy trình PDF",
     "subtitle": "Tạo quy trình xử lý PDF tùy chỉnh bằng cách kết nối các công cụ",
-    "metaTitle": "Trình tạo quy trình làm việc PDF - HushPDF",
+    "metaTitle": "Trình tạo quy trình làm việc PDF - NoStressPDF",
     "metaDescription": "Tạo quy trình xử lý PDF tùy chỉnh bằng cách kết nối trực quan các công cụ. Xây dựng, lưu và tái sử dụng quy trình của bạn.",
     "toolbox": "Hộp Công cụ",
     "dragToAdd": "Kéo công cụ để thêm vào quy trình",

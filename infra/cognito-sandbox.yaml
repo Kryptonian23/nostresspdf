@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: HushPDF Cognito sandbox for browser authentication with OAuth 2.0 authorization code and PKCE.
+Description: NoStressPDF Cognito sandbox for browser authentication with OAuth 2.0 authorization code and PKCE.
 
 Parameters:
   EnvironmentName:
@@ -17,12 +17,12 @@ Parameters:
     Type: String
     Default: http://localhost:3000/en/account/
     AllowedPattern: '^https?://.+/$'
-    Description: Exact HushPDF account callback URL, including its trailing slash.
+    Description: Exact NoStressPDF account callback URL, including its trailing slash.
   LogoutUrl:
     Type: String
     Default: http://localhost:3000/en/account/
     AllowedPattern: '^https?://.+/$'
-    Description: Exact HushPDF post-logout URL, including its trailing slash.
+    Description: Exact NoStressPDF post-logout URL, including its trailing slash.
   AdditionalCallbackUrl:
     Type: String
     Default: ''
@@ -74,7 +74,7 @@ Resources:
           RequireUppercase: true
           TemporaryPasswordValidityDays: 7
       UserPoolTags:
-        Application: HushPDF
+        Application: NoStressPDF
         Environment: !Ref EnvironmentName
 
   HushPdfBrowserClient:
@@ -120,7 +120,7 @@ Resources:
       UserPoolId: !Ref HushPdfUserPool
       Scopes:
         - ScopeName: access
-          ScopeDescription: Access the signed-in user's HushPDF billing resources.
+          ScopeDescription: Access the signed-in user's NoStressPDF billing resources.
 
   HushPdfUserPoolDomain:
     Type: AWS::Cognito::UserPoolDomain

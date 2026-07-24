@@ -1,7 +1,7 @@
 {
   "metadata": {
     "home": {
-      "title": "HushPDF - Herramientas PDF Profesionales",
+      "title": "NoStressPDF - Herramientas PDF Profesionales",
       "description": "Herramientas PDF profesionales, privadas y basadas en el navegador. Edita, convierte y protege sin subir documentos a servidores."
     },
     "tools": {
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "Acerca de Nosotros",
-      "description": "Conoce HushPDF, un espacio PDF profesional centrado en la privacidad que procesa documentos en tu dispositivo."
+      "description": "Conoce NoStressPDF, un espacio PDF profesional centrado en la privacidad que procesa documentos en tu dispositivo."
     },
     "faq": {
       "title": "Preguntas Frecuentes",
-      "description": "Encuentra respuestas a preguntas comunes sobre HushPDF. Aprende a usar nuestras herramientas PDF de manera efectiva."
+      "description": "Encuentra respuestas a preguntas comunes sobre NoStressPDF. Aprende a usar nuestras herramientas PDF de manera efectiva."
     },
     "privacy": {
       "title": "Política de Privacidad",
-      "description": "Política de privacidad de HushPDF. Tus archivos nunca salen de tu dispositivo - todo el procesamiento ocurre localmente en tu navegador."
+      "description": "Política de privacidad de NoStressPDF. Tus archivos nunca salen de tu dispositivo - todo el procesamiento ocurre localmente en tu navegador."
     },
     "contact": {
       "title": "Contáctanos",
-      "description": "Ponte en contacto con el equipo de HushPDF. Nos encantaría saber de ti."
+      "description": "Ponte en contacto con el equipo de NoStressPDF. Nos encantaría saber de ti."
     },
     "keywords": {
       "pdfTools": "herramientas PDF",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "HushPDF",
+    "brand": "NoStressPDF",
     "tagline": "Herramientas PDF profesionales y privadas",
     "navigation": {
       "home": "Inicio",
@@ -84,8 +84,8 @@
       "loading": "Cargando..."
     },
     "footer": {
-      "footer": "© 2025 HushPDF. Todos los derechos reservados.",
-      "copyright": "© {year} HushPDF. Todos los derechos reservados.",
+      "footer": "© 2025 NoStressPDF. Todos los derechos reservados.",
+      "copyright": "© {year} NoStressPDF. Todos los derechos reservados.",
       "privacyBadge": "100% Privado - Los archivos nunca salen de tu dispositivo",
       "madeWith": "Hecho con <Heart /> y <Nextjs />"
     },
@@ -130,7 +130,7 @@
       "finish": "Finalizar",
       "skip": "Omitir",
       "stepOf": "de",
-      "welcomeTitle": "¡Bienvenido a HushPDF!",
+      "welcomeTitle": "¡Bienvenido a NoStressPDF!",
       "welcomeMessage": "¿Te gustaría un tour rápido para aprender a usar nuestras herramientas PDF? Solo toma un minuto.",
       "helpButton": "Tour de Ayuda"
     },
@@ -951,12 +951,12 @@
     "sections": {
       "general": {
         "whatIs": {
-          "question": "¿Qué es HushPDF?",
-          "answer": "HushPDF es un espacio de trabajo PDF centrado en la privacidad que funciona en tu navegador. Ofrece más de 80 herramientas profesionales sin subir documentos a un servidor."
+          "question": "¿Qué es NoStressPDF?",
+          "answer": "NoStressPDF es un espacio de trabajo PDF centrado en la privacidad que funciona en tu navegador. Ofrece más de 80 herramientas profesionales sin subir documentos a un servidor."
         },
         "isFree": {
-          "question": "¿Cómo funcionarán los precios de HushPDF?",
-          "answer": "HushPDF prepara planes de pago Personal, Professional y Teams con una prueba privada de siete días. El código fuente correspondiente seguirá disponible bajo GNU AGPLv3."
+          "question": "¿Cómo funcionarán los precios de NoStressPDF?",
+          "answer": "NoStressPDF prepara planes de pago Personal, Professional y Teams con una prueba privada de siete días. El código fuente correspondiente seguirá disponible bajo GNU AGPLv3."
         },
         "account": {
           "question": "¿Necesitaré una cuenta?",
@@ -969,8 +969,8 @@
           "answer": "No, sus archivos nunca se cargan en ningún servidor. Todo el procesamiento de PDF se realiza localmente en su navegador mediante JavaScript y WebAssembly. Tus archivos nunca salen de tu dispositivo."
         },
         "safe": {
-          "question": "¿Es seguro utilizar HushPDF con documentos confidenciales?",
-          "answer": "Sí, HushPDF está diseñado teniendo en cuenta la privacidad. Dado que todo el procesamiento se realiza localmente en su navegador, sus documentos confidenciales permanecen en su dispositivo y nunca se transmiten a través de Internet."
+          "question": "¿Es seguro utilizar NoStressPDF con documentos confidenciales?",
+          "answer": "Sí, NoStressPDF está diseñado teniendo en cuenta la privacidad. Dado que todo el procesamiento se realiza localmente en su navegador, sus documentos confidenciales permanecen en su dispositivo y nunca se transmiten a través de Internet."
         },
         "storage": {
           "question": "¿Qué sucede con mis archivos después del procesamiento?",
@@ -980,7 +980,7 @@
       "features": {
         "operations": {
           "question": "¿Qué operaciones de PDF puedo realizar?",
-          "answer": "HushPDF ofrece más de 67 herramientas que incluyen: fusionar, dividir, comprimir, convertir (a/desde imágenes, texto, JSON), editar, anotar, firmar, agregar marcas de agua, cifrar/descifrar, OCR y muchas más."
+          "answer": "NoStressPDF ofrece más de 67 herramientas que incluyen: fusionar, dividir, comprimir, convertir (a/desde imágenes, texto, JSON), editar, anotar, firmar, agregar marcas de agua, cifrar/descifrar, OCR y muchas más."
         },
         "merge": {
           "question": "¿Puedo fusionar varios archivos PDF?",
@@ -988,17 +988,17 @@
         },
         "images": {
           "question": "¿Puedo convertir imágenes a PDF?",
-          "answer": "Sí, HushPDF admite la conversión de varios formatos de imagen (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) a PDF. Puede convertir una o varias imágenes a la vez."
+          "answer": "Sí, NoStressPDF admite la conversión de varios formatos de imagen (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) a PDF. Puede convertir una o varias imágenes a la vez."
         },
         "edit": {
           "question": "¿Puedo editar texto en un PDF?",
-          "answer": "HushPDF proporciona herramientas de anotación y edición que incluyen resaltar, agregar texto, formas, imágenes y firmas. Para la edición de texto completo, la herramienta PDF Editor ofrece capacidades integrales de anotación."
+          "answer": "NoStressPDF proporciona herramientas de anotación y edición que incluyen resaltar, agregar texto, formas, imágenes y firmas. Para la edición de texto completo, la herramienta PDF Editor ofrece capacidades integrales de anotación."
         }
       },
       "technical": {
         "browsers": {
           "question": "¿Qué navegadores son compatibles?",
-          "answer": "HushPDF funciona en todos los navegadores modernos, incluidos Chrome, Firefox, Safari y Edge. Recomendamos utilizar la última versión de su navegador para obtener la mejor experiencia."
+          "answer": "NoStressPDF funciona en todos los navegadores modernos, incluidos Chrome, Firefox, Safari y Edge. Recomendamos utilizar la última versión de su navegador para obtener la mejor experiencia."
         },
         "sizeLimit": {
           "question": "¿Existe un límite de tamaño de archivo?",
@@ -1009,14 +1009,14 @@
           "answer": "Dado que todo el procesamiento se realiza en su navegador, el rendimiento depende de las capacidades de su dispositivo. Los archivos grandes requieren más memoria y potencia de procesamiento. Para obtener mejores resultados, cierre otras pestañas y aplicaciones del navegador."
         },
         "offline": {
-          "question": "¿HushPDF funciona sin conexión?",
-          "answer": "Actualmente, HushPDF requiere una conexión a Internet para cargar la aplicación. Sin embargo, una vez cargado, el procesamiento del PDF se realiza localmente y no requiere conexión."
+          "question": "¿NoStressPDF funciona sin conexión?",
+          "answer": "Actualmente, NoStressPDF requiere una conexión a Internet para cargar la aplicación. Sin embargo, una vez cargado, el procesamiento del PDF se realiza localmente y no requiere conexión."
         }
       },
       "languages": {
         "supported": {
           "question": "¿Qué idiomas son compatibles?",
-          "answer": "HushPDF está disponible en 9 idiomas: inglés, japonés, coreano, español, francés, alemán, chino, portugués y árabe (con soporte RTL)."
+          "answer": "NoStressPDF está disponible en 9 idiomas: inglés, japonés, coreano, español, francés, alemán, chino, portugués y árabe (con soporte RTL)."
         },
         "change": {
           "question": "¿Cómo cambio el idioma?",
@@ -1047,7 +1047,7 @@
       },
       "fast": {
         "title": "Rápido y eficiente",
-        "description": "Impulsado por tecnologías web modernas, HushPDF ofrece un procesamiento de PDF ultrarrápido sin necesidad de cargas ni descargas."
+        "description": "Impulsado por tecnologías web modernas, NoStressPDF ofrece un procesamiento de PDF ultrarrápido sin necesidad de cargas ni descargas."
       },
       "accessible": {
         "title": "Accesible en todas partes",
@@ -1181,7 +1181,7 @@
       "title": "Herramientas PDF profesionales.",
       "highlight": "Cero cargas.",
       "subtitle": "Edita, convierte, protege y automatiza PDF sensibles directamente en tu dispositivo.",
-      "cta": "Explorar HushPDF",
+      "cta": "Explorar NoStressPDF",
       "pricingCta": "Ver planes"
     },
     "features": {
@@ -1235,7 +1235,7 @@
   "workflow": {
     "title": "Editor de Flujo de Trabajo PDF",
     "subtitle": "Cree pipelines de procesamiento PDF personalizados conectando herramientas",
-    "metaTitle": "Creador de flujos de trabajo PDF - HushPDF",
+    "metaTitle": "Creador de flujos de trabajo PDF - NoStressPDF",
     "metaDescription": "Cree pipelines de procesamiento PDF personalizados conectando herramientas visualmente. Construya, guarde y reutilice sus flujos de trabajo.",
     "toolbox": "Caja de Herramientas",
     "dragToAdd": "Arrastre herramientas para agregar al flujo de trabajo",

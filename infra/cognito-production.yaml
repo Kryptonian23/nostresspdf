@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Production HushPDF Cognito user pool with protected deletion, optional TOTP MFA, and OAuth 2.0 authorization code with PKCE.
+Description: Production NoStressPDF Cognito user pool with protected deletion, optional TOTP MFA, and OAuth 2.0 authorization code with PKCE.
 
 Parameters:
   EnvironmentName:
@@ -57,7 +57,7 @@ Resources:
           RequireUppercase: true
           TemporaryPasswordValidityDays: 3
       UserPoolTags:
-        Application: HushPDF
+        Application: NoStressPDF
         Environment: !Ref EnvironmentName
 
   HushPdfBillingResourceServer:
@@ -68,7 +68,7 @@ Resources:
       UserPoolId: !Ref HushPdfUserPool
       Scopes:
         - ScopeName: access
-          ScopeDescription: Access the signed-in user's HushPDF billing resources.
+          ScopeDescription: Access the signed-in user's NoStressPDF billing resources.
 
   HushPdfBrowserClient:
     Type: AWS::Cognito::UserPoolClient

@@ -98,7 +98,7 @@ function parseJsonBody(event) {
 function accountIdFrom(event) {
   const accountId = event.requestContext?.authorizer?.jwt?.claims?.sub;
   if (!accountId) {
-    throw Object.assign(new Error('A valid HushPDF account is required.'), { statusCode: 401 });
+    throw Object.assign(new Error('A valid NoStressPDF account is required.'), { statusCode: 401 });
   }
   return accountId;
 }
@@ -125,7 +125,7 @@ export function validateReturnUrl(value, origins = allowedOrigins()) {
     || url.search
     || url.hash
   ) {
-    throw Object.assign(new Error('returnUrl must be an allowed HushPDF account page.'), { statusCode: 400 });
+    throw Object.assign(new Error('returnUrl must be an allowed NoStressPDF account page.'), { statusCode: 400 });
   }
   return url;
 }

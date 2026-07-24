@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: AccountPageProps): Promise<Me
   return generateBaseMetadata({
     locale: locale as Locale,
     path: '/account',
-    title: 'HushPDF Account',
-    description: 'Manage your private HushPDF account, trial, and subscription.',
-    keywords: ['HushPDF account', 'HushPDF subscription', 'private PDF software'],
+    title: 'NoStressPDF Account',
+    description: 'Manage your private NoStressPDF account, trial, and subscription.',
+    keywords: ['NoStressPDF account', 'NoStressPDF subscription', 'private PDF software'],
     noIndex: true,
   });
 }

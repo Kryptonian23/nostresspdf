@@ -21,8 +21,8 @@ export async function generateMetadata({
     locale: locale as Locale,
     path: '/source',
     title: 'Source Code & License',
-    description: 'HushPDF source code, license, and upstream project attribution.',
-    keywords: ['HushPDF source code', 'GNU AGPLv3', 'open source PDF tools'],
+    description: 'NoStressPDF source code, license, and upstream project attribution.',
+    keywords: ['NoStressPDF source code', 'GNU AGPLv3', 'open source PDF tools'],
     noIndex: true,
   });
 }
@@ -45,7 +45,7 @@ export default async function SourcePage({
             <Code2 className="mx-auto mb-6 h-14 w-14 text-[hsl(var(--color-primary))]" />
             <h1 className="text-4xl md:text-5xl font-bold mb-5">Source code & license</h1>
             <p className="text-lg text-[hsl(var(--color-muted-foreground))]">
-              HushPDF is free software. You can inspect, modify, and share it under the GNU Affero General Public License version 3.
+              NoStressPDF is free software. You can inspect, modify, and share it under the GNU Affero General Public License version 3.
             </p>
           </div>
         </section>
@@ -55,7 +55,7 @@ export default async function SourcePage({
             <div className="rounded-2xl border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] p-7">
               <div className="flex items-center gap-3 mb-3">
                 <Code2 className="h-5 w-5 text-[hsl(var(--color-primary))]" />
-                <h2 className="text-xl font-semibold">HushPDF source</h2>
+                <h2 className="text-xl font-semibold">NoStressPDF source</h2>
               </div>
               {sourceUrl ? (
                 <a className="inline-flex items-center gap-2 text-[hsl(var(--color-primary))] hover:underline" href={sourceUrl}>
@@ -63,7 +63,7 @@ export default async function SourcePage({
                 </a>
               ) : (
                 <p className="text-[hsl(var(--color-muted-foreground))]">
-                  This development build is running from its complete local source tree. A permanent public source URL will be added here before HushPDF is publicly deployed.
+                  This development build is running from its complete local source tree. A permanent public source URL will be added here before NoStressPDF is publicly deployed.
                 </p>
               )}
             </div>
@@ -74,7 +74,7 @@ export default async function SourcePage({
                 <h2 className="text-xl font-semibold">License and attribution</h2>
               </div>
               <p className="mb-4 text-[hsl(var(--color-muted-foreground))]">
-                HushPDF is a modified distribution of PDFCraft. Existing copyright notices are preserved, and the combined work remains licensed under the GNU AGPLv3.
+                NoStressPDF is a modified distribution of PDFCraft. Existing copyright notices are preserved, and the combined work remains licensed under the GNU AGPLv3.
               </p>
               <div className="flex flex-wrap gap-5">
                 <a className="text-[hsl(var(--color-primary))] hover:underline" href="/LICENSE.txt">Read the GNU AGPLv3</a>

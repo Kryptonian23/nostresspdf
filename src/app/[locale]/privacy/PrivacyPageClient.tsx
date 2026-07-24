@@ -108,7 +108,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
               </p>
               <ul className="list-disc pl-6 space-y-2 text-[hsl(var(--color-muted-foreground))] mb-4">
                 <li>All PDF processing happens directly in your web browser</li>
-                <li>PDF files, filenames, extracted text, and document metadata are not sent to HushPDF account or billing services</li>
+                <li>PDF files, filenames, extracted text, and document metadata are not sent to NoStressPDF account or billing services</li>
                 <li>We cannot see, access, or store your documents</li>
                 <li>Your files remain on your device at all times</li>
               </ul>
@@ -222,7 +222,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
               </h2>
               <p className="text-[hsl(var(--color-muted-foreground))] mb-4">
                 If you have questions about this Privacy Policy or want to make a privacy request, please contact us through our
-                contact page. Before public paid launch, HushPDF will publish its operating business identity, support contact method, and retention details here.
+                contact page. Before public paid launch, NoStressPDF will publish its operating business identity, support contact method, and retention details here.
               </p>
             </div>
           </div>
