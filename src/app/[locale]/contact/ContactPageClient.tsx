@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { MessageSquare, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { MessageSquare, ShieldCheck } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/Button';
@@ -14,31 +13,9 @@ interface ContactPageClientProps {
   locale: Locale;
 }
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-
 export default function ContactPageClient({ locale }: ContactPageClientProps) {
   const t = useTranslations('contactPage');
   const tCommon = useTranslations('common');
-  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-
-    // Contact delivery will be connected after a public domain is selected.
-    setFormStatus('error');
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -59,141 +36,26 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
           </div>
         </section>
 
-        {/* Contact Form */}
+        {/* Support availability */}
         <section className="py-12 bg-[hsl(var(--color-muted)/0.3)]">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-[hsl(var(--color-foreground))] mb-2">
-                  {t('form.title')}
+                  Support setup in progress
                 </h2>
                 <p className="text-[hsl(var(--color-muted-foreground))]">
-                  {t('form.description')}
+                  NoStressPDF has not published a support inbox yet. Please do not submit sensitive documents or account information through an unverified channel.
                 </p>
               </div>
-
-              {formStatus === 'success' ? (
-                <Card className="p-8 text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-                    <CheckCircle className="h-8 w-8 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-[hsl(var(--color-foreground))] mb-2">
-                    {t('form.success.title')}
-                  </h3>
-                  <p className="text-[hsl(var(--color-muted-foreground))] mb-6">
-                    {t('form.success.description')}
-                  </p>
-                  <Button variant="outline" onClick={() => setFormStatus('idle')}>
-                    {t('form.success.button')}
-                  </Button>
-                </Card>
-              ) : (
-                <Card className="p-6 md:p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                        >
-                          {t('form.fields.name.label')}
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))]"
-                          placeholder={t('form.fields.name.placeholder')}
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                        >
-                          {t('form.fields.email.label')}
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))]"
-                          placeholder={t('form.fields.email.placeholder')}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                      >
-                        {t('form.fields.subject.label')}
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))]"
-                      >
-                        <option value="">{t('form.fields.subject.placeholder')}</option>
-                        <option value="general">{t('form.fields.subject.options.general')}</option>
-                        <option value="bug">{t('form.fields.subject.options.bug')}</option>
-                        <option value="feature">{t('form.fields.subject.options.feature')}</option>
-                        <option value="feedback">{t('form.fields.subject.options.feedback')}</option>
-                        <option value="other">{t('form.fields.subject.options.other')}</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-[hsl(var(--color-foreground))] mb-2"
-                      >
-                        {t('form.fields.message.label')}
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-ring))] resize-none"
-                        placeholder={t('form.fields.message.placeholder')}
-                      />
-                    </div>
-
-                    {formStatus === 'error' && (
-                      <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                        <AlertCircle className="h-5 w-5 flex-shrink-0" />
-                        <p className="text-sm">
-                          Contact delivery is not connected in this development build. Add a public support channel before launch.
-                        </p>
-                      </div>
-                    )}
-
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      className="w-full"
-                      loading={formStatus === 'submitting'}
-                      disabled={formStatus === 'submitting'}
-                    >
-                      {formStatus === 'submitting' ? t('form.submit.loading') : t('form.submit.default')}
-                      {formStatus !== 'submitting' && <Send className="ml-2 h-4 w-4" />}
-                    </Button>
-                  </form>
-                </Card>
-              )}
+              <Card className="p-6 md:p-8 text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[hsl(var(--color-success)/0.12)] mb-4">
+                  <ShieldCheck className="h-7 w-7 text-[hsl(var(--color-success))]" aria-hidden="true" />
+                </div>
+                <p className="text-sm leading-relaxed text-[hsl(var(--color-muted-foreground))]">
+                  A verified support channel and privacy-preserving contact workflow will be published before public launch.
+                </p>
+              </Card>
             </div>
           </div>
         </section>

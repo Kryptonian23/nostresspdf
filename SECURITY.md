@@ -14,7 +14,7 @@ Do not test against other users, access data that is not yours, degrade service,
 or use social engineering. Testing with Stripe sandbox data and accounts you own
 is welcome.
 
-HushPDF does not consider client-side modification, ad-block detection bypass,
+NoStressPDF does not consider client-side modification, ad-block detection bypass,
 or self-hosting of the AGPL source to be a security vulnerability. Reports should
 demonstrate impact to a server-side boundary, another user, protected data,
 billing integrity, or service availability.

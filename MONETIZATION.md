@@ -1,8 +1,8 @@
-# HushPDF Monetization Foundation
+# NoStressPDF Monetization Foundation
 
 ## Product position
 
-HushPDF is a paid, privacy-first PDF workspace. The hosted product sells a maintained experience, signed desktop builds, updates, workflow convenience, and support. PDF document contents continue to be processed locally and are never sent to the billing or identity systems.
+NoStressPDF is a paid, privacy-first PDF workspace. The hosted product sells a maintained experience, signed desktop builds, updates, workflow convenience, and support. PDF document contents continue to be processed locally and are never sent to the billing or identity systems.
 
 The project remains licensed under the GNU AGPLv3. Customer-facing pages must retain a prominent Source link and the required legal notices, but the hosted service must not be marketed as a free service.
 
@@ -69,7 +69,7 @@ The initial feature keys are:
 
 The application should make access decisions from a short-lived, signed entitlement response. It must fail closed for paid-only capabilities and provide a clear path to sign in, start a trial, or manage a subscription.
 
-Because the code is AGPL-licensed, entitlement checks protect the official hosted HushPDF service; they are not presented as restricting a recipient's license rights to inspect, modify, or self-host the corresponding source.
+Because the code is AGPL-licensed, entitlement checks protect the official hosted NoStressPDF service; they are not presented as restricting a recipient's license rights to inspect, modify, or self-host the corresponding source.
 
 ## AWS and Stripe architecture
 
@@ -109,7 +109,7 @@ Billing and identity may store only what is required to operate the account:
 - trial start and expiration times;
 - security and operational logs with short documented retention.
 
-HushPDF must not meter trials by inspecting documents or transmitting document metadata. Product analytics should use coarse events such as page views, checkout starts, subscription conversions, and feature-category activation only after the privacy policy and consent behavior are defined.
+NoStressPDF must not meter trials by inspecting documents or transmitting document metadata. Product analytics should use coarse events such as page views, checkout starts, subscription conversions, and feature-category activation only after the privacy policy and consent behavior are defined.
 
 ## Commercial copy rules
 
@@ -128,7 +128,7 @@ Use these product messages consistently:
 
 - Headline: **Professional PDF tools. Zero uploads.**
 - Supporting line: **Edit, convert, secure, and automate sensitive PDFs directly on your device.**
-- Primary pre-billing CTA: **Explore HushPDF**
+- Primary pre-billing CTA: **Explore NoStressPDF**
 - Primary post-billing CTA: **Start your private trial**
 - Secondary CTA: **View plans**
 
@@ -170,7 +170,7 @@ Until checkout and entitlements work end to end, the website must not claim that
 
 ## Phase 1 acceptance criteria
 
-- No customer-facing page describes the hosted HushPDF service as free.
+- No customer-facing page describes the hosted NoStressPDF service as free.
 - Pricing and trial language does not imply working billing before it exists.
 - Homepage, Tools, About, FAQ, category metadata, footer, and SEO copy use the commercial position.
 - Source and License remain prominent and correct.

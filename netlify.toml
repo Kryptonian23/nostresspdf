@@ -1,4 +1,4 @@
-# Netlify Configuration for HushPDF
+# Netlify Configuration for NoStressPDF
 
 [build]
   command = "npm run build"

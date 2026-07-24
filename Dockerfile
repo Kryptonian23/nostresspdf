@@ -1,5 +1,5 @@
 # =============================================================================
-# HushPDF Production Dockerfile
+# NoStressPDF Production Dockerfile
 # Multi-stage build for optimized image size
 # Optimized with BuildKit cache mounts for faster builds
 # =============================================================================
@@ -37,18 +37,18 @@ RUN --mount=type=cache,target=/root/.npm \
 FROM nginx:1.25-alpine AS production
 
 # Image metadata
-LABEL org.opencontainers.image.source="https://github.com/Kryptonian23/hushpdf"
-LABEL org.opencontainers.image.description="HushPDF - private PDF tools with zero uploads"
+LABEL org.opencontainers.image.source="https://github.com/Kryptonian23/nostresspdf"
+LABEL org.opencontainers.image.description="NoStressPDF - private PDF tools with zero uploads"
 LABEL org.opencontainers.image.licenses="AGPL-3.0"
-LABEL org.opencontainers.image.title="HushPDF"
-LABEL org.opencontainers.image.vendor="HushPDF contributors"
+LABEL org.opencontainers.image.title="NoStressPDF"
+LABEL org.opencontainers.image.vendor="NoStressPDF contributors"
 
 # Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY security-headers.conf /etc/nginx/security-headers.conf
 
 # Copy the static export from builder stage
-COPY --from=builder /app/out /website/hushpdf
+COPY --from=builder /app/out /website/nostresspdf
 
 # Expose port 80
 EXPOSE 80

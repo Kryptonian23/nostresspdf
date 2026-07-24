@@ -1,4 +1,4 @@
-# Apache .htaccess configuration for HushPDF static export
+# Apache .htaccess configuration for NoStressPDF static export
 
 # Enable rewrite engine
 RewriteEngine On
