@@ -3,6 +3,7 @@ import * as fc from 'fast-check';
 import { 
   tools, 
   getAllTools, 
+  getAllToolsIncludingDisabled,
   getToolById, 
   getToolsByCategory,
   toolExists,
@@ -69,7 +70,7 @@ describe('Tool Configuration Property Tests', () => {
             }
             
             // Count should match manual filter
-            const manualCount = tools.filter(t => t.category === category).length;
+            const manualCount = tools.filter(t => t.category === category && !t.disabled).length;
             expect(categoryTools.length).toBe(manualCount);
             
             return true;
@@ -306,7 +307,7 @@ describe('Tool Configuration Property Tests', () => {
     it('getToolById returns correct tool', () => {
       fc.assert(
         fc.property(
-          fc.constantFrom(...tools),
+          fc.constantFrom(...getAllTools()),
           (tool) => {
             const found = getToolById(tool.id);
             expect(found).toBeDefined();
@@ -319,9 +320,11 @@ describe('Tool Configuration Property Tests', () => {
       );
     });
 
-    it('getAllTools returns all 131 tools', () => {
+    it('getAllTools excludes tools held back from the beta catalog', () => {
       const allTools = getAllTools();
-      expect(allTools.length).toBe(131);
+      expect(allTools.every(tool => !tool.disabled)).toBe(true);
+      expect(allTools.length).toBeLessThan(getAllToolsIncludingDisabled().length);
+      expect(getAllToolsIncludingDisabled().length).toBe(131);
     });
 
     it('all tools have required properties', () => {

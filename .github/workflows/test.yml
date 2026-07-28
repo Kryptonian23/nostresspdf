@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   web:
-    name: Typecheck, lint, and unit tests
+    name: Typecheck, lint, tests, and production build
     runs-on: ubuntu-latest
 
     steps:
@@ -30,3 +30,18 @@ jobs:
 
       - name: Run checks
         run: npm run check
+
+      - name: Install billing API dependencies
+        run: npm ci
+        working-directory: infra/billing
+
+      - name: Test billing API
+        run: npm test
+        working-directory: infra/billing
+
+      - name: Build static production export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://beta.example.invalid
+          NEXT_PUBLIC_BETA_MODE: "true"
+          NEXT_PUBLIC_BILLING_MODE: sandbox

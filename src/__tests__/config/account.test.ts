@@ -46,4 +46,34 @@ describe('public account configuration', () => {
     expect(config.authEnabled).toBe(true);
     expect(config.billingEnabled).toBe(false);
   });
+
+  it('refuses live billing while beta mode is enabled', () => {
+    vi.stubEnv('NEXT_PUBLIC_COGNITO_USER_POOL_ID', 'us-east-1_example');
+    vi.stubEnv('NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID', 'public-client-id');
+    vi.stubEnv('NEXT_PUBLIC_COGNITO_DOMAIN', 'auth.example.com');
+    vi.stubEnv('NEXT_PUBLIC_BILLING_API_URL', 'https://billing.example.com');
+    vi.stubEnv('NEXT_PUBLIC_BETA_MODE', 'true');
+    vi.stubEnv('NEXT_PUBLIC_BILLING_MODE', 'live');
+
+    expect(getPublicAccountConfig()).toMatchObject({
+      authEnabled: true,
+      billingEnabled: false,
+      billingMode: 'live',
+    });
+  });
+
+  it('allows live billing only after beta mode is explicitly disabled', () => {
+    vi.stubEnv('NEXT_PUBLIC_COGNITO_USER_POOL_ID', 'us-east-1_example');
+    vi.stubEnv('NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID', 'public-client-id');
+    vi.stubEnv('NEXT_PUBLIC_COGNITO_DOMAIN', 'auth.example.com');
+    vi.stubEnv('NEXT_PUBLIC_BILLING_API_URL', 'https://billing.example.com');
+    vi.stubEnv('NEXT_PUBLIC_BETA_MODE', 'false');
+    vi.stubEnv('NEXT_PUBLIC_BILLING_MODE', 'live');
+
+    expect(getPublicAccountConfig()).toMatchObject({
+      authEnabled: true,
+      billingEnabled: true,
+      billingMode: 'live',
+    });
+  });
 });

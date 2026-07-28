@@ -167,6 +167,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['add-bookmarks', 'edit-bookmarks', 'import-bookmarks', 'delete-bookmarks', 'extract-bookmarks'],
     relatedTools: ['table-of-contents', 'edit-pdf', 'edit-metadata'],
+    disabled: true,
   },
   {
     id: 'table-of-contents',
@@ -276,6 +277,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['remove-comments', 'remove-highlights', 'remove-links', 'selective-removal'],
     relatedTools: ['edit-pdf', 'flatten-pdf', 'sanitize-pdf'],
+    disabled: true,
   },
   {
     id: 'form-filler',
@@ -873,6 +875,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['rfc3161', 'tsa-servers', 'audit-trail'],
     relatedTools: ['sign-pdf', 'encrypt-pdf', 'sanitize-pdf'],
+    disabled: true,
   },
   {
     id: 'n-up-pdf',
@@ -1264,6 +1267,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['view-layers', 'toggle-layers', 'add-layers', 'delete-layers', 'rename-layers'],
     relatedTools: ['flatten-pdf', 'compress-pdf'],
+    disabled: true,
   },
   {
     id: 'pdf-reader',
@@ -1384,6 +1388,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['pki-cert-encryption', 'pkcs7-signature', 'wax-seal-imprint', 'double-key-security'],
     relatedTools: ['encrypt-pdf', 'sign-pdf', 'timestamp-pdf'],
+    disabled: true,
   },
   {
     id: 'passport-id-composer',
@@ -1456,6 +1461,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['barcode-rendering', 'coordinate-precision-positioning', 'batch-watermarking', 'guideline-snapping'],
     relatedTools: ['add-watermark', 'form-filler', 'add-stamps'],
+    disabled: true,
   },
   {
     id: 'signature-ink-optimizer',
@@ -1480,6 +1486,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['link-annot-extraction', 'async-ping-probing', 'redirect-replacement', 'network-graph-visualizer'],
     relatedTools: ['repair-pdf', 'table-of-contents', 'edit-metadata'],
+    disabled: true,
   },
   {
     id: 'interactive-toc-generator',
@@ -1516,6 +1523,7 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['deskew-hough', 'pixel-level-rotation', 'edge-autocrop', 'visual-gyroscope-align'],
     relatedTools: ['repair-pdf', 'crop-pdf', 'flatten-pdf'],
+    disabled: true,
   },
   {
     id: 'pdf-two-column-reflower',

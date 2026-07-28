@@ -6,6 +6,7 @@ import { localeConfig, type Locale, locales } from '@/lib/i18n/config';
 import { generateHomeMetadata } from '@/lib/seo';
 import { fontVariables } from '@/lib/fonts';
 import { SkipLink } from '@/components/common/SkipLink';
+import { BetaBanner } from '@/components/layout/BetaBanner';
 import '@/app/globals.css';
 
 export function generateStaticParams() {
@@ -87,9 +88,10 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
+      <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans ${process.env.NEXT_PUBLIC_BETA_MODE !== 'false' ? 'pb-11' : ''}`}>
         <NextIntlClientProvider messages={messages}>
           <SkipLink targetId="main-content">Skip to main content</SkipLink>
+          <BetaBanner locale={locale as Locale} />
           {children}
         </NextIntlClientProvider>
       </body>

@@ -47,6 +47,11 @@ const STATIC_PAGES = [
   { path: '/faq', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/privacy', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/contact', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/security', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/source', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/beta', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/terms', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/refund-policy', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
 ];
 
 /**

@@ -26,6 +26,9 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
     { href: `/${locale}/privacy`, label: t('navigation.privacy') },
     { href: `/${locale}/security`, label: 'Security' },
     { href: `/${locale}/contact`, label: t('navigation.contact') },
+    { href: `/${locale}/beta`, label: 'Beta notes' },
+    { href: `/${locale}/terms`, label: 'Terms' },
+    { href: `/${locale}/refund-policy`, label: 'Billing & refunds' },
   ];
 
   const handleLanguageChange = (newLocale: Locale) => {
@@ -176,6 +179,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             <a href="/LICENSE.txt" className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">License</a>
             <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
             <Link href={`/${locale}/security`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Security</Link>
+            <Link href={`/${locale}/terms`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Terms</Link>
           </div>
         </div>
       </div>

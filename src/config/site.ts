@@ -3,6 +3,8 @@
  */
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '');
 
+export const betaMode = process.env.NEXT_PUBLIC_BETA_MODE !== 'false';
+
 export const siteConfig = {
   name: 'NoStressPDF',
   description: 'Private PDF tools with zero file uploads. Edit, convert, secure, and automate PDFs directly on your device.',
@@ -13,6 +15,7 @@ export const siteConfig = {
     source: process.env.NEXT_PUBLIC_SOURCE_URL || 'https://github.com/Kryptonian23/nostresspdf',
   },
   creator: 'NoStressPDF contributors',
+  betaMode,
   keywords: [
     'PDF tools',
     'PDF editor',

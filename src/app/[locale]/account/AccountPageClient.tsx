@@ -247,7 +247,9 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                   <div className="flex items-center gap-3 p-4 rounded-xl border border-[hsl(var(--color-border))]">
                     <CreditCard className="h-5 w-5 text-[hsl(var(--color-muted-foreground))]" aria-hidden="true" />
                     <div>
-                      <p className="font-semibold">Subscription sandbox</p>
+                      <p className="font-semibold">
+                        {config.billingMode === 'sandbox' ? 'Subscription sandbox' : 'Subscription'}
+                      </p>
                       <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
                         {config.billingEnabled
                           ? billingLoading && !entitlement
@@ -264,7 +266,9 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                     </Button>
                   ) : config.billingEnabled ? (
                     <div className="space-y-4">
-                      <p className="text-sm font-semibold">Choose a Stripe test-mode subscription</p>
+                      <p className="text-sm font-semibold">
+                        Choose a Stripe {config.billingMode === 'sandbox' ? 'test-mode ' : ''}subscription
+                      </p>
                       <div className="grid gap-3 sm:grid-cols-2">
                         <div className="rounded-xl border border-[hsl(var(--color-border))] p-4 space-y-3">
                           <div>
@@ -287,9 +291,11 @@ export default function AccountPageClient({ locale }: AccountPageClientProps) {
                           </div>
                         </div>
                       </div>
-                      <p className="text-xs text-[hsl(var(--color-muted-foreground))]">
-                        Sandbox only. Stripe test mode cannot create real charges.
-                      </p>
+                      {config.billingMode === 'sandbox' && (
+                        <p className="text-xs text-[hsl(var(--color-muted-foreground))]">
+                          Sandbox only. Stripe test mode cannot create real charges.
+                        </p>
+                      )}
                     </div>
                   ) : null}
                   <Button variant="outline" onClick={handleSignOut} loading={loading}>
