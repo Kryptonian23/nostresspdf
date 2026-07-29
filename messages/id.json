@@ -505,7 +505,7 @@
       "bronzeWax": "Perunggu Merah Kuno",
       "enableDoubleKey": "Aktifkan Dekripsi Kunci Ganda Sertifikat (Kunci Kuat 256-bit)",
       "decryptPasswordHelp": "Atur Kata Sandi Kunci Dekripsi PFX",
-      "passwordPlaceholder": "Kata sandi bawaan: hushpdf",
+      "passwordPlaceholder": "Kata sandi bawaan: nostresspdf",
       "sealCoordinates": "Koordinat Segel: X: {x}px, Y: {y}px",
       "clickToReposition": "Klik di mana saja untuk memindahkan posisi segel lilin"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "Email",
         "description": "Kirimkan email kepada kami dan kami akan membalas dalam 24-48 jam.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Ikuti kami untuk pembaruan dan pengumuman.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

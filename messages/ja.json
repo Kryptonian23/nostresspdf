@@ -505,7 +505,7 @@
       "bronzeWax": "アンティーククリムゾンブロンズ",
       "enableDoubleKey": "証明書のダブルキー暗号化を有効化 (256ビット強力ロック)",
       "decryptPasswordHelp": "PFX復号キーのパスワードを設定",
-      "passwordPlaceholder": "デフォルトのパスワード: hushpdf",
+      "passwordPlaceholder": "デフォルトのパスワード: nostresspdf",
       "sealCoordinates": "印影座標: X: {x}px, Y: {y}px",
       "clickToReposition": "任意の場所をクリックしてシーリングワックスを再配置します"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "メールアドレス",
         "description": "メールをお送りください。24〜48時間以内に返信いたします。",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "ツイッター",
         "description": "アップデートや告知については、こちらをフォローしてください。",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

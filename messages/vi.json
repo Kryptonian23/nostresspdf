@@ -505,7 +505,7 @@
       "bronzeWax": "Đồng đỏ cổ xưa",
       "enableDoubleKey": "Bật mã hóa chứng thư hai khóa (Khóa bảo mật mạnh 256-bit)",
       "decryptPasswordHelp": "Thiết lập mật khẩu khóa giải mã PFX",
-      "passwordPlaceholder": "Mật khẩu mặc định: hushpdf",
+      "passwordPlaceholder": "Mật khẩu mặc định: nostresspdf",
       "sealCoordinates": "Tọa độ dấu: X: {x}px, Y: {y}px",
       "clickToReposition": "Nhấp vào bất kỳ đâu để đặt lại vị trí dấu sáp"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "Thư điện tử",
         "description": "Gửi email cho chúng tôi và chúng tôi sẽ trả lời trong vòng 24-48 giờ.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Theo dõi chúng tôi để nhận cập nhật và thông báo.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

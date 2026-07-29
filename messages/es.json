@@ -505,7 +505,7 @@
       "bronzeWax": "Bronce carmesí antiguo",
       "enableDoubleKey": "Habilitar cifrado de doble clave de certificado (Bloqueo fuerte de 256 bits)",
       "decryptPasswordHelp": "Establecer contraseña de clave de descifrado PFX",
-      "passwordPlaceholder": "Contraseña predeterminada: hushpdf",
+      "passwordPlaceholder": "Contraseña predeterminada: nostresspdf",
       "sealCoordinates": "Coordenadas del sello: X: {x}px, Y: {y}px",
       "clickToReposition": "Haga clic en cualquier lugar para reposicionar el sello de lacre"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "Correo electrónico",
         "description": "Envíenos un correo electrónico y responderemos dentro de 24-48 horas.",
-        "action": "contacto@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Gorjeo",
         "description": "Síganos para actualizaciones y anuncios.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

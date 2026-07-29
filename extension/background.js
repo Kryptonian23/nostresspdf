@@ -1,42 +1,42 @@
 // NoStressPDF Chrome Extension - Background Service Worker
 
 // Set this to the public NoStressPDF URL before publishing the extension.
-const HUSHPDF_URL = 'http://localhost:3000/en';
+const NOSTRESSPDF_URL = 'http://localhost:3000/en';
 
 // Create context menu when extension is installed
 chrome.runtime.onInstalled.addListener(() => {
     // Create main context menu item
     chrome.contextMenus.create({
-        id: 'hushpdf-open',
+        id: 'nostresspdf-open',
         title: 'Open with NoStressPDF',
         contexts: ['link', 'page']
     });
 
     // Create submenu for specific tools
     chrome.contextMenus.create({
-        id: 'hushpdf-merge',
-        parentId: 'hushpdf-open',
+        id: 'nostresspdf-merge',
+        parentId: 'nostresspdf-open',
         title: 'Merge PDFs',
         contexts: ['link', 'page']
     });
 
     chrome.contextMenus.create({
-        id: 'hushpdf-compress',
-        parentId: 'hushpdf-open',
+        id: 'nostresspdf-compress',
+        parentId: 'nostresspdf-open',
         title: 'Compress PDF',
         contexts: ['link', 'page']
     });
 
     chrome.contextMenus.create({
-        id: 'hushpdf-convert',
-        parentId: 'hushpdf-open',
+        id: 'nostresspdf-convert',
+        parentId: 'nostresspdf-open',
         title: 'Convert to PDF',
         contexts: ['link', 'page']
     });
 
     chrome.contextMenus.create({
-        id: 'hushpdf-all-tools',
-        parentId: 'hushpdf-open',
+        id: 'nostresspdf-all-tools',
+        parentId: 'nostresspdf-open',
         title: 'All Tools →',
         contexts: ['link', 'page']
     });
@@ -46,24 +46,24 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Handle context menu clicks
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-    let url = HUSHPDF_URL;
+    let url = NOSTRESSPDF_URL;
 
     switch (info.menuItemId) {
-        case 'hushpdf-merge':
-            url = `${HUSHPDF_URL}/tools/merge-pdf`;
+        case 'nostresspdf-merge':
+            url = `${NOSTRESSPDF_URL}/tools/merge-pdf`;
             break;
-        case 'hushpdf-compress':
-            url = `${HUSHPDF_URL}/tools/compress-pdf`;
+        case 'nostresspdf-compress':
+            url = `${NOSTRESSPDF_URL}/tools/compress-pdf`;
             break;
-        case 'hushpdf-convert':
-            url = `${HUSHPDF_URL}/tools/jpg-to-pdf`;
+        case 'nostresspdf-convert':
+            url = `${NOSTRESSPDF_URL}/tools/jpg-to-pdf`;
             break;
-        case 'hushpdf-all-tools':
-        case 'hushpdf-open':
-            url = HUSHPDF_URL;
+        case 'nostresspdf-all-tools':
+        case 'nostresspdf-open':
+            url = NOSTRESSPDF_URL;
             break;
         default:
-            url = HUSHPDF_URL;
+            url = NOSTRESSPDF_URL;
     }
 
     // Open NoStressPDF in a new tab

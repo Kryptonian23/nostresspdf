@@ -6,7 +6,7 @@
  */
 
 import type { Metadata } from 'next';
-import { siteConfig } from '@/config/site';
+import { betaMode, siteConfig } from '@/config/site';
 import { type Locale, indexableLocales } from '@/lib/i18n/config';
 import type { Tool, ToolContent } from '@/types/tool';
 import { getBasePath } from '@/lib/utils/path';
@@ -70,7 +70,7 @@ export function getAlternateUrls(path: string = ''): Record<string, string> {
  */
 export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
   const { locale, path = '', title, description, keywords = [], image, noIndex = false } = options;
-  const shouldIndex = !noIndex && indexableLocales.includes(locale as (typeof indexableLocales)[number]);
+  const shouldIndex = !betaMode && !noIndex && indexableLocales.includes(locale as (typeof indexableLocales)[number]);
 
   const fullTitle = title.includes(siteConfig.name)
     ? title

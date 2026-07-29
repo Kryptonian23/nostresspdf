@@ -12,6 +12,14 @@ vi.mock('@/config/tools', () => ({
       acceptedFormats: ['pdf'],
       outputFormat: 'pdf',
     },
+    {
+      id: 'unsafe-disabled-tool',
+      category: 'organize-manage',
+      icon: 'shield-alert',
+      acceptedFormats: ['pdf'],
+      outputFormat: 'pdf',
+      disabled: true,
+    },
   ],
 }));
 
@@ -25,6 +33,11 @@ vi.mock('next-intl', () => ({
 }));
 
 describe('ToolSidebar', () => {
+  it('does not expose disabled tools in workflows', () => {
+    render(<ToolSidebar onDragStart={vi.fn()} />);
+    expect(screen.queryByText('Unsafe Disabled Tool')).not.toBeInTheDocument();
+  });
+
   it('emits a fallback pointer drop event when native drag/drop is unavailable', () => {
     const handleFallbackDrop = vi.fn();
     window.addEventListener('workflow-tool-drop', handleFallbackDrop);

@@ -62,8 +62,15 @@ jobs:
       - name: Build with Next.js
         run: npm run build
         env:
-          # Add any required environment variables here
           NODE_ENV: production
+          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          NEXT_PUBLIC_BETA_MODE: "true"
+          NEXT_PUBLIC_BILLING_MODE: sandbox
+
+      - name: Verify static export
+        run: npm run check:export
+        env:
+          NEXT_PUBLIC_BETA_MODE: "true"
 
       # Upload artifact for deployment
       - name: Upload artifact

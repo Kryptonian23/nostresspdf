@@ -227,7 +227,7 @@ sed "s|listen 3000|listen $HUSHPDF_PORT|g" "$HUSHPDF_CONF" > "$RUNTIME_CONF"
 
 trap "rm -f $RUNTIME_CONF" EXIT
 
-echo "HushPDF running at http://localhost:$HUSHPDF_PORT"
+echo "NoStressPDF running at http://localhost:$HUSHPDF_PORT"
 exec @nginx@/bin/nginx -c "$RUNTIME_CONF"
 WRAPPER
 
@@ -240,7 +240,7 @@ WRAPPER
   '';
 
   meta = with lib; {
-    description = "HushPDF - Professional PDF Tools, Free, Private & Browser-Based";
+    description = "NoStressPDF - private, on-device PDF tools";
     license = licenses.agpl3Only;
     platforms = [ "x86_64-linux" "aarch64-linux" ];
     mainProgram = "hushpdf";

@@ -505,7 +505,7 @@
       "bronzeWax": "Bronz stacojiu antic",
       "enableDoubleKey": "Activați criptarea cu cheie dublă a certificatului (Blocare puternică pe 256 de biți)",
       "decryptPasswordHelp": "Setați parola cheii de decriptare PFX",
-      "passwordPlaceholder": "Parola implicită: hushpdf",
+      "passwordPlaceholder": "Parola implicită: nostresspdf",
       "sealCoordinates": "Coordonate sigiliu: X: {x}px, Y: {y}px",
       "clickToReposition": "Faceți clic oriunde pentru a repoziționa sigiliul de ceară"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "E-mail",
         "description": "Trimite-ne un e-mail și îți vom răspunde în 24-48 de ore.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Urmărește-ne pentru noutăți și anunțuri.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

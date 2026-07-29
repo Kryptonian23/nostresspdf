@@ -318,9 +318,10 @@ NoStressPDF is configured for static export (`output: 'export'`), which means it
    All static files will be generated in the `out` directory.
 
 2. **Deploy to your preferred platform:**
-   - **Vercel** (Recommended): `vercel --prod`
+   - **AWS S3 + CloudFront** (intended production platform): see `infra/` and [DEPLOYMENT.md](DEPLOYMENT.md)
+   - **Vercel**: `vercel --prod`
    - **Netlify**: `netlify deploy --prod --dir=out`
-   - **GitHub Pages**: Push to `main` branch (uses GitHub Actions)
+   - **GitHub Pages**: manually run the staging deployment workflow
    - **Cloudflare Pages**: `wrangler pages deploy out`
    - **Docker + Nginx**: `docker compose --profile prod up --build`
 

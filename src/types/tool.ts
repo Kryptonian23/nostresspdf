@@ -99,6 +99,8 @@ export interface Tool {
   relatedTools: string[];
   /** Whether the tool is disabled (hidden from UI) */
   disabled?: boolean;
+  /** Internal explanation displayed if a disabled route is reached */
+  disabledReason?: string;
 }
 
 /**

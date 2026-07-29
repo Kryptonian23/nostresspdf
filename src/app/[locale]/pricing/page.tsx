@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PricingPageProps): Promise<Me
     locale: locale as Locale,
     path: '/pricing',
     title: 'NoStressPDF Pricing',
-    description: 'Compare ad-supported access and NoStressPDF Personal, Professional, and Teams plans for private PDF processing with zero file uploads.',
+    description: 'Compare planned ad-supported access and NoStressPDF Personal and Professional plans for private, on-device PDF processing.',
     keywords: ['NoStressPDF pricing', 'private PDF tools', 'professional PDF software', 'PDF workflow software'],
   });
 }
@@ -54,7 +54,7 @@ export default async function PricingPage({ params }: PricingPageProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {PRICING_PLANS.map((plan) => (
               <Card
                 key={plan.id}

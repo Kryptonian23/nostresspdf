@@ -505,7 +505,7 @@
       "bronzeWax": "Antike Karmesin-Bronze",
       "enableDoubleKey": "Doppel-Schlüssel-Zertifikatsverschlüsselung aktivieren (256-Bit-Verschlüsselung)",
       "decryptPasswordHelp": "Passwort für PFX-Entschlüsselungsschlüssel festlegen",
-      "passwordPlaceholder": "Standardpasswort: hushpdf",
+      "passwordPlaceholder": "Standardpasswort: nostresspdf",
       "sealCoordinates": "Siegel-Koordinaten: X: {x}px, Y: {y}px",
       "clickToReposition": "Klicken Sie auf eine beliebige Stelle, um das Siegel neu zu positionieren"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "E-Mail-Adresse",
         "description": "Senden Sie uns eine E-Mail und wir antworten innerhalb von 24-48 Stunden.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Folgen Sie uns für Updates und Ankündigungen.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

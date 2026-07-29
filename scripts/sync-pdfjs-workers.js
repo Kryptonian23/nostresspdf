@@ -22,11 +22,6 @@ const workerFiles = [
         src: 'node_modules/pdfjs-dist/build/pdf.worker.min.mjs',
         dest: 'public/workers/pdf.worker.min.mjs',
         name: 'pdfjs-dist v4.x worker'
-    },
-    {
-        src: 'node_modules/pdfjs-dist-legacy/build/pdf.worker.min.js',
-        dest: 'public/workers/pdf.worker.legacy.min.js',
-        name: 'pdfjs-dist-legacy v2.x worker'
     }
 ];
 

@@ -505,7 +505,7 @@
       "bronzeWax": "برونزي قرمزي عتيق",
       "enableDoubleKey": "تمكين تشفير الشهادة بمفتاحين (قفل قوي 256 بت)",
       "decryptPasswordHelp": "تعيين كلمة مرور مفتاح فك تشفير PFX",
-      "passwordPlaceholder": "كلمة المرور الافتراضية: hushpdf",
+      "passwordPlaceholder": "كلمة المرور الافتراضية: nostresspdf",
       "sealCoordinates": "إحداثيات الختم: X: {x}px, Y: {y}px",
       "clickToReposition": "انقر في أي مكان لإعادة تحديد موضع ختم الشمع"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "البريد الإلكتروني",
         "description": "أرسل لنا رسالة وسنرد عليك خلال 24-48 ساعة.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "تابعنا للحصول على التحديثات والإعلانات.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

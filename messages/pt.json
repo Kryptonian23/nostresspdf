@@ -505,7 +505,7 @@
       "bronzeWax": "Bronze carmesim antigo",
       "enableDoubleKey": "Habilitar criptografia de chave dupla de certificado (Bloqueio forte de 256 bits)",
       "decryptPasswordHelp": "Definir senha da chave de descriptografia PFX",
-      "passwordPlaceholder": "Senha padrão: hushpdf",
+      "passwordPlaceholder": "Senha padrão: nostresspdf",
       "sealCoordinates": "Coordenadas do selo: X: {x}px, Y: {y}px",
       "clickToReposition": "Clique em qualquer lugar para reposicionar o selo de lacre"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "E-mail",
         "description": "Envie-nos um e-mail e responderemos dentro de 24 a 48 horas.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Siga-nos para atualizações e anúncios.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

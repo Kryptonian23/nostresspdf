@@ -9,8 +9,10 @@ import { Tool, ToolCategory } from '@/types/tool';
 /**
  * Default file size limits - No restrictions
  */
-const DEFAULT_MAX_FILE_SIZE = Infinity; // No limit
-const LARGE_FILE_SIZE = Infinity; // No limit
+// Browser-side processing still consumes memory. Bound inputs so a malformed or
+// unexpectedly large document cannot freeze the tab or exhaust the device.
+const DEFAULT_MAX_FILE_SIZE = 100 * 1024 * 1024;
+const LARGE_FILE_SIZE = 250 * 1024 * 1024;
 
 /**
  * All tools configuration
@@ -632,6 +634,8 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['vector-output', 'scalable-quality', 'page-preview', 'individual-export'],
     relatedTools: ['pdf-to-png', 'svg-to-pdf', 'pdf-to-jpg'],
+    disabled: true,
+    disabledReason: 'Temporarily unavailable while the legacy PDF renderer is replaced.',
   },
   {
     id: 'pdf-to-greyscale',
@@ -1316,6 +1320,8 @@ export const tools: Tool[] = [
     maxFiles: 1,
     features: ['svg-extraction', 'explode-3d-highlight', 'color-recolor', 'svg-code-copy'],
     relatedTools: ['extract-images', 'pdf-to-svg', 'pdf-to-png'],
+    disabled: true,
+    disabledReason: 'Temporarily unavailable while the legacy PDF renderer is replaced.',
   },
   {
     id: 'deep-sanitize',

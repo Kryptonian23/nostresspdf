@@ -40,6 +40,10 @@ jobs:
       # Build the project (generates static export in 'out' directory)
       - name: Build project
         run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://release-candidate.example.invalid
+          NEXT_PUBLIC_BETA_MODE: "true"
+          NEXT_PUBLIC_BILLING_MODE: sandbox
 
       # Generate version tag based on date and short commit hash
       - name: Generate version info

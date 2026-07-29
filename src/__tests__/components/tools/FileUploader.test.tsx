@@ -128,6 +128,11 @@ describe('FileUploader', () => {
       
       expect(screen.getByText(/Max files: 5/)).toBeInTheDocument();
     });
+
+    it('displays the default combined selection limit', () => {
+      render(<FileUploader onFilesSelected={mockOnFilesSelected} multiple />);
+      expect(screen.getByText(/Max total: 500MB/)).toBeInTheDocument();
+    });
   });
 
   describe('File Picker', () => {

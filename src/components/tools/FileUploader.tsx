@@ -12,6 +12,8 @@ export interface FileUploaderProps {
   multiple?: boolean;
   /** Maximum file size in bytes */
   maxSize?: number;
+  /** Maximum combined size of one selection in bytes */
+  maxTotalSize?: number;
   /** Maximum number of files */
   maxFiles?: number;
   /** Callback when files are selected */
@@ -38,7 +40,8 @@ export interface FileUploaderProps {
 export const FileUploader: React.FC<FileUploaderProps> = ({
   accept = ['application/pdf'],
   multiple = false,
-  maxSize = Infinity, // No limit by default
+  maxSize = 100 * 1024 * 1024,
+  maxTotalSize = 500 * 1024 * 1024,
   maxFiles = 10,
   onFilesSelected,
   onError,
@@ -156,8 +159,15 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
       valid.push(file);
     }
 
+    const totalSize = valid.reduce((sum, file) => sum + file.size, 0);
+    if (maxTotalSize !== Infinity && totalSize > maxTotalSize) {
+      const maxTotalSizeMB = Math.round(maxTotalSize / (1024 * 1024));
+      errors.push(`Combined file size exceeds the ${maxTotalSizeMB}MB limit.`);
+      return { valid: [], errors };
+    }
+
     return { valid, errors };
-  }, [accept, maxSize, maxFiles, multiple, tErrors]);
+  }, [accept, maxSize, maxTotalSize, maxFiles, multiple, tErrors]);
 
   /**
    * Handle decryption submit action
@@ -570,6 +580,11 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
           <span className="text-xs px-2 py-1 rounded-md bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]">
             Max files: {maxFiles}
           </span>
+          {maxTotalSize !== Infinity && (
+            <span className="text-xs px-2 py-1 rounded-md bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]">
+              Max total: {Math.round(maxTotalSize / (1024 * 1024))}MB
+            </span>
+          )}
         </div>
       )}
 

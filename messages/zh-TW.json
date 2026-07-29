@@ -505,7 +505,7 @@
       "bronzeWax": "古铜赤金",
       "enableDoubleKey": "启用證書双钥锁 (256位强加密)",
       "decryptPasswordHelp": "设置解密所持密碼 (PFX 解密密钥)",
-      "passwordPlaceholder": "默認密碼: hushpdf",
+      "passwordPlaceholder": "默認密碼: nostresspdf",
       "sealCoordinates": "数字證書盖印坐标: X: {x}px, Y: {y}px",
       "clickToReposition": "在白纸处点击以重定位印章"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "電子郵件",
         "description": "傳送電子郵件給我們，我們將在 24-48 小時內回覆。",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "推特",
         "description": "關注我們要獲取更新和公告。",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

@@ -505,7 +505,7 @@
       "bronzeWax": "앤티크 크림슨 브론즈",
       "enableDoubleKey": "인증서 이중 키 암호화 활성화 (256비트 강력 잠금)",
       "decryptPasswordHelp": "PFX 암호 해독 키 비밀번호 설정",
-      "passwordPlaceholder": "기본 비밀번호: hushpdf",
+      "passwordPlaceholder": "기본 비밀번호: nostresspdf",
       "sealCoordinates": "인감 좌표: X: {x}px, Y: {y}px",
       "clickToReposition": "임의의 위치를 클릭하여 실링 왁스 위치를 변경하십시오"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "이메일 주소",
         "description": "이메일을 보내주시면 24~48시간 이내에 답변해 드리겠습니다.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "트위터",
         "description": "업데이트 및 공지 사항을 확인하려면 팔로우하세요.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

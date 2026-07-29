@@ -5,6 +5,7 @@
 
 import { describe, it, expect } from 'vitest';
 import * as fc from 'fast-check';
+import { betaMode } from '@/config/site';
 import { 
   generateBaseMetadata,
   generateToolMetadata,
@@ -152,7 +153,7 @@ describe('SEO Property Tests', () => {
             expect(metadata.alternates?.canonical).toBeTruthy();
             expect(metadata.alternates?.canonical).toContain(locale);
             
-            if (locale === 'ro') {
+            if (betaMode || locale === 'ro') {
               expect(metadata.alternates?.languages).toBeUndefined();
             } else {
               expect(metadata.alternates?.languages).toBeDefined();

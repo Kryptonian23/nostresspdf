@@ -505,7 +505,7 @@
       "bronzeWax": "Antique Crimson Bronze",
       "enableDoubleKey": "Enable Certificate Double-Key Encryption (256-bit Strong Lock)",
       "decryptPasswordHelp": "Set PFX Decryption Key Password",
-      "passwordPlaceholder": "Default password: hushpdf",
+      "passwordPlaceholder": "Default password: nostresspdf",
       "sealCoordinates": "Seal Coordinates: X: {x}px, Y: {y}px",
       "clickToReposition": "Click anywhere to reposition the wax seal"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "Email",
         "description": "Send us an email and we'll respond within 24-48 hours.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Follow us for updates and announcements.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

@@ -1,10 +1,10 @@
-# HushPDF threat model
+# NoStressPDF threat model
 
 Last reviewed: 2026-07-23
 
 ## Security objective
 
-HushPDF protects customer accounts, subscription state, infrastructure, and
+NoStressPDF protects customer accounts, subscription state, infrastructure, and
 service availability while keeping PDF document processing on the user's
 device. The hosted service must never imply that browser-delivered code is an
 unbreakable authorization boundary.
@@ -66,7 +66,7 @@ application logs.
 
 The browser, local storage, downloaded JavaScript, and all UI gates are attacker
 controlled. Minification, obfuscation, extension detection, and ad-block checks
-are deterrents or product UX, not security controls. HushPDF therefore:
+are deterrents or product UX, not security controls. NoStressPDF therefore:
 
 - does not store secrets in browser code;
 - does not grant hosted entitlements from a client redirect or local flag;

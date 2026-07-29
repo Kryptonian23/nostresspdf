@@ -57,9 +57,9 @@ export const PRICING_PLANS = [
     ctaLabel: 'Explore NoStressPDF',
     features: [
       'Core edit, convert, organize, optimize, and security tools',
-      'Signed desktop application',
-      'Product updates',
-      'Local project history',
+      'On-device browser processing',
+      'Local preferences and project history',
+      'Updates during the supported release period',
     ],
   },
   {
@@ -76,23 +76,7 @@ export const PRICING_PLANS = [
       'Batch processing',
       'Workflow builder and reusable templates',
       'Advanced OCR, automation, and prepress tools',
-      'Priority support',
-    ],
-  },
-  {
-    id: 'teams',
-    name: 'Teams',
-    priceLabel: '$15',
-    priceDetail: 'per user / month · billed annually · 3-seat minimum',
-    description: 'Centralized access and support for privacy-conscious teams.',
-    featured: false,
-    ctaLabel: 'Explore NoStressPDF',
-    features: [
-      'Everything in Professional',
-      'Centralized billing and seat administration',
-      'Organization policy presets',
-      'Deployment assistance',
-      'Business support',
+      'Standard email support after the support channel launches',
     ],
   },
 ] as const;

@@ -6,6 +6,13 @@ Parameters:
     Type: String
     Default: staging
     AllowedPattern: '^[a-z0-9-]+$'
+  WebAclArn:
+    Type: String
+    Default: ''
+    Description: Optional CloudFront-scope AWS WAF web ACL ARN.
+
+Conditions:
+  HasWebAcl: !Not [!Equals [!Ref WebAclArn, '']]
 
 Resources:
   SiteBucket:
@@ -261,6 +268,7 @@ Resources:
         PriceClass: PriceClass_100
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
+        WebACLId: !If [HasWebAcl, !Ref WebAclArn, !Ref AWS::NoValue]
       Tags:
         - Key: Application
           Value: NoStressPDF

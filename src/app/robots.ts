@@ -6,13 +6,19 @@
  */
 
 import { MetadataRoute } from 'next';
-import { siteConfig } from '@/config/site';
+import { betaMode, siteConfig } from '@/config/site';
 import { getBasePath } from '@/lib/utils/path';
 
 // Required for static export
 export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
+  if (betaMode) {
+    return {
+      rules: [{ userAgent: '*', disallow: '/' }],
+      sitemap: `${siteConfig.url}${getBasePath()}/sitemap.xml`,
+    };
+  }
   // Account pages are crawlable so their page-level `noindex` directive can
   // be read. API routes remain outside the public search surface.
   const privatePaths = ['/api/'];

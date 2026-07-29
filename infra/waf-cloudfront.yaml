@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Optional CloudFront WAF protection for the NoStressPDF public site. Deploy in us-east-1.
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Default: staging
+    AllowedPattern: '^[a-z0-9-]+$'
+  RequestsPerFiveMinutes:
+    Type: Number
+    Default: 2000
+    MinValue: 100
+
+Resources:
+  SiteWebAcl:
+    Type: AWS::WAFv2::WebACL
+    Properties:
+      Name: !Sub nostresspdf-${EnvironmentName}-cloudfront
+      Scope: CLOUDFRONT
+      DefaultAction:
+        Allow: {}
+      VisibilityConfig:
+        CloudWatchMetricsEnabled: true
+        MetricName: !Sub nostresspdf-${EnvironmentName}-web-acl
+        SampledRequestsEnabled: true
+      Rules:
+        - Name: AWSManagedCommonRules
+          Priority: 10
+          OverrideAction:
+            None: {}
+          Statement:
+            ManagedRuleGroupStatement:
+              VendorName: AWS
+              Name: AWSManagedRulesCommonRuleSet
+          VisibilityConfig:
+            CloudWatchMetricsEnabled: true
+            MetricName: common-rules
+            SampledRequestsEnabled: true
+        - Name: AWSManagedKnownBadInputs
+          Priority: 20
+          OverrideAction:
+            None: {}
+          Statement:
+            ManagedRuleGroupStatement:
+              VendorName: AWS
+              Name: AWSManagedRulesKnownBadInputsRuleSet
+          VisibilityConfig:
+            CloudWatchMetricsEnabled: true
+            MetricName: known-bad-inputs
+            SampledRequestsEnabled: true
+        - Name: PerIpRateLimit
+          Priority: 30
+          Action:
+            Block: {}
+          Statement:
+            RateBasedStatement:
+              AggregateKeyType: IP
+              Limit: !Ref RequestsPerFiveMinutes
+          VisibilityConfig:
+            CloudWatchMetricsEnabled: true
+            MetricName: per-ip-rate-limit
+            SampledRequestsEnabled: true
+
+Outputs:
+  WebAclArn:
+    Description: Pass this value to hosting-staging.yaml as WebAclArn.
+    Value: !GetAtt SiteWebAcl.Arn

@@ -12,8 +12,8 @@ When you run `npm run build`, Next.js generates a static site in the `out/` dire
 
 ## 🔧 Prerequisites
 
-- Node.js 18.17 or later
-- npm, yarn, or pnpm
+- Node.js 22.13 or later
+- npm (the committed lockfile is authoritative)
 
 ## 🏗️ Build the Project
 
@@ -31,7 +31,10 @@ The static output will be in the `out/` directory.
 
 ## 🚀 Deployment Options
 
-### 1. Vercel (Recommended)
+AWS S3 and CloudFront are the intended production platform; see option 8. The
+other targets remain useful for previews and self-hosting.
+
+### 1. Vercel
 
 **Automatic Deployment:**
 1. Push your code to GitHub
@@ -72,10 +75,10 @@ netlify deploy --prod --dir=out
 
 > ⚠️ **Limitation:** GitHub Pages does **not** support custom response headers. This means `Cross-Origin-Opener-Policy` and `Cross-Origin-Embedder-Policy` headers cannot be set, so `SharedArrayBuffer` will be unavailable. **Document conversion tools (Word/Excel/PPT/RTF to PDF) that rely on LibreOffice WASM will not work on GitHub Pages.** All other PDF tools (merge, split, compress, etc.) work fine. Use Vercel, Netlify, Cloudflare Pages, or Docker+Nginx for full feature support.
 
-**Automatic Deployment:**
+**Manual staging deployment:**
 1. Enable GitHub Pages in repository settings
 2. Set source to "GitHub Actions"
-3. Push to `main` branch - workflow deploys automatically
+3. Run the **Deploy to GitHub Pages** workflow from the Actions tab
 
 **Manual Deployment:**
 ```bash
@@ -83,7 +86,8 @@ npm run build
 # Push the out/ directory to gh-pages branch
 ```
 
-The `.github/workflows/deploy.yml` workflow handles automatic deployment.
+The `.github/workflows/deploy.yml` workflow is intentionally manual so a push
+cannot publish the beta by accident.
 
 ---
 
@@ -96,7 +100,7 @@ NoStressPDF uses a custom asset chunking mechanism to bypass the 25 MiB file siz
 2. Build settings:
    - Build command: `npm run build`
    - Build output directory: `out`
-   - Node version: 20
+   - Node version: 22
 
 **Manual Deployment:**
 ```bash
@@ -263,6 +267,9 @@ Header set Cross-Origin-Resource-Policy "cross-origin"
 ---
 
 ### 8. AWS S3 + CloudFront
+
+This is the intended production target. Prefer the reviewed CloudFormation
+templates in `infra/` over creating resources by hand.
 
 ```bash
 # Build the site
@@ -642,13 +649,14 @@ npm run build
 ## 🔄 Continuous Deployment
 
 The project includes:
-- **GitHub Actions workflow** (`.github/workflows/release.yml`) - Creates releases on push to main
-- **GitHub Actions workflow** (`.github/workflows/deploy.yml`) - Deploys to GitHub Pages
+- **GitHub Actions workflow** (`.github/workflows/release.yml`) - Manually creates a draft release candidate
+- **GitHub Actions workflow** (`.github/workflows/deploy.yml`) - Manually deploys a staging build to GitHub Pages
 - **Netlify configuration** (`netlify.toml`)
 - **Vercel configuration** (`vercel.json`)
 - **Docker Compose** (`docker-compose.yml`) + Nginx (`nginx.conf`)
 
-Push to `main` branch to trigger automatic deployment.
+Production promotion remains an explicit owner action; pushing `main` does not
+publish the website.
 
 ---
 

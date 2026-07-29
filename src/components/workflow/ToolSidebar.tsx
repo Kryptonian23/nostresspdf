@@ -97,7 +97,7 @@ export function ToolSidebar({
         ]);
 
         tools
-            .filter(tool => !interactiveToolsBlacklist.has(tool.id))
+            .filter(tool => !tool.disabled && !interactiveToolsBlacklist.has(tool.id))
             .forEach(tool => {
                 if (!categoryMap[tool.category]) {
                     categoryMap[tool.category] = [];

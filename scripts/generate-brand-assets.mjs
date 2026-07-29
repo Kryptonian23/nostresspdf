@@ -3,8 +3,8 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const source = path.join(root, 'public/images/hushpdf-icon-generated.png');
-const master = path.join(root, 'public/images/hushpdf-icon-master.png');
+const source = path.join(root, 'public/images/nostresspdf-icon-generated.png');
+const master = path.join(root, 'public/images/nostresspdf-icon-master.png');
 
 const sourceMetadata = await sharp(source).metadata();
 const width = sourceMetadata.width;

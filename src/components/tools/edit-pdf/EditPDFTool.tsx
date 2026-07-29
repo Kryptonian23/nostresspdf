@@ -72,11 +72,11 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 (btn as HTMLElement).style.display = 'none';
               }
             });
-          }          // 3. Inject HushPDF Enrichment Script
+          }          // 3. Inject NoStressPDF Enrichment Script
           const patchScript = doc.createElement('script');
           patchScript.textContent = `
             (function() {
-              console.log('[HushPDF Patch] Initializing annotation patches...');
+              console.log('[NoStressPDF Patch] Initializing annotation patches...');
 
               let undoStack = [];
               let redoStack = [];
@@ -100,7 +100,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 const ext = window.pdfjsAnnotationExtensionInstance;
                 if (ext) {
                   clearInterval(initInterval);
-                  console.log('[HushPDF Patch] pdfjsAnnotationExtensionInstance found! Setting up patches...');
+                  console.log('[NoStressPDF Patch] pdfjsAnnotationExtensionInstance found! Setting up patches...');
                   setupCloudFix();
                   setupColorPickerAndStroke();
                   setupUndoRedoAndAuthorPatch();
@@ -114,7 +114,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 const stage = ext?.stage || ext?.konvaStage || (window.Konva && window.Konva.stages[0]);
                 if (!stage) return;
                 
-                console.log('[HushPDF Patch] Setting up Konva Snapping Alignment...');
+                console.log('[NoStressPDF Patch] Setting up Konva Snapping Alignment...');
                 
                 stage.on('dragmove', function(e) {
                   const activeShape = e.target;
@@ -165,10 +165,10 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 });
                 
                 function drawGuides(stg, sx, sy) {
-                  let container = document.getElementById('hushpdf-alignment-guides');
+                  let container = document.getElementById('nostresspdf-alignment-guides');
                   if (!container) {
                     container = document.createElement('div');
-                    container.id = 'hushpdf-alignment-guides';
+                    container.id = 'nostresspdf-alignment-guides';
                     container.style.cssText = 'position:absolute; inset:0; pointer-events:none; z-index:99999;';
                     stg.container().appendChild(container);
                   }
@@ -187,7 +187,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 }
                 
                 function clearGuides() {
-                  const container = document.getElementById('hushpdf-alignment-guides');
+                  const container = document.getElementById('nostresspdf-alignment-guides');
                   if (container) container.innerHTML = '';
                 }
               }
@@ -199,7 +199,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
 
                 const originalSave = pdfLib.PDFDocument.prototype.save;
                 pdfLib.PDFDocument.prototype.save = async function(saveOptions) {
-                  console.log('[HushPDF Patch] Intercepting save to inspect for Chinese text...');
+                  console.log('[NoStressPDF Patch] Intercepting save to inspect for Chinese text...');
                   
                   let hasChinese = false;
                   
@@ -215,7 +215,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
 
                   if (hasChinese) {
                     try {
-                      console.log('[HushPDF Patch] Chinese text found. Embedding NotoSansSC-Regular font...');
+                      console.log('[NoStressPDF Patch] Chinese text found. Embedding NotoSansSC-Regular font...');
                       const fontBytes = await fetch('/fonts/NotoSansSC-Regular.ttf').then(res => res.arrayBuffer());
                       const customFont = await this.embedFont(fontBytes, { subset: true });
                       
@@ -223,13 +223,13 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                       const originalEmbedFont = this.embedFont;
                       this.embedFont = async function(fontToEmbed, embedOpts) {
                         if (fontToEmbed === pdfLib.StandardFonts.Helvetica || fontToEmbed === 'Helvetica') {
-                          console.log('[HushPDF Patch] Redirected Helvetica embed to NotoSansSC font');
+                          console.log('[NoStressPDF Patch] Redirected Helvetica embed to NotoSansSC font');
                           return customFont;
                         }
                         return originalEmbedFont.call(this, fontToEmbed, embedOpts);
                       };
                     } catch (e) {
-                      console.error('[HushPDF Patch] Failed to embed Chinese font subset', e);
+                      console.error('[NoStressPDF Patch] Failed to embed Chinese font subset', e);
                     }
                   }
 
@@ -245,7 +245,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                   if (activeTool === 'cloud') {
                     const konvaContent = document.querySelector('.konvajs-content');
                     if (konvaContent) {
-                      console.log('[HushPDF Patch] Intercepted dblclick for cloud tool, dispatching to Konva stage.');
+                      console.log('[NoStressPDF Patch] Intercepted dblclick for cloud tool, dispatching to Konva stage.');
                       const dblEvent = new MouseEvent('dblclick', {
                         bubbles: true,
                         cancelable: true,
@@ -266,7 +266,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                     if (activeTool === 'cloud') {
                       const konvaContent = document.querySelector('.konvajs-content');
                       if (konvaContent) {
-                        console.log('[HushPDF Patch] Intercepted Enter key for cloud tool, dispatching dblclick to end drawing.');
+                        console.log('[NoStressPDF Patch] Intercepted Enter key for cloud tool, dispatching dblclick to end drawing.');
                         const dblEvent = new MouseEvent('dblclick', {
                           bubbles: true,
                           cancelable: true,
@@ -283,10 +283,10 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 // Inject picker for Highlight tool
                 const hlColorPicker = document.getElementById('editorHighlightColorPicker');
                 if (hlColorPicker) {
-                  if (!hlColorPicker.querySelector('.hushpdf-custom-hl-picker')) {
+                  if (!hlColorPicker.querySelector('.nostresspdf-custom-hl-picker')) {
                     const picker = document.createElement('input');
                     picker.type = 'color';
-                    picker.className = 'hushpdf-custom-hl-picker';
+                    picker.className = 'nostresspdf-custom-hl-picker';
                     picker.style.cssText = 'width:28px; height:28px; border:2px solid #ccc; border-radius:50%; padding:0; cursor:pointer; margin-left:8px; vertical-align:middle; background:none;';
                     
                     picker.addEventListener('input', function(e) {
@@ -317,12 +317,12 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
               }
 
               function injectCustomMenuControls(menu) {
-                if (menu.querySelector('.hushpdf-custom-controls')) return;
+                if (menu.querySelector('.nostresspdf-custom-controls')) return;
 
-                console.log('[HushPDF Patch] CustomAnnotationMenu opened, injecting custom controls...');
+                console.log('[NoStressPDF Patch] CustomAnnotationMenu opened, injecting custom controls...');
 
                 const container = document.createElement('div');
-                container.className = 'hushpdf-custom-controls';
+                container.className = 'nostresspdf-custom-controls';
                 container.style.cssText = 'border-top:1px solid #ccc; margin-top:8px; padding-top:8px; font-size:12px; display:flex; flex-direction:column; gap:8px; color:var(--toolbar-fg-color, #333);';
 
                 const ext = window.pdfjsAnnotationExtensionInstance;
@@ -357,7 +357,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 nativeSliders.forEach(slider => {
                   if (slider.getAttribute('min') === '1') {
                     slider.setAttribute('min', '0');
-                    console.log('[HushPDF Patch] Stroke width slider updated min to 0');
+                    console.log('[NoStressPDF Patch] Stroke width slider updated min to 0');
                   }
                 });
 
@@ -372,12 +372,12 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                   
                   const fillCheckbox = document.createElement('input');
                   fillCheckbox.type = 'checkbox';
-                  fillCheckbox.id = 'hushpdf-fill-enabled';
+                  fillCheckbox.id = 'nostresspdf-fill-enabled';
                   fillCheckbox.style.cssText = 'cursor:pointer;';
                   fillCheckbox.checked = selected.style?.fillEnabled || false;
                   
                   const fillLabel = document.createElement('label');
-                  fillLabel.htmlFor = 'hushpdf-fill-enabled';
+                  fillLabel.htmlFor = 'nostresspdf-fill-enabled';
                   {t('editPdf.fillColorLabel')}
                   fillLabel.style.cssText = 'cursor:pointer; user-select:none;';
 
@@ -505,7 +505,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                   lastStateStr = stateStr;
                   updateUndoRedoButtonsState();
                 } catch (err) {
-                  console.error('[HushPDF Patch] Failed to load state', err);
+                  console.error('[NoStressPDF Patch] Failed to load state', err);
                 } finally {
                   setTimeout(() => {
                     isDoingUndoRedo = false;
@@ -516,11 +516,11 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
               function injectUndoRedoButtons() {
                 const customToolbar = document.querySelector('.CustomToolbar');
                 if (customToolbar) {
-                  if (customToolbar.querySelector('.hushpdf-undo-btn')) return;
+                  if (customToolbar.querySelector('.nostresspdf-undo-btn')) return;
                   const btnList = customToolbar.querySelector('ul') || customToolbar;
 
                   const undoLi = document.createElement('li');
-                  undoLi.className = 'hushpdf-undo-btn';
+                  undoLi.className = 'nostresspdf-undo-btn';
                   undoLi.style.cssText = 'display:inline-block; margin-right:8px;';
 
                   const undoBtn = document.createElement('button');
@@ -533,7 +533,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                   undoLi.appendChild(undoBtn);
 
                   const redoLi = document.createElement('li');
-                  redoLi.className = 'hushpdf-redo-btn';
+                  redoLi.className = 'nostresspdf-redo-btn';
                   redoLi.style.cssText = 'display:inline-block; margin-right:8px;';
 
                   const redoBtn = document.createElement('button');
@@ -556,8 +556,8 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
               }
 
               function updateUndoRedoButtonsState() {
-                const undoBtn = document.querySelector('.hushpdf-undo-btn button');
-                const redoBtn = document.querySelector('.hushpdf-redo-btn button');
+                const undoBtn = document.querySelector('.nostresspdf-undo-btn button');
+                const redoBtn = document.querySelector('.nostresspdf-redo-btn button');
                 
                 if (undoBtn) {
                   const canUndo = undoStack.length > 1;
@@ -573,7 +573,7 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
             })();
           `;
           doc.body.appendChild(patchScript);
-          console.log('[HushPDF Patch] Enrichment script successfully injected into iframe!');
+          console.log('[NoStressPDF Patch] Enrichment script successfully injected into iframe!');
         }
       } catch (e) {
         console.warn('Could not access iframe content to inject patches', e);

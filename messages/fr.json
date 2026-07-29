@@ -505,7 +505,7 @@
       "bronzeWax": "Bronze cramoisi antique",
       "enableDoubleKey": "Activer le chiffrement de certificat à double clé (Verrouillage fort 256 bits)",
       "decryptPasswordHelp": "Définir le mot de passe de la clé de déchiffrement PFX",
-      "passwordPlaceholder": "Mot de passe par défaut : hushpdf",
+      "passwordPlaceholder": "Mot de passe par défaut : nostresspdf",
       "sealCoordinates": "Coordonnées du sceau : X : {x}px, Y : {y}px",
       "clickToReposition": "Cliquez n'importe où pour repositionner le sceau de cire"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "E-mail",
         "description": "Envoyez-nous un e-mail et nous vous répondrons sous 24 à 48 heures.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Gazouillement",
         "description": "Suivez-nous pour les mises à jour et les annonces.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {

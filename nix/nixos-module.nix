@@ -5,13 +5,13 @@ let
 in
 {
   options.services.hushpdf = {
-    enable = lib.mkEnableOption "HushPDF - Professional PDF Tools";
+    enable = lib.mkEnableOption "NoStressPDF - private PDF tools";
 
     package = lib.mkOption {
       type = lib.types.package;
       default = pkgs.hushpdf;
       defaultText = lib.literalExpression "pkgs.hushpdf";
-      description = "The HushPDF package to use.";
+      description = "The NoStressPDF package to use.";
     };
 
     port = lib.mkOption {
@@ -35,7 +35,7 @@ in
     ];
 
     systemd.services.hushpdf = {
-      description = "HushPDF PDF Tools";
+      description = "NoStressPDF PDF Tools";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
 

@@ -1,5 +1,5 @@
 {
-  description = "HushPDF - Professional PDF Tools, Free, Private & Browser-Based";
+  description = "NoStressPDF - private, on-device PDF tools";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

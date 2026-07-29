@@ -12,7 +12,7 @@ const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
   
-  // Support deployment under a subpath (e.g., /hushpdf/)
+  // Support deployment under a subpath (e.g., /nostresspdf/)
   // Use BASE_PATH or NEXT_PUBLIC_BASE_PATH environment variable
   basePath: process.env.BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH || '',
   
@@ -30,7 +30,7 @@ const nextConfig = {
         module: false,
         url: false,
         worker_threads: false,
-        canvas: false,  // Required for pdfjs-dist-legacy
+        canvas: false,  // PDF.js does not use the Node canvas package in-browser
       };
 
       // Browser bundles cannot load Node's module builtin. Keep this scoped to
@@ -52,14 +52,6 @@ const nextConfig = {
         canvas: 'commonjs canvas',
       });
     }
-
-    // Ignore problematic modules that are not needed in browser
-    config.plugins.push(
-      new webpack.IgnorePlugin({
-        resourceRegExp: /^canvas$/,
-        contextRegExp: /pdfjs-dist-legacy/
-      })
-    );
 
     // Enable WebAssembly
     config.experiments = {

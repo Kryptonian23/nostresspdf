@@ -1,0 +1,32 @@
+name: Security maintenance
+
+on:
+  schedule:
+    - cron: "17 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Audit production web dependencies
+        run: npm audit --omit=dev --audit-level=high
+      - name: Audit billing dependencies
+        working-directory: infra/billing
+        run: npm ci && npm audit --omit=dev --audit-level=high
+      - name: Generate web SBOM
+        run: npm sbom --sbom-format cyclonedx > nostresspdf-sbom.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dependency-sbom
+          path: nostresspdf-sbom.json
+          retention-days: 30

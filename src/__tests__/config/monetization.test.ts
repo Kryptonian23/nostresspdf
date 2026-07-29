@@ -32,7 +32,6 @@ describe('monetization policy', () => {
       'ad-supported',
       'personal',
       'professional',
-      'teams',
     ]);
     expect(JSON.stringify(PRICING_PLANS).toLowerCase()).not.toContain('free');
     expect(PRICING_PLANS.find((plan) => plan.id === 'personal')?.priceLabel).toBe('$7');

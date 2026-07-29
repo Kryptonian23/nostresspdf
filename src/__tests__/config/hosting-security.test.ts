@@ -3,6 +3,8 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 const template = readFileSync(resolve(process.cwd(), 'infra/hosting-staging.yaml'), 'utf8');
+const wafTemplate = readFileSync(resolve(process.cwd(), 'infra/waf-cloudfront.yaml'), 'utf8');
+const budgetTemplate = readFileSync(resolve(process.cwd(), 'infra/cost-controls.yaml'), 'utf8');
 
 describe('static hosting security', () => {
   it('keeps the origin private and encrypted', () => {
@@ -23,5 +25,13 @@ describe('static hosting security', () => {
     expect(template).toContain('Cross-Origin-Opener-Policy');
     expect(template).toContain('Cross-Origin-Embedder-Policy');
     expect(template).toContain('Permissions-Policy');
+  });
+
+  it('supports managed WAF rules, per-IP rate limiting, and spend alerts', () => {
+    expect(template).toContain('WebACLId:');
+    expect(wafTemplate).toContain('AWSManagedRulesCommonRuleSet');
+    expect(wafTemplate).toContain('RateBasedStatement');
+    expect(budgetTemplate).toContain('NotificationType: FORECASTED');
+    expect(budgetTemplate).toContain('NotificationType: ACTUAL');
   });
 });

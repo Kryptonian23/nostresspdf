@@ -1,5 +1,11 @@
 # NoStressPDF AWS sandbox
 
+For public environments, deploy `waf-cloudfront.yaml` in `us-east-1` and pass
+its `WebAclArn` output to the hosting stack. Deploy `cost-controls.yaml` once
+per AWS account to receive forecast and actual-spend alerts. Both templates
+require account-level choices and are intentionally separate from application
+deployment.
+
 The authentication stack creates only the Cognito resources needed to test
 browser accounts. It does not receive or process PDF files. After authentication
 is verified, the separate [`billing`](billing/README.md) stack adds Stripe

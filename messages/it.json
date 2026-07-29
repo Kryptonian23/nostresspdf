@@ -505,7 +505,7 @@
       "bronzeWax": "Bronzo cremisi antico",
       "enableDoubleKey": "Abilita crittografia certificato a doppia chiave (Blocco sicuro a 256 bit)",
       "decryptPasswordHelp": "Imposta password della chiave di decrittografia PFX",
-      "passwordPlaceholder": "Password predefinita: hushpdf",
+      "passwordPlaceholder": "Password predefinita: nostresspdf",
       "sealCoordinates": "Coordinate del sigillo: X: {x}px, Y: {y}px",
       "clickToReposition": "Clicca in un punto qualsiasi per riposizionare il sigillo in ceralacca"
     },
@@ -1093,7 +1093,7 @@
       "email": {
         "title": "E-mail",
         "description": "Inviaci un'email e risponderemo entro 24-48 ore.",
-        "action": "contact@hushpdf.app"
+        "action": "Support channel coming soon"
       },
       "github": {
         "title": "GitHub",
@@ -1103,7 +1103,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Seguici per aggiornamenti e novità.",
-        "action": "@hushpdf"
+        "action": "Updates channel coming soon"
       }
     },
     "form": {
