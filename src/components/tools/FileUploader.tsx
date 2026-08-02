@@ -213,7 +213,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
       console.error('PDF Decryption failed:', err);
       setShouldShake(true);
       setTimeout(() => setShouldShake(false), 500);
-      setDecryptError(tErrors('incorrectPassword') || 'Incorrect password. Please try again.');
+      setDecryptError(tErrors('invalidPassword') || 'Incorrect password. Please try again.');
     } finally {
       setIsDecrypting(false);
     }
