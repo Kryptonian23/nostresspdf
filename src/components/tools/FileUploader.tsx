@@ -181,15 +181,16 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
     setDecryptError(null);
 
     try {
-      const arrayBuffer = await fileToDecrypt.arrayBuffer();
-      const { PDFDocument } = await import('pdf-lib');
+      // pdf-lib cannot decrypt password-protected PDFs. Use the same local
+      // qpdf-wasm engine as the dedicated Decrypt PDF tool instead.
+      const { decryptPDF } = await import('@/lib/pdf/processors/decrypt');
+      const output = await decryptPDF(fileToDecrypt, { password });
 
-      // Attempt to load with the user-provided password (cast to any for compiler compatibility)
-      const pdfDoc = await PDFDocument.load(arrayBuffer, { password } as any);
+      if (!output.success || !output.result) {
+        throw new Error(output.error?.message || 'INVALID_PASSWORD');
+      }
 
-      // Save as completely decrypted (without any password protection)
-      const decryptedBytes = await pdfDoc.save();
-      const decryptedBlob = new Blob([decryptedBytes as any], { type: 'application/pdf' });
+      const decryptedBlob = output.result as Blob;
 
       // Create a fresh unlocked virtual File object, fallback to window.File to avoid Node/Browser File type clashes
       const unlockedFile = new (window as any).File([decryptedBlob], fileToDecrypt.name.replace('.pdf', '_unlocked.pdf'), {
