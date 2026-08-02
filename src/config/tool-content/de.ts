@@ -1555,7 +1555,7 @@ export const toolContentDe: Record<string, ToolContent> = {
       },
       {
         "question": "Werden XFA-Formulare unterstützt?",
-        "answer": "Ja, das Tool unterstützt sowohl Standard-AcroForms als auch XFA-Formate."
+        "answer": "Derzeit nicht. Das Tool unterstützt Standard-AcroForms und erkennt reine XFA-Dateien vor der Verarbeitung."
       }
     ]
   },

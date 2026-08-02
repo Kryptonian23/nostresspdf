@@ -1427,7 +1427,7 @@ export const toolContentVn: Record<string, ToolContent> = {
       "hoàn thành biểu mẫu pdf",
       "pdf tương tác"
     ],
-    "description": "\n      <p>Điền biểu mẫu cho phép bạn hoàn thành biểu mẫu PDF tương tác trực tiếp trong trình duyệt của mình. Điền trường văn bản, đánh dấu hộp kiểm, chọn tùy chọn và thêm chữ ký mà không cần in tài liệu.</p>\n      <p>Công cụ hỗ trợ biểu mẫu PDF tiêu chuẩn và biểu mẫu XFA. Dữ liệu đã điền của bạn có thể được lưu và biểu mẫu có thể được làm phẳng để ngăn chặn chỉnh sửa thêm.</p>\n      <p>Tất cả quá trình xử lý diễn ra cục bộ trong trình duyệt của bạn, đảm bảo dữ liệu biểu mẫu của bạn vẫn riêng tư.</p>\n    ",
+    "description": "\n      <p>Điền biểu mẫu cho phép bạn hoàn thành biểu mẫu PDF tương tác trực tiếp trong trình duyệt. Điền trường văn bản, đánh dấu hộp kiểm và chọn tùy chọn mà không cần in tài liệu.</p>\n      <p>Công cụ hỗ trợ các trường AcroForm tiêu chuẩn. Dữ liệu đã điền có thể được tải xuống và biểu mẫu có thể được làm phẳng để ngăn chỉnh sửa thêm. Biểu mẫu XFA hiện chưa được hỗ trợ.</p>\n      <p>Tất cả quá trình xử lý diễn ra cục bộ trong trình duyệt của bạn, đảm bảo dữ liệu biểu mẫu của bạn vẫn riêng tư.</p>\n    ",
     "howToUse": [
       {
         "step": 1,
@@ -1473,7 +1473,7 @@ export const toolContentVn: Record<string, ToolContent> = {
       },
       {
         "question": "Biểu mẫu XFA có được hỗ trợ không?",
-        "answer": "Có, công cụ hỗ trợ cả biểu mẫu AcroForms tiêu chuẩn và biểu mẫu XFA."
+        "answer": "Hiện chưa hỗ trợ. Công cụ hỗ trợ AcroForm tiêu chuẩn và phát hiện tệp chỉ dùng XFA trước khi xử lý."
       }
     ]
   },

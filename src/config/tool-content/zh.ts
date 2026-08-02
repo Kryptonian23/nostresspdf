@@ -621,7 +621,7 @@ export const toolContentZh: Record<string, ToolContent> = {
     keywords: ['填写pdf表单', 'pdf表单填写器', '完成pdf表单', '交互式pdf'],
     description: `
       <p>表单填写允许您直接在浏览器中完成交互式PDF表单。填写文本字段、勾选复选框、选择选项并添加签名，无需打印文档。</p>
-      <p>该工具支持标准PDF表单和XFA表单。您填写的数据可以保存，表单可以扁平化以防止进一步编辑。</p>
+      <p>该工具支持标准AcroForm字段。您填写的数据可以下载，表单也可以扁平化以防止进一步编辑。目前尚不支持XFA表单。</p>
       <p>所有处理都在您的浏览器本地进行，确保您的表单数据保持私密。</p>
     `,
     howToUse: [
@@ -637,7 +637,7 @@ export const toolContentZh: Record<string, ToolContent> = {
     faq: [
       { question: '可以保存进度吗？', answer: '是的，您可以保存部分填写的表单并稍后继续。' },
       { question: '什么是表单扁平化？', answer: '扁平化将表单字段转换为静态内容，防止进一步编辑。' },
-      { question: '支持XFA表单吗？', answer: '是的，该工具支持标准AcroForms和XFA表单。' },
+      { question: '支持XFA表单吗？', answer: '目前不支持。该工具支持标准AcroForm，并会在处理前识别仅包含XFA的文件。' },
     ],
   },
 
@@ -3481,4 +3481,3 @@ export const toolContentZh: Record<string, ToolContent> = {
     ],
   },
 };
-

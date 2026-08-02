@@ -624,7 +624,7 @@ export const toolContentId: Record<string, ToolContent> = {
     keywords: ['isi formulir pdf', 'pengisi formulir pdf', 'lengkapi formulir pdf', 'pdf interaktif'],
     description: `
       <p>Pengisi Formulir memungkinkan Anda untuk melengkapi formulir PDF interaktif secara langsung di browser Anda. Isi bidang teks, centang kotak, pilih opsi, dan tambahkan tanda tangan tanpa perlu mencetak dokumen tersebut.</p>
-      <p>Alat ini mendukung formulir PDF standar maupun formulir XFA. Data yang Anda isi dapat disimpan dan formulir dapat diratakan (flattened) untuk mencegah pengeditan lebih lanjut.</p>
+      <p>Alat ini mendukung bidang AcroForm standar. Data yang Anda isi dapat diunduh dan formulir dapat diratakan (flattened) untuk mencegah pengeditan lebih lanjut. Formulir XFA belum didukung.</p>
       <p>Semua pemrosesan terjadi secara lokal di browser Anda, memastikan data formulir Anda tetap privat.</p>
     `,
     howToUse: [
@@ -640,7 +640,7 @@ export const toolContentId: Record<string, ToolContent> = {
     faq: [
       { question: 'Bisakah saya menyimpan progres saya?', answer: 'Ya, Anda dapat menyimpan formulir yang diisi sebagian dan melanjutkannya nanti.' },
       { question: 'Apa yang dimaksud dengan meratakan (flattening) formulir?', answer: 'Meratakan (flattening) mengonversi bidang formulir menjadi konten statis, sehingga mencegah pengeditan lebih lanjut.' },
-      { question: 'Apakah formulir XFA didukung?', answer: 'Ya, alat ini mendukung AcroForms standar dan formulir XFA.' },
+      { question: 'Apakah formulir XFA didukung?', answer: 'Belum. Alat ini mendukung AcroForm standar dan mendeteksi file khusus XFA sebelum diproses.' },
     ],
   },
 

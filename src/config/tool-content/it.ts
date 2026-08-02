@@ -1426,7 +1426,7 @@ export const toolContentIt: Record<string, ToolContent> = {
       "compila moduli",
       "pdf interattivo"
     ],
-    "description": "\n      <p>Compila moduli consente di completare moduli PDF interattivi direttamente nel browser. Compila campi di testo, seleziona caselle di controllo, scegli opzioni e aggiungi firme senza stampare.</p>\n      <p>Lo strumento supporta moduli PDF standard e moduli XFA. I dati inseriti possono essere salvati e il modulo può essere “piatto” (flatten) per impedire ulteriori modifiche.</p>\n      <p>Tutto l'elaborato avviene localmente nel tuo browser, mantenendo privati i tuoi dati.</p>\n    ",
+    "description": "\n      <p>Compila moduli consente di completare moduli PDF interattivi direttamente nel browser. Compila campi di testo, seleziona caselle di controllo e scegli opzioni senza stampare.</p>\n      <p>Lo strumento supporta i campi AcroForm standard. I dati inseriti possono essere scaricati e il modulo può essere appiattito per impedire ulteriori modifiche. I moduli XFA non sono attualmente supportati.</p>\n      <p>Tutto l'elaborato avviene localmente nel tuo browser, mantenendo privati i tuoi dati.</p>\n    ",
     "howToUse": [
       {
         "step": 1,
@@ -1472,7 +1472,7 @@ export const toolContentIt: Record<string, ToolContent> = {
       },
       {
         "question": "I moduli XFA sono supportati?",
-        "answer": "Sì, lo strumento supporta sia AcroForms standard sia moduli XFA."
+        "answer": "Non ancora. Lo strumento supporta gli AcroForm standard e rileva i file esclusivamente XFA prima dell'elaborazione."
       }
     ]
   },

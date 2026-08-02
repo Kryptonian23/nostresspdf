@@ -10,7 +10,28 @@ import { loadPdfLib } from '../loader';
 
 export interface FormFieldValue {
   fieldName: string;
-  value: string | boolean;
+  value: string | boolean | string[];
+}
+
+export type FormFieldKind =
+  | 'text'
+  | 'checkbox'
+  | 'dropdown'
+  | 'radio'
+  | 'listbox'
+  | 'signature'
+  | 'button'
+  | 'unsupported';
+
+export interface FormFieldDescriptor {
+  name: string;
+  type: FormFieldKind;
+  value: string | boolean | string[];
+  options?: string[];
+  multiSelect?: boolean;
+  readOnly: boolean;
+  required: boolean;
+  editable: boolean;
 }
 
 export interface FormFillerOptions {
@@ -75,11 +96,15 @@ export class FormFillerProcessor extends BasePDFProcessor {
               filledCount++;
             } else if (fieldType === 'PDFDropdown') {
               const dropdown = form.getDropdown(fieldValue.fieldName);
-              dropdown.select(String(fieldValue.value));
+              dropdown.select(fieldValue.value as string | string[]);
               filledCount++;
             } else if (fieldType === 'PDFRadioGroup') {
               const radioGroup = form.getRadioGroup(fieldValue.fieldName);
               radioGroup.select(String(fieldValue.value));
+              filledCount++;
+            } else if (fieldType === 'PDFOptionList') {
+              const optionList = form.getOptionList(fieldValue.fieldName);
+              optionList.select(fieldValue.value as string | string[]);
               filledCount++;
             }
           }
@@ -124,15 +149,66 @@ export async function fillForm(file: File, options: FormFillerOptions, onProgres
   return processor.process({ files: [file], options: options as unknown as Record<string, unknown> }, onProgress);
 }
 
-export async function getFormFields(file: File): Promise<{ name: string; type: string; value?: string }[]> {
+export async function getFormFields(file: File): Promise<FormFieldDescriptor[]> {
   const pdfLib = await loadPdfLib();
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await pdfLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
   const form = pdf.getForm();
   const fields = form.getFields();
 
-  return fields.map(field => ({
-    name: field.getName(),
-    type: field.constructor.name.replace('PDF', '').replace('Field', ''),
-  }));
+  if (form.hasXFA() && fields.length === 0) {
+    throw new Error('XFA_ONLY_FORM');
+  }
+
+  return fields.map((field) => {
+    const name = field.getName();
+    const className = field.constructor.name;
+    const common = {
+      name,
+      readOnly: field.isReadOnly(),
+      required: field.isRequired(),
+    };
+
+    if (className === 'PDFTextField') {
+      return { ...common, type: 'text', value: form.getTextField(name).getText() ?? '', editable: true };
+    }
+    if (className === 'PDFCheckBox') {
+      return { ...common, type: 'checkbox', value: form.getCheckBox(name).isChecked(), editable: true };
+    }
+    if (className === 'PDFDropdown') {
+      const dropdown = form.getDropdown(name);
+      const selected = dropdown.getSelected();
+      return {
+        ...common,
+        type: 'dropdown',
+        value: dropdown.isMultiselect() ? selected : (selected[0] ?? ''),
+        options: dropdown.getOptions(),
+        multiSelect: dropdown.isMultiselect(),
+        editable: true,
+      };
+    }
+    if (className === 'PDFRadioGroup') {
+      const radio = form.getRadioGroup(name);
+      return { ...common, type: 'radio', value: radio.getSelected() ?? '', options: radio.getOptions(), editable: true };
+    }
+    if (className === 'PDFOptionList') {
+      const optionList = form.getOptionList(name);
+      const selected = optionList.getSelected();
+      return {
+        ...common,
+        type: 'listbox',
+        value: optionList.isMultiselect() ? selected : (selected[0] ?? ''),
+        options: optionList.getOptions(),
+        multiSelect: optionList.isMultiselect(),
+        editable: true,
+      };
+    }
+    if (className === 'PDFSignature') {
+      return { ...common, type: 'signature', value: '', editable: false };
+    }
+    if (className === 'PDFButton') {
+      return { ...common, type: 'button', value: '', editable: false };
+    }
+    return { ...common, type: 'unsupported', value: '', editable: false };
+  });
 }

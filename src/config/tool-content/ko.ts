@@ -1320,7 +1320,7 @@ export const toolContentKo: Record<string, ToolContent> = {
       },
       {
         "question": "XFA 양식이 지원되나요?",
-        "answer": "예, 표준 AcroForms와 XFA 양식 모두 지원됩니다."
+        "answer": "현재는 지원하지 않습니다. 표준 AcroForm을 지원하며 XFA 전용 파일은 처리 전에 감지합니다."
       }
     ]
   },

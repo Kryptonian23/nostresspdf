@@ -290,7 +290,7 @@ export const tools: Tool[] = [
     outputFormat: 'pdf',
     maxFileSize: DEFAULT_MAX_FILE_SIZE,
     maxFiles: 1,
-    features: ['fill-forms', 'xfa-support', 'save-data', 'flatten-after'],
+    features: ['fill-forms', 'acroform-support', 'save-data', 'flatten-after'],
     relatedTools: ['form-creator', 'sign-pdf', 'edit-pdf'],
   },
   {

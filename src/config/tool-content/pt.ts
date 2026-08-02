@@ -5428,7 +5428,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       "completar formulario pdf",
       "pdf interativo"
     ],
-    "description": "\n      <p>A ferramenta Preencher Formulário permite preencher formulários PDF interativos diretamente no seu navegador. Preencha campos de texto, marque caixas de seleção, selecione opções e adicione assinaturas sem imprimir o documento.</p>\n      <p>A ferramenta suporta formulários PDF padrão e formulários XFA. Seus dados preenchidos podem ser salvos e o formulário pode ser mesclado (achatado/flattened) para evitar edições futuras.</p>\n      <p>Todo o processamento ocorre localmente no seu navegador, garantindo que os dados do seu formulário permaneçam privados.</p>\n    ",
+    "description": "\n      <p>A ferramenta Preencher Formulário permite preencher formulários PDF interativos diretamente no seu navegador. Preencha campos de texto, marque caixas de seleção e selecione opções sem imprimir o documento.</p>\n      <p>A ferramenta suporta campos AcroForm padrão. Seus dados preenchidos podem ser baixados e o formulário pode ser achatado para evitar edições futuras. Formulários XFA ainda não são suportados.</p>\n      <p>Todo o processamento ocorre localmente no seu navegador, garantindo que os dados do seu formulário permaneçam privados.</p>\n    ",
     "howToUse": [
       {
         "step": 1,
@@ -5474,7 +5474,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       },
       {
         "question": "Formulários XFA são suportados?",
-        "answer": "Sim, a ferramenta suporta tanto formulários AcroForms padrão quanto formulários XFA."
+        "answer": "Ainda não. A ferramenta suporta AcroForms padrão e detecta arquivos exclusivamente XFA antes do processamento."
       }
     ]
   },

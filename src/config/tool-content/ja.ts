@@ -1341,7 +1341,7 @@ export const toolContentJa: Record<string, ToolContent> = {
       },
       {
         "question": "XFAフォームはサポートされていますか？",
-        "answer": "はい、ツールは標準のAcroFormsとXFAフォームの両方をサポートしています。"
+        "answer": "現在は対応していません。標準AcroFormに対応し、XFA専用ファイルは処理前に検出します。"
       }
     ]
   },

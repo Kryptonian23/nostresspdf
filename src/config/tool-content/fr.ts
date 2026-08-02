@@ -1362,7 +1362,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       "compléter pdf",
       "pdf interactif"
     ],
-    "description": "\n      <p>Remplir un formulaire vous permet de compléter des formulaires PDF interactifs directement dans votre navigateur. Remplissez des champs de texte, cochez des cases, sélectionnez des options et ajoutez des signatures sans imprimer le document.</p>\n      <p>L'outil prend en charge les formulaires PDF standard et les formulaires XFA. Vos données remplies peuvent être enregistrées et le formulaire peut être aplati pour empêcher toute modification ultérieure.</p>\n      <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que les données de votre formulaire restent privées.</p>\n    ",
+    "description": "\n      <p>Remplir un formulaire vous permet de compléter des formulaires PDF interactifs directement dans votre navigateur. Remplissez des champs de texte, cochez des cases et sélectionnez des options sans imprimer le document.</p>\n      <p>L'outil prend en charge les champs AcroForm standard. Vos données peuvent être téléchargées et le formulaire peut être aplati pour empêcher toute modification ultérieure. Les formulaires XFA ne sont pas encore pris en charge.</p>\n      <p>Tout le traitement s'effectue localement dans votre navigateur, garantissant que les données de votre formulaire restent privées.</p>\n    ",
     "howToUse": [
       {
         "step": 1,
@@ -1408,7 +1408,7 @@ export const toolContentFr: Record<string, ToolContent> = {
       },
       {
         "question": "Les formulaires XFA sont-ils pris en charge ?",
-        "answer": "Oui, l'outil prend en charge à la fois les AcroForms standard et les formulaires XFA."
+        "answer": "Pas actuellement. L'outil prend en charge les AcroForms standard et détecte les fichiers exclusivement XFA avant le traitement."
       }
     ]
   },

@@ -625,7 +625,7 @@ export const toolContentEn: Record<string, ToolContent> = {
     keywords: ['fill pdf form', 'pdf form filler', 'complete pdf form', 'interactive pdf'],
     description: `
       <p>Form Filler allows you to complete interactive PDF forms directly in your browser. Fill text fields, check boxes, select options, and add signatures without printing the document.</p>
-      <p>The tool supports standard PDF forms and XFA forms. Your filled data can be saved and the form can be flattened to prevent further editing.</p>
+      <p>The tool supports standard AcroForm PDF fields. Your filled data can be downloaded in a new PDF, and the form can be flattened to prevent further editing. XFA-only forms are detected but are not currently supported.</p>
       <p>All processing happens locally in your browser, ensuring your form data remains private.</p>
     `,
     howToUse: [
@@ -639,9 +639,9 @@ export const toolContentEn: Record<string, ToolContent> = {
       { title: 'Contracts', description: 'Complete contract forms with your information before signing.', icon: 'file-signature' },
     ],
     faq: [
-      { question: 'Can I save my progress?', answer: 'Yes, you can save partially filled forms and continue later.' },
+      { question: 'Can I save my filled form?', answer: 'Yes. Download a new PDF containing your entries, either with editable fields or flattened into static content.' },
       { question: 'What is form flattening?', answer: 'Flattening converts form fields to static content, preventing further editing.' },
-      { question: 'Are XFA forms supported?', answer: 'Yes, the tool supports both standard AcroForms and XFA forms.' },
+      { question: 'Are XFA forms supported?', answer: 'Not currently. The tool supports standard AcroForms and identifies XFA-only files before processing.' },
     ],
   },
 
@@ -3427,5 +3427,4 @@ export const toolContentEn: Record<string, ToolContent> = {
     ],
   },
 };
-
 
